@@ -35,7 +35,7 @@ namespace :db do
 
     # Only insert the row if the primary value isn't there
     dump.each do |row|
-      if !Zen::Database.handle[args[:table].to_sym].filter(:id => row[:id])
+      if Zen::Database.handle[args[:table].to_sym].filter(:id => row[:id]).all.count === 0
         Zen::Database.handle[args[:table].to_sym].insert(row)
       end
     end
