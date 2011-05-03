@@ -15,3 +15,5 @@ log/server/live/*.log
 # Ignore the database dump
 dump/*
 !dump/.gitkeep
+tmp/*
+!tmp/.gitkeep
