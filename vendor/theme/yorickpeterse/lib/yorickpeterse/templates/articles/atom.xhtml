@@ -22,7 +22,7 @@ xml:base="http://localhost:7000/">
     <category term="programming" label="Programming" />
     <updated>#{articles.last[:created_at].strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
-    <link href="/articles/atom" rel="self" />
+    <link href="http://yorickpeterse.com/articles/atom" rel="self" />
 
     <!-- List of all entries -->
     <?r articles.each do |article| ?>
@@ -37,8 +37,9 @@ xml:base="http://localhost:7000/">
         <updated>#{article[:created_at].strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
         <!-- URLs to the full article and the article in the raw Markdown format -->
-        <link href="/articles/#{article[:slug]}" />
-        <link href="/articles/#{article[:slug]}.md" rel="alternate" type="text/plain" />
+        <link href="http://yorickpeterse.com/articles/#{article[:slug]}" />
+        <link href="http://yorickpeterse.com/articles/#{article[:slug]}.md" 
+        rel="alternate" type="text/plain" />
 
         <!-- The actual content (HTML) of the entry -->
         <content type="xhtml">
