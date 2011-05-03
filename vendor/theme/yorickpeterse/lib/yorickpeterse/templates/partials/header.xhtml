@@ -1,0 +1,18 @@
+<!-- Top part of the website, containing the site and page title -->
+<header id="top" class="row">
+    <nav class="grid_12">
+        <ul class="clearfix">
+            <li>
+                <a href="/">Homepage</a>
+            </li>
+            <li>
+                <a href="/articles/atom">Atom Feed</a>
+            </li>
+            <?r if @source ?>
+            <li>
+                <a href="/articles/#{@source}.md">Raw markup</a>
+            </li>
+            <?r end ?>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,12 @@
+/*TEAM*/
+Author:   Yorick Peterse
+Contact:  info [at] yorickpeterse [dot] com
+Website:  http://yorickpeterse.com/
+Twitter:  @yorickpeterse
+Forrst:   @yorickpeterse
+From:     Rotterdam, The Netherlands
+
+/*SITE*/
+Language: English
+Doctype:  HTML5
+Editor:   Vim 7.3

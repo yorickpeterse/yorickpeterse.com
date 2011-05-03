@@ -1,0 +1,35 @@
+<meta charset="utf-8" />
+
+<!-- Information for all those silly robots -->
+<link rel="alternate" href="http://yorickpeterse.com/articles/atom"
+type="application/atom+xml" title="#{Zen::Settings[:website_name]} &bull; Atom Feed" />
+
+<link rel="canonical" href="#{@canonical}" />
+<link rel="author"    href="/humans.txt" type="text/plain"/>
+
+<!-- Let's help those search engines a bit -->
+<meta name="keywords"    content="#{@keywords}" />
+<meta name="description" content="#{@description}" />
+
+<!-- Load all stylesheets -->
+<link rel="stylesheet" href="/yorickpeterse/css/reset.css" />
+<link rel="stylesheet" href="/yorickpeterse/css/grid.css" />
+<link rel="stylesheet" href="/yorickpeterse/css/style.css" />
+<link rel="stylesheet" href="/yorickpeterse/css/github.css" />
+
+<!-- Javascript files -->
+<script type="text/javascript" src="/yorickpeterse/js/highlight.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+<!-- Ensure that IE can also join the party -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>
+    <?r if !@page_title ?>
+    #{Zen::Settings[:website_name]}
+    <?r else ?>
+    Yorick Peterse &bull; #{@page_title}
+    <?r end ?>
+</title>

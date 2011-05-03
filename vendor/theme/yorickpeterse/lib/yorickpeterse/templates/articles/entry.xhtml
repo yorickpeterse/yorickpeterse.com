@@ -1,0 +1,34 @@
+<?r 
+article = plugin(:section_entries, :section => 'articles', :entry => @request_uri[2])
+if !article or !@request_uri[2]
+  show_404
+end
+?>
+<!DOCTYPE html>
+<html lang="#{Zen::Settings[:language]}">
+    <head>
+        #{partial(
+          :head, 
+          :page_title  => article[:title], 
+          :canonical   => "http://yorickpeterse.com/articles/#{article[:slug]}/",
+          :keywords    => article[:fields][:'meta-keywords'], 
+          :description => article[:fields][:'meta-description']
+        )}
+    </head>
+    <body>
+        #{partial(:header, :source => article[:slug])}
+
+        <!-- Center part containing the content -->
+        <div id="content" class="row">
+            <section>
+                <article>
+                    <header>
+                        <h1>#{article[:title]}</h1>
+                    </header> 
+
+                    #{article[:fields][:body]}   
+                </article>
+            </section>
+        </div>
+    </body>
+</html>

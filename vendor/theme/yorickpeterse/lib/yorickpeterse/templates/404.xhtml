@@ -1,0 +1,42 @@
+<?r homepage = plugin(:section_entries, :section => 'pages', :entry => 'home') ?>
+<!DOCTYPE html>
+<html lang="#{Zen::Settings[:language]}">
+    <head>
+    <head>
+        #{partial(
+          :head, 
+          :keywords    => homepage[:fields][:'meta-keywords'],
+          :description => homepage[:fields][:'meta-description']
+        )}
+    </head>
+    <body id="home">
+        #{partial(:header)}
+
+        <!-- Center part containing the content -->
+        <div id="content" class="row">
+            <section>
+                <article>
+                    <header>
+                        <h1>Page not Found</h1>
+                    </header>
+
+                    <p>
+                        Crikey, it seems the requested page 
+                        <code>#{request.env['PATH_INFO']}</code> could not be found. If you
+                        think this might be a bug feel free to send an Email to info [at]
+                        yorickpeterse [dot] com.
+                    </p>
+
+                    <p>
+                        It's possible that you may have clicked a link on an external
+                        website that points to an article I once wrote but no longer
+                        exists. If that's the case I would appreciate it if you'd contact
+                        the website and tel them some of their URLs are pointing to
+                        non-existing (or moved) content.
+                    </p>
+                </article>
+            </section>
+        </div>
+    </body>
+</html>
+

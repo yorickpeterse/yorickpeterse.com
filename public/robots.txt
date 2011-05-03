@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /articles/*.md
+Disallow: /yorickpeterse/*
+Allow: /

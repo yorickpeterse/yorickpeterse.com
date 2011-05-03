@@ -1,0 +1,41 @@
+<?r 
+articles = plugin(:section_entries, :section => 'articles')
+homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
+articles.sort_by { |row| row[:created].to_i }
+?>
+<!DOCTYPE html>
+<html lang="#{Zen::Settings[:language]}">
+    <head>
+        #{partial(
+          :head, 
+          :canonical   => 'http://yorickpeterse.com/', 
+          :keywords    => homepage[:fields][:'meta-keywords'],
+          :description => homepage[:fields][:'meta-description']
+        )}
+    </head>
+    <body id="home">
+        #{partial(:header)}
+
+        <!-- Center part containing the content -->
+        <div id="content" class="row">
+            <section>
+                <article>
+                    <header>
+                        <h1>Yorick Peterse</h1>
+                    </header> 
+
+                    #{homepage[:fields][:body]}
+
+                    <h2>Articles</h2>
+                    <ul>
+                        <?r articles.each do |article| ?>
+                        <li>
+                            <a href="/articles/#{article[:slug]}">#{article[:title]}</a>
+                        </li>
+                        <?r end ?>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </body>
+</html>

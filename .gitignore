@@ -1,0 +1,16 @@
+.DS_Store
+Gemfile.lock
+
+# Ignore all configuration files
+config/config.rb
+config/database.rb
+
+# Ignore all log files
+log/database/dev/*.log
+log/database/live/*.log
+log/server/dev/*.log
+log/server/live/*.log
+
+# Ignore the database dump
+dump/*
+!dump/.gitkeep
