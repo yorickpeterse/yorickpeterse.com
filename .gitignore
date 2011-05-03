@@ -4,6 +4,7 @@ Gemfile.lock
 # Ignore all configuration files
 config/config.rb
 config/database.rb
+config/unicorn.rb
 
 # Ignore all log files
 log/database/dev/*.log
