@@ -1,4 +1,3 @@
-# Modifies the markup plugin so that it uses Redcarpet instead of RDiscount
 module Zen
   module Plugin
     class Markup
