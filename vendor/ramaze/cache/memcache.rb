@@ -117,7 +117,7 @@ module Ramaze
         @client.flush
       end
 
-      ##]
+      ##
       # Removes the specified keys from the cache.
       #
       # @author Yorick Peterse
@@ -125,7 +125,7 @@ module Ramaze
       # @param  [Array] keys The keys to remove from the cache.
       #
       def cache_delete(*keys)
-        super do |key|
+        keys.each do |key|
           @client.delete(key)
         end
       end
@@ -163,7 +163,7 @@ module Ramaze
       # @param  [Hash] options A hash containing options specific for the specified key.
       # @return [Mixed]
       #
-      def cache_store(key, value, ttl, options = {})
+      def cache_store(key, value, ttl = nil, options = {})
         ttl = options.delete(:ttl) || @options[:expires_in]
 
         if ttl > MAX_TTL
