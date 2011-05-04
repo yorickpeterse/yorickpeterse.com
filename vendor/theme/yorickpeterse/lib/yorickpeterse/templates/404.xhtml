@@ -1,4 +1,7 @@
-<?r homepage = plugin(:section_entries, :section => 'pages', :entry => 'home') ?>
+<?r 
+homepage        = plugin(:section_entries, :section => 'pages', :entry => 'home') 
+response.status = 404
+?>
 <!DOCTYPE html>
 <html lang="#{Zen::Settings[:language]}">
     <head>
