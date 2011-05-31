@@ -22,7 +22,7 @@ Ramaze.options.roots.push(Zen.root)
 Zen.init
 
 # Require all the custom gems/modules we need
-require __DIR__('theme/yorickpeterse/lib/yorickpeterse')
+require __DIR__('theme/yorickpeterse')
 require __DIR__('plugin/markup')
 
 require 'zen/package/all'

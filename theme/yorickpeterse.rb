@@ -4,7 +4,6 @@ Zen::Theme.add do |theme|
   theme.about  = 'Theme for my personal website, inspired by bin/man.'
   theme.url    = 'http://yorickpeterse.com/'
 
-  theme.template_dir = __DIR__('yorickpeterse/templates')
-  theme.partial_dir  = __DIR__('yorickpeterse/templates/partials')
-  theme.public_dir   = __DIR__('yorickpeterse/public')
+  theme.template_dir = __DIR__
+  theme.partial_dir  = __DIR__('partials')
 end
