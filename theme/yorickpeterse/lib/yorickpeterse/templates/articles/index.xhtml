@@ -4,7 +4,7 @@ homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
 articles.sort_by { |row| row[:created].to_i }
 ?>
 <!DOCTYPE html>
-<html lang="#{Zen::Settings[:language]}">
+<html lang="#{Zen.settings[:language]}">
     <head>
         #{partial(
           :head, 

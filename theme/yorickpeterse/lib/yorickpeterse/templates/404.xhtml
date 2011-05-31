@@ -3,7 +3,7 @@ homepage        = plugin(:section_entries, :section => 'pages', :entry => 'home'
 response.status = 404
 ?>
 <!DOCTYPE html>
-<html lang="#{Zen::Settings[:language]}">
+<html lang="#{Zen.settings[:language]}">
     <head>
     <head>
         #{partial(
@@ -34,7 +34,7 @@ response.status = 404
                         It's possible that you may have clicked a link on an external
                         website that points to an article I once wrote but no longer
                         exists. If that's the case I would appreciate it if you'd contact
-                        the website and tel them some of their URLs are pointing to
+                        the website and tell them some of their URLs are pointing to
                         non-existing (or moved) content.
                     </p>
                 </article>

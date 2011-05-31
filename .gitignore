@@ -9,11 +9,8 @@ config/unicorn.rb
 # Ignore all log files
 log/database/dev/*.log
 log/database/live/*.log
-log/server/dev/*.log
-log/server/live/*.log
+log/unicorn/*.log
+log/nginx/*.log
 
-# Ignore the database dump
-dump/*
-!dump/.gitkeep
 tmp/*
 !tmp/.gitkeep

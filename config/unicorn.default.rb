@@ -4,7 +4,7 @@ working_directory File.expand_path('../../', __FILE__)
 # The amount of worker processes to use. IMPORTANT: when using more than one worker
 # you won't be able to use the in-memory cache that Ramaze uses by default as this will
 # force people to login again in case their request is handled by a different worker.
-worker_processes 1
+worker_processes 2
 
 # Preloads the application (such as configuration files and controllers) into memory.
 # It's recommended to set this to true.
@@ -30,8 +30,8 @@ user 'USER', 'GROUP'
 timeout 30
 
 # PID path relative to working_directory
-pid 'tmp/pid/unicorn.pid'
+pid 'tmp/unicorn.pid'
 
 # Log settings, relative to working_directory
-stderr_path 'log/unicorn.err.log'
-stdout_path 'log/unicorn.out.log'
+stderr_path 'log/unicorn/stderr.log'
+stdout_path 'log/unicorn/stdout.log'
