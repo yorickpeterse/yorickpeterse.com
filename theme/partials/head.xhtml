@@ -5,7 +5,8 @@ content="-L_V_27r8NmVJh-1OGyEhGcNVulPnxjfbma6m3SqNME" />
 
 <!-- Information for all those silly robots -->
 <link rel="alternate" href="http://yorickpeterse.com/articles/atom"
-type="application/atom+xml" title="#{Zen.settings[:website_name]} &bull; Atom Feed" />
+type="application/atom+xml" 
+title="#{plugin(:settings, :get, :website_name).value} &bull; Atom Feed" />
 
 <link rel="canonical" href="#{@canonical}" />
 <link rel="author"    href="/humans.txt" type="text/plain"/>
@@ -48,7 +49,7 @@ _gaq.push(['_trackPageview']);
 
 <title>
     <?r if !@page_title ?>
-    #{Zen.settings[:website_name]}
+    #{plugin(:settings, :get, :website_name).value}
     <?r else ?>
     Yorick Peterse &bull; #{@page_title}
     <?r end ?>

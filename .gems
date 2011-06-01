@@ -1,5 +1,6 @@
-zen -v0.2.6
+zen -v0.2.6.1
 mysql2 -v0.3.2
 dalli -v1.0.4
 kgio -v2.4.1
 rdiscount -v1.6.8
+unicorn -v3.6.2

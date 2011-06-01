@@ -1,11 +1,9 @@
 <?r 
 article = plugin(:section_entries, :section => 'articles', :entry => @request_uri[2])
-if !article or !@request_uri[2]
-  show_404
-end
+show_404 if !article or !@request_uri[2]
 ?>
 <!DOCTYPE html>
-<html lang="#{Zen.settings[:language]}">
+<html lang="#{plugin(:settings, :get, :frontend_language).value}">
     <head>
         #{partial(
           :head, 

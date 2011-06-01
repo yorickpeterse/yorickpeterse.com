@@ -1,6 +1,6 @@
 <?r homepage = plugin(:section_entries, :section => 'pages', :entry => 'home') ?>
 <!DOCTYPE html>
-<html lang="#{Zen.settings[:language]}">
+<html lang="#{plugin(:settings, :get, :frontend_language).value}">
     <head>
         #{partial(
           :head, 

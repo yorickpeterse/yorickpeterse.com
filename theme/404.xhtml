@@ -3,7 +3,7 @@ homepage        = plugin(:section_entries, :section => 'pages', :entry => 'home'
 response.status = 404
 ?>
 <!DOCTYPE html>
-<html lang="#{Zen.settings[:language]}">
+<html lang="#{plugin(:settings, :get, :frontend_language).value}">
     <head>
     <head>
         #{partial(

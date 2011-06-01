@@ -8,11 +8,11 @@ response.header['Content-Type'] = 'application/atom+xml'
 ?>
 <?xml version="1.0" encoding="utf-8" ?>
 <feed xmlns="http://www.w3.org/2005/Atom" 
-xml:lang="#{Zen.settings[:website_language]}"
+xml:lang="#{plugin(:settings, :get, :frontend_language).value}"
 xml:base="http://localhost:7000/">
     <!-- Base description of the feed -->
     <id>tag:yorickpeterse.com,2011-05-03:/articles/1304446233</id>
-    <title>#{Zen.settings[:website_name]}</title>
+    <title>#{plugin(:settings, :get, :website_name).value}</title>
 
     <author>
         <name>Yorick Peterse</name>
