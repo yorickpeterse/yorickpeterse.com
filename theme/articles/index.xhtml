@@ -30,7 +30,7 @@ articles.sort_by { |row| row[:created].to_i }
                     <ul>
                         <?r articles.each do |article| ?>
                         <li>
-                            <a href="/articles/#{article[:slug]}">#{article[:title]}</a>
+                            <a href="/articles/#{article[:slug]}/">#{article[:title]}</a>
                         </li>
                         <?r end ?>
                     </ul>
