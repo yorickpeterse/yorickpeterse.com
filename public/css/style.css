@@ -127,17 +127,17 @@ blockquote
     #top nav ul
     {
         margin: 0px auto;
-        width:  285px;
+        width:  315px;
     }
 
     #home #top nav ul
     {
-        width: 180px;
+        width: 190px;
     }
 
     #top nav ul li
     {
-        float:           left;
+        display:         inline-block;
         list-style-type: none;
         margin-right:    15px;
     }
