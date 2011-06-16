@@ -1,4 +1,4 @@
-zen -v0.2.6.1
+zen -v0.2.7
 mysql2 -v0.3.2
 dalli -v1.0.4
 kgio -v2.4.1
