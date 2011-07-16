@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /articles/*.md
 Disallow: /yorickpeterse/*
+Disallow: /projects/*
 Allow: /
