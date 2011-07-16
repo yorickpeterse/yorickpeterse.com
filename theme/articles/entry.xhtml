@@ -1,4 +1,4 @@
-<?r 
+<?r
 article = plugin(:section_entries, :section => 'articles', :entry => @request_uri[2])
 show_404 if !article or !@request_uri[2]
 ?>
@@ -6,10 +6,10 @@ show_404 if !article or !@request_uri[2]
 <html lang="#{plugin(:settings, :get, :frontend_language).value}">
     <head>
         #{partial(
-          :head, 
-          :page_title  => article[:title], 
+          :head,
+          :page_title  => article[:title],
           :canonical   => "http://yorickpeterse.com/articles/#{article[:slug]}/",
-          :keywords    => article[:fields][:'meta-keywords'], 
+          :keywords    => article[:fields][:'meta-keywords'],
           :description => article[:fields][:'meta-description']
         )}
     </head>
@@ -22,11 +22,13 @@ show_404 if !article or !@request_uri[2]
                 <article>
                     <header>
                         <h1>#{article[:title]}</h1>
-                    </header> 
+                    </header>
 
-                    #{article[:fields][:body]}   
+                    #{article[:fields][:body]}
                 </article>
             </section>
         </div>
+
+        #{partial(:footer)}
     </body>
 </html>

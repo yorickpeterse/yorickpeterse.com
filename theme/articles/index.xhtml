@@ -1,4 +1,4 @@
-<?r 
+<?r
 articles = plugin(:section_entries, :section => 'articles')
 homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
 articles.sort_by { |row| row[:created].to_i }
@@ -7,8 +7,8 @@ articles.sort_by { |row| row[:created].to_i }
 <html lang="#{plugin(:settings, :get, :frontend_language).value}">
     <head>
         #{partial(
-          :head, 
-          :canonical   => 'http://yorickpeterse.com/', 
+          :head,
+          :canonical   => 'http://yorickpeterse.com/',
           :keywords    => homepage[:fields][:'meta-keywords'],
           :description => homepage[:fields][:'meta-description']
         )}
@@ -22,7 +22,7 @@ articles.sort_by { |row| row[:created].to_i }
                 <article>
                     <header>
                         <h1>Yorick Peterse</h1>
-                    </header> 
+                    </header>
 
                     #{homepage[:fields][:body]}
 
@@ -37,5 +37,7 @@ articles.sort_by { |row| row[:created].to_i }
                 </article>
             </section>
         </div>
+
+        #{partial(:footer)}
     </body>
 </html>
