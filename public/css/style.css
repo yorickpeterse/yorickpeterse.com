@@ -103,7 +103,7 @@ pre
         padding:  8px;
     }
 
-p code
+p code, li code
 {
     background: #eee;
     border:     1px solid #ccc;
