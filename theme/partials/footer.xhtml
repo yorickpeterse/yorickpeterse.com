@@ -1,3 +1,4 @@
+<?r if Ramaze.options.mode === :live ?>
 <script src="http://piwik.yorickpeterse.com/piwik.js"></script>
 <script type="text/javascript">
 try
@@ -11,7 +12,4 @@ try
 }
 catch( err ) {}
 </script>
-
-<noscript>
-    <img src="http://piwik.yorickpeterse.com/piwik.php?idsite=1" />
-</noscript>
+<?r end ?>
