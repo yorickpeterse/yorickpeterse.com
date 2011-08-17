@@ -5,7 +5,7 @@ working_directory File.expand_path('../../', __FILE__)
 worker_processes 2
 
 # Preloads the application into memory.
-preload_app true
+preload_app false
 
 # proxy all calls from port 80 to this port.
 listen 7000
@@ -18,7 +18,3 @@ timeout 30
 
 # PID path relative to working_directory
 pid 'tmp/unicorn.pid'
-
-after_fork do |server, worker|
-  Zen.database.disconnect
-end
