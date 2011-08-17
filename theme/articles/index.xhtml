@@ -1,7 +1,6 @@
 <?r
 articles = plugin(:section_entries, :section => 'articles')
 homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
-articles.sort_by { |row| row[:created].to_i }
 ?>
 <!DOCTYPE html>
 <html lang="#{plugin(:settings, :get, :frontend_language).value}">
@@ -30,7 +29,9 @@ articles.sort_by { |row| row[:created].to_i }
                     <ul>
                         <?r articles.each do |article| ?>
                         <li>
-                            <a href="/articles/#{article[:slug]}/">#{article[:title]}</a>
+                            <a href="/articles/#{article[:slug]}/">
+                                #{article[:title]}
+                            </a>
                         </li>
                         <?r end ?>
                     </ul>
