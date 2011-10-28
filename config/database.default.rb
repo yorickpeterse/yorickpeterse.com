@@ -23,10 +23,7 @@ Zen.database = Sequel.connect(
   :password => '',
   :database => '',
   :test     => true,
-  :encoding => 'utf8',
-  :logger   => Ramaze::Logger::RotatingInformer.new(
-    __DIR__("../log/database/dev"), '%d-%m-%Y.log'
-  )
+  :encoding => 'utf8'
 )
 
 # IMPORTANT, when running MySQL the engine should be set to InnoDB in order for

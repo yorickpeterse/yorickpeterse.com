@@ -1,7 +1,5 @@
-def require_zen
-  require File.expand_path('../app.rb', __FILE__)
-  require 'zen/task'
-end
+require File.expand_path('../app.rb', __FILE__)
+require 'zen/task'
 
 task_dir = File.expand_path('../task', __FILE__)
 
