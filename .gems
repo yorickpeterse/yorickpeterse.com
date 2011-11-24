@@ -4,3 +4,4 @@ dalli
 kgio
 rdiscount
 unicorn
+sequel

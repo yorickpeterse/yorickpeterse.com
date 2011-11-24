@@ -1,2 +1,1 @@
-#!/usr/bin/env bash
-rvm use --create 1.9.2@yorickpeterse.com
+rvm use --create 1.9.3@yorickpeterse.com

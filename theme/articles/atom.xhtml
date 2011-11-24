@@ -1,40 +1,38 @@
 <?r
-articles = plugin(:section_entries, :section => 'articles')
-show_404 if !articles
-articles.sort_by { |row| row[:created].to_i }
+articles = get_entries('articles', :user => true)
+show_404 unless articles
 
-# Set the correct content type
-response.header['Content-Type'] = 'application/atom+xml'
+puts response.header['Content-Type'] = 'application/atom+xml'
 ?>
 <?xml version="1.0" encoding="utf-8" ?>
 <feed xmlns="http://www.w3.org/2005/Atom"
-xml:lang="#{plugin(:settings, :get, :frontend_language).value}"
+xml:lang="#{get_setting(:frontend_language).value}"
 xml:base="http://yorickpeterse.com/">
     <!-- Base description of the feed -->
     <id>tag:yorickpeterse.com,2011-05-03:/articles/1304446233</id>
-    <title>#{plugin(:settings, :get, :website_name).value}</title>
+    <title>#{get_setting(:website_name).value}</title>
 
     <author>
         <name>Yorick Peterse</name>
-        <email>info@yorickpeterse.com</email>
+        <email>yorickpeterse@gmail.com</email>
     </author>
 
     <category term="programming" label="Programming" />
-    <updated>#{articles.last[:created_at].strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
+    <updated>#{articles.last.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
     <link href="http://yorickpeterse.com/articles/atom/" rel="self" />
 
     <!-- List of all entries -->
     <?r articles.each do |article| ?>
     <entry>
-        <id>tag:yorickpeterse.com,#{article[:created_at].strftime('%Y-%m-%d')}:/articles/#{article[:created_at].to_i}</id>
+        <id>tag:yorickpeterse.com,#{article.created_at.strftime('%Y-%m-%d')}:/articles/#{article.created_at}</id>
 
         <!-- Details about the Atom entry -->
-        <title>#{article[:title]}</title>
+        <title>#{article.title}</title>
         <author>
-            <name>#{article[:user][:name]}</name>
+            <name>#{article.user.name}</name>
         </author>
-        <updated>#{article[:created_at].strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
+        <updated>#{article.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
         <!-- URLs to the full article and the article in the raw Markdown format -->
         <link href="http://yorickpeterse.com/articles/#{article[:slug]}/" />
@@ -44,7 +42,7 @@ xml:base="http://yorickpeterse.com/">
         <!-- The actual content (HTML) of the entry -->
         <content type="xhtml">
             <div xmlns="http://www.w3.org/1999/xhtml">
-                #{article[:fields][:body]}
+                #{article.fields[:body]}
             </div>
         </content>
     </entry>

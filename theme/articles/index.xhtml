@@ -1,21 +1,26 @@
 <?r
-articles = plugin(:section_entries, :section => 'articles', :markup => false)
-homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
+articles = get_entries(
+  'articles',
+  :custom_field_values => false,
+  :markup              => false,
+  :order               => :asc
+)
+
+homepage = get_entry('home')
 ?>
 <!DOCTYPE html>
-<html lang="#{plugin(:settings, :get, :frontend_language).value}">
+<html lang="#{get_setting(:frontend_language).value}">
     <head>
         #{partial(
           :head,
           :canonical   => 'http://yorickpeterse.com/',
-          :keywords    => homepage[:fields][:'meta-keywords'],
-          :description => homepage[:fields][:'meta-description']
+          :keywords    => homepage.fields[:'meta-keywords'],
+          :description => homepage.fields[:'meta-description']
         )}
     </head>
     <body id="home">
         #{partial(:header)}
 
-        <!-- Center part containing the content -->
         <div id="content" class="row">
             <section>
                 <article>
@@ -23,14 +28,14 @@ homepage = plugin(:section_entries, :section => 'pages', :entry => 'home')
                         <h1>Yorick Peterse</h1>
                     </header>
 
-                    #{homepage[:fields][:body]}
+                    #{homepage.fields[:body]}
 
                     <h2>Articles</h2>
                     <ul>
                         <?r articles.each do |article| ?>
                         <li>
-                            <a href="/articles/#{article[:slug]}/">
-                                #{article[:title]}
+                            <a href="/articles/#{article.slug}/">
+                                #{article.title}
                             </a>
                         </li>
                         <?r end ?>

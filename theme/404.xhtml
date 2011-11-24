@@ -1,15 +1,12 @@
-<?r
-homepage        = plugin(:section_entries, :section => 'pages', :entry => 'home')
-response.status = 404
-?>
+<?r homepage = get_entry('home') ?>
 <!DOCTYPE html>
-<html lang="#{plugin(:settings, :get, :frontend_language).value}">
+<html lang="#{get_setting(:frontend_language).value}">
     <head>
     <head>
         #{partial(
           :head,
-          :keywords    => homepage[:fields][:'meta-keywords'],
-          :description => homepage[:fields][:'meta-description']
+          :keywords    => homepage.fields[:'meta-keywords'],
+          :description => homepage.fields[:'meta-description']
         )}
     </head>
     <body id="home">
@@ -25,17 +22,18 @@ response.status = 404
 
                     <p>
                         Crikey, it seems the requested page
-                        <code>#{request.env['PATH_INFO']}</code> could not be found. If you
-                        think this might be a bug feel free to send an Email to info [at]
-                        yorickpeterse [dot] com.
+                        <code>#{request.env['PATH_INFO']}</code> could not be
+                        found. If you think this might be a bug feel free to
+                        send an Email to info [at] yorickpeterse [dot] com.
                     </p>
 
                     <p>
-                        It's possible that you may have clicked a link on an external
-                        website that points to an article I once wrote but no longer
-                        exists. If that's the case I would appreciate it if you'd contact
-                        the website and tell them some of their URLs are pointing to
-                        non-existing (or moved) content.
+                        It's possible that you may have clicked a link on an
+                        external website that points to an article I once wrote
+                        but no longer exists. If that's the case I would
+                        appreciate it if you'd contact the website and tell them
+                        some of their URLs are pointing to non-existing (or
+                        moved) content.
                     </p>
                 </article>
             </section>
@@ -44,4 +42,3 @@ response.status = 404
         #{partial(:footer)}
     </body>
 </html>
-

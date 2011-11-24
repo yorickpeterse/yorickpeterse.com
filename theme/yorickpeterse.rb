@@ -1,9 +1,10 @@
 Zen::Theme.add do |theme|
   theme.name   = 'yorickpeterse'
   theme.author = 'Yorick Peterse'
-  theme.about  = 'Theme for my personal website, inspired by bin/man.'
+  theme.about  = 'Theme for my personal website.'
   theme.url    = 'http://yorickpeterse.com/'
 
-  theme.template_dir = __DIR__
-  theme.partial_dir  = __DIR__('partials')
+  theme.templates              = __DIR__
+  theme.partials               = __DIR__('partials')
+  theme.default_template_group = 'articles'
 end

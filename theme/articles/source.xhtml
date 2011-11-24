@@ -1,11 +1,9 @@
 <?r
-article = plugin(
-  :section_entries, :section => 'articles', :entry => @request_uri[2], :markup => false
-)
+article = get_entry(@request_uri[2], :markup => false)
 
 if !article
   show_404
 else
-  respond(article[:fields][:body], 200, 'Content-Type' => 'text/plain')
+  respond(article.fields[:body], 200, 'Content-Type' => 'text/plain')
 end
 ?>
