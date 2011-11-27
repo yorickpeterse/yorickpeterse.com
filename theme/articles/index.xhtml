@@ -3,7 +3,8 @@ articles = get_entries(
   'articles',
   :custom_field_values => false,
   :markup              => false,
-  :order               => :asc
+  :order               => :desc,
+  :order_by            => :created_at
 )
 
 homepage = get_entry('home')

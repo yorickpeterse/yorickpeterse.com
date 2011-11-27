@@ -1,4 +1,5 @@
 <?r
+show_404 unless @request_uri[2]
 article = get_entry(@request_uri[2])
 show_404 unless article
 ?>
