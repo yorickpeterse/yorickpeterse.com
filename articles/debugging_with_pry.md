@@ -84,7 +84,8 @@ Calling ``show-doc pry`` would instead show the following:
     example Start a Pry session on current self (whatever that is)
       pry
 
-Doing this in IRB out of the box? Forget about it.
+You can also run these commands for code that was written in C. This requires
+you to install the gem ``pry-doc`` (``gem install pry-doc``).
 
 Another very cool feature is that Pry can be used as a debugging tool for your
 code without having to manually jump into a session. By loading Pry, which can
