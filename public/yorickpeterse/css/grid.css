@@ -1,8 +1,6 @@
-@charset "UTF-8";
-
 /**
  * Modified version of the CSS grid (aka 1140 CSS) that can be found at http://cssgrid.net
- * 
+ *
  * This modified version has some extra enhancements to make it a bit easier to work with
  * the grid. Along with these minor fixes I also renamed all grid classes to the names
  * used by the 960 grid system as I find "grid_6" easier to write than "sixcol".
@@ -31,7 +29,7 @@
     visibility: hidden;
 }
 
-.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, 
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9,
 .grid_10, .grid_11
 {
     float:        left;

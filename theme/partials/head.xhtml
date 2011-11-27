@@ -15,10 +15,7 @@ title="#{get_setting(:website_name).value} &bull; Atom Feed" />
 <meta name="description" content="#{@description}" />
 
 <!-- Load all stylesheets -->
-<link rel="stylesheet" href="/yorickpeterse/css/reset.css" />
-<link rel="stylesheet" href="/yorickpeterse/css/grid.css" />
-<link rel="stylesheet" href="/yorickpeterse/css/style.css" />
-<link rel="stylesheet" href="/yorickpeterse/css/github.css" />
+#{FrontendAsset.build_html(:css)}
 
 <!-- Javascript files -->
 <script type="text/javascript" src="/yorickpeterse/js/highlight.js"></script>
