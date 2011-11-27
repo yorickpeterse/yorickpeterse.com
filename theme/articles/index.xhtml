@@ -23,26 +23,24 @@ homepage = get_entry('home')
         #{partial(:header)}
 
         <div id="content" class="row">
-            <section>
-                <article>
-                    <header>
-                        <h1>Yorick Peterse</h1>
-                    </header>
+            <article>
+                <header>
+                    <h1>Yorick Peterse</h1>
+                </header>
 
-                    #{homepage.fields[:body]}
+                #{homepage.fields[:body]}
 
-                    <h2>Articles</h2>
-                    <ul>
-                        <?r articles.each do |article| ?>
-                        <li>
-                            <a href="/articles/#{article.slug}/">
-                                #{article.title}
-                            </a>
-                        </li>
-                        <?r end ?>
-                    </ul>
-                </article>
-            </section>
+                <h2>Articles</h2>
+                <ul>
+                    <?r articles.each do |article| ?>
+                    <li>
+                        <a href="/articles/#{article.slug}/">
+                            #{article.title}
+                        </a>
+                    </li>
+                    <?r end ?>
+                </ul>
+            </article>
         </div>
 
         #{partial(:footer)}

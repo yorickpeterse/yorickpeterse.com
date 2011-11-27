@@ -18,15 +18,13 @@ show_404 unless article
         #{partial(:header, :source => article.slug)}
 
         <div id="content" class="row">
-            <section>
-                <article>
-                    <header>
-                        <h1>#{article[:title]}</h1>
-                    </header>
+            <article>
+                <header>
+                    <h1>#{article[:title]}</h1>
+                </header>
 
-                    #{article.fields[:body]}
-                </article>
-            </section>
+                #{article.fields[:body]}
+            </article>
         </div>
 
         #{partial(:footer)}
