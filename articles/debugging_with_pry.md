@@ -85,7 +85,9 @@ Calling ``show-doc pry`` would instead show the following:
       pry
 
 You can also run these commands for code that was written in C. This requires
-you to install the gem ``pry-doc`` (``gem install pry-doc``).
+you to install the gem ``pry-doc`` (``gem install pry-doc``). Do note that this
+only works for core C code, currently Pry does not support this for third party
+extensions.
 
 Another very cool feature is that Pry can be used as a debugging tool for your
 code without having to manually jump into a session. By loading Pry, which can
