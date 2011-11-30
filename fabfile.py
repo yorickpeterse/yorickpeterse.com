@@ -10,7 +10,7 @@ env.git_url       = 'git://github.com/YorickPeterse/yorickpeterse.com.git'
 # Various commands to execute using a single SSH connection.
 env.ssh_commands = {
     'update': 'sv d %s && git pull origin master && git reset --hard ' \
-        '&& sv start %s'.format(env.runit_service, env.runit_service),
+        '&& sv start %s' % (env.runit_service, env.runit_service),
     'create': 'git init && git remote add origin %s && git pull origin master' \
         % env.git_url
 }
