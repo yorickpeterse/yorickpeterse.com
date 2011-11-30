@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+sv check mysql memcached
+
+CODE_DIR='{code_dir}'
+
+# Source the correct bashrc file
+if [[ -f "$HOME/.profile" ]]; then
+    source "$HOME/.profile"
+else
+    source "$HOME/.bashrc"
+fi
+
+# Load RVM and start the application.
+cd $CODE_DIR
+
+source .rvmrc
+
+exec unicorn -c config/unicorn.rb config.ru 2>&1
