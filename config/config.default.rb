@@ -12,9 +12,10 @@ Ramaze.options.session.key = 'yorickpeterse.com.sid'
 
 # Cache settings. These are turned off for the development server to make it
 # easier to debug potential errors.
-Ramaze::View.options.cache      = false
-Ramaze::View.options.read_cache = false
+Ramaze::View.options.cache      = Ramaze.options.mode == :live
+Ramaze::View.options.read_cache = Ramaze.options.mode == :live
 
 # Use LRU instead of the memory cache as the latter leaks memory over time
-Ramaze::Cache.options.session  = Ramaze::Cache::LRU
-Ramaze::Cache.options.settings = Ramaze::Cache::LRU
+Ramaze::Cache.options.session      = Ramaze::Cache::LRU
+Ramaze::Cache.options.settings     = Ramaze::Cache::LRU
+Ramaze::Cache.options.translations = Ramaze::Cache::LRU
