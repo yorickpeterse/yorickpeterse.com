@@ -1,7 +1,11 @@
 import os
 from fabric.api import *
 
-env.hosts         = ['yorickpeterse@yorickpeterse.com:22960']
+env.hosts = [
+    'yorickpeterse@yorickpeterse.com:22960',
+    'yorickpeterse@109.74.204.50'
+]
+
 env.runit_service = '/home/yorickpeterse/service/yorickpeterse.com'
 env.runit_deps    = ['memcached', 'mysql']
 env.code_dir      = '/home/yorickpeterse/domains/yorickpeterse.com'
@@ -11,7 +15,8 @@ env.git_url       = 'git://github.com/YorickPeterse/yorickpeterse.com.git'
 env.ssh_commands = {
     'update': 'sv d %s && git pull origin master && git reset --hard ' \
         '&& sv start %s' % (env.runit_service, env.runit_service),
-    'create': 'git init && git remote add origin %s && git pull origin master' \
+    'create': 'git init && git remote add origin %s && ' \
+        'git pull origin master && `cat ./.rvmrc` && rvm gemset import .gems' \
         % env.git_url
 }
 
@@ -33,7 +38,7 @@ def deploy():
 def setup_remote():
     """Sets up the required files and folders on remote servers."""
 
-    run('mkdir %s' % env.code_dir)
+    run('mkdir -p %s' % env.code_dir)
 
     # Set up the Git repo.
     with cd(env.code_dir):
