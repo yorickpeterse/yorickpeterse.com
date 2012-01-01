@@ -42,7 +42,7 @@ def setup():
         run(env.ssh_commands['create'])
         run(env.ssh_commands['install_gems'])
 
-    setup_config
+    setup_config()
     setup_runit()
 
 def setup_runit():
@@ -106,4 +106,4 @@ def setup_config():
 
         open(tmp, 'w').write(template)
         put(tmp, dest)
-        local("rm %" % tmp)
+        local("rm %s" % tmp)
