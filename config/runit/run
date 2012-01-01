@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Source the correct bashrc file so that RVM can be loaded.
+if [[ -f "$HOME/.profile" ]]; then
+    source "$HOME/.profile"
+else
+    source "$HOME/.bashrc"
+fi
+
+cd {code_dir}
+
+exec chpst -m 62914560 unicorn -c config/unicorn.rb config.ru 2>&1

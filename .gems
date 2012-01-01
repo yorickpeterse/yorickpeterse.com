@@ -1,5 +1,5 @@
 zen
-mysql2
+pg
 dalli
 kgio
 rdiscount
