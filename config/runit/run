@@ -9,4 +9,4 @@ fi
 
 cd {code_dir}
 
-exec chpst -m 62914560 unicorn -c config/unicorn.rb config.ru 2>&1
+exec chpst -m 104857600 unicorn -c config/unicorn.rb config.ru 2>&1

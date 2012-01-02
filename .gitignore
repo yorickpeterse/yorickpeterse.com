@@ -1,5 +1,4 @@
 .DS_Store
-Gemfile.lock
 
 # Ignore all configuration files
 config/config.rb
@@ -16,3 +15,6 @@ tmp/*
 !tmp/.gitkeep
 
 *.pyc
+
+public/minified/*
+!public/minified/.gitkeep
