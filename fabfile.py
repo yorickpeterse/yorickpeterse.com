@@ -32,8 +32,8 @@ def deploy():
 
     # Move into the project directory and update it.
     with cd(env.code_dir):
-        run(env.ssh_commands['update'])
         run(env.ssh_commands['install_gems'])
+        run(env.ssh_commands['update'])
 
 def setup():
     """Sets up the required files and folders on remote servers."""
