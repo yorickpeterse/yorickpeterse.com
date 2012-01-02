@@ -10,9 +10,12 @@ env.config_files  = ['config', 'database', 'unicorn']
 # Various commands to execute using a single SSH connection.
 env.ssh_commands = {
     'update': 'sv d %s && git pull origin master && git reset --hard ' \
-        '&& sv start %s' % (env.runit_service, env.runit_service),
+        '&& rake db:migrate && sv start %s' \
+        % (env.runit_service, env.runit_service),
+
     'create': 'git init && git remote add origin %s && ' \
         'git pull origin master' % env.git_url,
+
     'install_gems': '`cat .rvmrc` && rvm gemset import .gems'
 }
 
