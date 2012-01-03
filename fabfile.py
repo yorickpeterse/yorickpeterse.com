@@ -9,8 +9,8 @@ env.config_files   = ['config', 'database', 'unicorn']
 
 # Configuration for Runit related commands
 env.service_dir  = '/home/yorickpeterse/service/yorickpeterse.com'
-env.run_template = 'config/runit/run'
-env.log_template = 'config/runit/log/run'
+env.run_template = 'fabric_modules/templates/runit/run'
+env.log_template = 'fabric_modules/templates/runit/log/run'
 
 @task
 def deploy():
