@@ -35,6 +35,9 @@ def setup():
     common.configure()
     runit.setup()
 
+    with cd(env.deployment_dir):
+        run('rake db:migrate')
+
 def update():
     """Updates the application."""
 

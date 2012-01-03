@@ -2,11 +2,8 @@ require 'zen'
 require 'rdiscount'
 
 require __DIR__('config/config')
-require __DIR__('config/middlewares')
 require __DIR__('config/database')
 require __DIR__('config/routes')
-
-# Require all the custom gems/modules we need
 require __DIR__('theme/yorickpeterse')
 require __DIR__('markup')
 
@@ -15,7 +12,6 @@ FrontendAsset = Ramaze::Asset::Environment.new(
   :minify     => Ramaze.options.mode == :live
 )
 
-# Serve the CSS files using Ramaze::Asset.
 FrontendAsset.serve(
   :css,
   [
