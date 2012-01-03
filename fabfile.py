@@ -38,6 +38,8 @@ def setup():
     with cd(env.deployment_dir):
         run('rake db:migrate')
 
+    run('sv start %s' % env.service_dir)
+
 def update():
     """Updates the application."""
 
