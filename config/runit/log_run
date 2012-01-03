@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-svlogd -tt {service_dir}/log 2>&1

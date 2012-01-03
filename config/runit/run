@@ -7,6 +7,6 @@ else
     source "$HOME/.bashrc"
 fi
 
-cd {code_dir}
+cd {env.deployment_dir}
 
 exec chpst -d 104857600 unicorn -c config/unicorn.rb config.ru 2>&1

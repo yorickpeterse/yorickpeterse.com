@@ -1,112 +1,55 @@
-import os
-from fabric.api import *
+from fabric.api     import *
+from fabric_modules import common
+from fabric_modules import runit
 
-env.hosts         = ['yorickpeterse@stewie.yorickpeterse.com']
-env.runit_service = '/home/yorickpeterse/service/yorickpeterse.com'
-env.code_dir      = '/home/yorickpeterse/domains/yorickpeterse.com'
-env.git_url       = 'git://github.com/YorickPeterse/yorickpeterse.com.git'
-env.config_files  = ['config', 'database', 'unicorn']
+env.hosts          = ['yorickpeterse@stewie.yorickpeterse.com']
+env.deployment_dir = '/home/yorickpeterse/domains/yorickpeterse.com'
+env.repository     = 'git://github.com/YorickPeterse/yorickpeterse.com.git'
+env.config_files   = ['config', 'database', 'unicorn']
 
-# Various commands to execute using a single SSH connection.
-env.ssh_commands = {
-    'update': 'sv d %s && git pull origin master && git reset --hard ' \
-        '&& rake db:migrate && sv start %s' \
-        % (env.runit_service, env.runit_service),
+# Configuration for Runit related commands
+env.service_dir  = '/home/yorickpeterse/service/yorickpeterse.com'
+env.run_template = 'config/runit/run'
+env.log_template = 'config/runit/log/run'
 
-    'create': 'git init && git remote add origin %s && ' \
-        'git pull origin master' % env.git_url,
-
-    'install_gems': '`cat .rvmrc` && rvm gemset import .gems'
-}
-
-def status():
-    """Displays the status of the application."""
-
-    run('sv status %s' % env.runit_service)
-
+@task
 def deploy():
     """Updates the Git repository and deploys the website."""
 
     local('git checkout master')
     local('git push origin master')
 
-    # Move into the project directory and update it.
-    with cd(env.code_dir):
-        run(env.ssh_commands['install_gems'])
-        run(env.ssh_commands['update'])
+    update()
 
+@task
 def setup():
     """Sets up the required files and folders on remote servers."""
 
-    run('mkdir -p %s' % env.code_dir)
+    run('mkdir -p %s' % env.deployment_dir)
 
-    # Set up the Git repo.
-    with cd(env.code_dir):
-        run(env.ssh_commands['create'])
-        run(env.ssh_commands['install_gems'])
+    with cd(env.deployment_dir):
+        run('git init && git remote add origin %s' % env.repository)
+        run('git pull origin master')
 
-    setup_config()
-    setup_runit()
+    install_gems()
+    common.configure()
+    runit.setup()
 
-def setup_runit():
-    """Sets up the Runit configuration file on remote servers."""
+def update():
+    """Updates the application."""
 
-    # Create the Runit config for the server.
-    local('cp config/runit/run tmp/run')
-    local('cp config/runit/log_run tmp/log_run')
+    run('sv d %s' % env.service_dir)
 
-    run_file = os.path.join(env.runit_service, 'run')
-    log_dir  = os.path.join(env.runit_service, 'log')
-    log_file = os.path.join(log_dir, 'run')
+    with cd(env.deployment_dir):
+        run('git pull origin master && git reset --hard')
+        run('rake db:migrate')
 
-    run_content = open('tmp/run', 'r').read().format(code_dir = env.code_dir)
-    log_content = open('tmp/log_run', 'r').read().format(
-        service_dir = env.runit_service
-    )
+    install_gems()
 
-    open('tmp/run', 'w').write(run_content)
-    open('tmp/log_run', 'w').write(log_content)
+    run('sv start %s' % env.service_dir)
 
-    # Config file is in place. Create the service directory and upload the file.
-    run('mkdir -p %s' % log_dir)
+def install_gems():
+    """Installs all the gems defined in the .gems file"""
 
-    put('tmp/run', run_file)
-    put('tmp/log_run', log_file)
-
-    run('chmod +x %s && chmod +x %s' % (run_file, log_file))
-
-    local('rm tmp/run')
-    local('rm tmp/log_run')
-
-def setup_config():
-    """Sets up the various configuration files"""
-
-    mode       = prompt('Mode:', default = 'live', validate = '^dev|live$')
-    db_adapter = prompt(
-        'Database adapter:',
-        default  = 'postgres',
-        validate = '^postgres|mysql2$'
-    )
-
-    db_user     = prompt('Database user:', validate = '^.+$')
-    db_password = prompt('Database password:', validate = '^.+$')
-    db_database = prompt('Database name:', validate = '^.+$')
-
-    # Process each configuration file and upload it to the server.
-    for config in env.config_files:
-        dest = os.path.join(env.code_dir, 'config', '%s.rb' % config)
-        tmp  = 'tmp/%s.rb' % config
-
-        local('cp config/%s.default.rb %s' % (config, tmp))
-
-        template = open(tmp, 'r').read().format(
-            mode        = mode,
-            db_adapter  = db_adapter,
-            db_user     = db_user,
-            db_password = db_password,
-            db_database = db_database
-        )
-
-        open(tmp, 'w').write(template)
-        put(tmp, dest)
-        local("rm %s" % tmp)
+    with cd(env.deployment_dir):
+        run('`cat .rvmrc` && rvm gemset import .gems')

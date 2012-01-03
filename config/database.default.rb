@@ -17,11 +17,11 @@
 # Fore more information see the Sequel documentation:
 # http://sequel.rubyforge.org/rdoc/files/doc/opening_databases_rdoc.html
 Zen.database = Sequel.connect(
-  :adapter  => '{db_adapter}',
+  :adapter  => '{db[adapter]}',
   :host     => 'localhost',
-  :username => '{db_user}',
-  :password => '{db_password}',
-  :database => '{db_database}',
+  :username => '{db[user]}',
+  :password => '{db[password]}',
+  :database => '{db[database]}',
   :test     => true,
   :encoding => 'utf8'
 )
