@@ -49,10 +49,9 @@ def update():
         run('git pull origin master && git reset --hard')
         run('rake db:migrate')
 
-    install_gems()
-
     run('sv start %s' % env.service_dir)
 
+@task
 def install_gems():
     """Installs all the gems defined in the .gems file"""
 
