@@ -19,8 +19,18 @@ directory, are licensed under a [Creative Commons license][cc license].
 
 ## Installation
 
-Assuming Ruby, PostgreSQL and all that are set up you can deploy the website by
-running the following commands:
+First get a copy of the repository:
+
+    $ git clone git://github.com/YorickPeterse/yorickpeterse.com.git --recursive
+
+This creates a clone of the repository and automatically loads all the
+submodules. Once done you can deploy the website to your machines. Before doing
+so you should change the server settings in ``fabfile.py``. And no, you won't
+get access to my server :)
+
+Once you've set the server details you can deploy the website. Assuming Ruby,
+PostgreSQL and all that are set up you can deploy the website by running the
+following commands:
 
     $ fab setup
 
