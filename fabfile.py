@@ -40,6 +40,7 @@ def setup():
 
     run('sv start %s' % env.service_dir)
 
+@task
 def update():
     """Updates the application."""
 
