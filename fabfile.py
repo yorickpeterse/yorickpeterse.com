@@ -2,7 +2,7 @@ from fabric.api     import *
 from fabric_modules import common
 from fabric_modules import runit
 
-env.hosts          = ['yorickpeterse@stewie.yorickpeterse.com']
+env.hosts          = ['yorickpeterse@stewie.yorickpeterse.com:22960']
 env.deployment_dir = '/home/yorickpeterse/domains/yorickpeterse.com'
 env.repository     = 'git://github.com/YorickPeterse/yorickpeterse.com.git'
 env.config_files   = ['config', 'database', 'unicorn']
