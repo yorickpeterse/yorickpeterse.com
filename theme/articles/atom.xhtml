@@ -7,7 +7,7 @@ puts response.header['Content-Type'] = 'application/atom+xml'
 <?xml version="1.0" encoding="utf-8" ?>
 <feed xmlns="http://www.w3.org/2005/Atom"
 xml:lang="#{get_setting(:frontend_language).value}"
-xml:base="http://yorickpeterse.com/">
+xml:base="http://yorickpeterse.com">
     <!-- Base description of the feed -->
     <id>tag:yorickpeterse.com,2011-05-03:/articles/1304446233</id>
     <title>#{get_setting(:website_name).value}</title>
@@ -20,7 +20,7 @@ xml:base="http://yorickpeterse.com/">
     <category term="programming" label="Programming" />
     <updated>#{articles[0].created_at.strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
-    <link href="http://yorickpeterse.com/articles/atom/" rel="self" />
+    <link href="http://yorickpeterse.com/articles/atom" rel="self" />
 
     <!-- List of all entries -->
     <?r articles.each do |article| ?>
@@ -35,8 +35,8 @@ xml:base="http://yorickpeterse.com/">
         <updated>#{article.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
         <!-- URLs to the full article and the article in the raw Markdown format -->
-        <link href="http://yorickpeterse.com/articles/#{article[:slug]}/" />
-        <link href="http://yorickpeterse.com/articles/#{article[:slug]}.md"
+        <link href="http://yorickpeterse.com/articles/#{article.slug}" />
+        <link href="http://yorickpeterse.com/articles/#{article.slug}.md"
         rel="alternate" type="text/plain" />
 
         <!-- The actual content (HTML) of the entry -->

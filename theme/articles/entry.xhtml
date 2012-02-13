@@ -9,7 +9,7 @@ show_404 unless article
         #{partial(
           :head,
           :page_title  => article.title,
-          :canonical   => "http://yorickpeterse.com/articles/#{article[:slug]}/",
+          :canonical   => "http://yorickpeterse.com/articles/#{article.slug}",
           :keywords    => article.fields[:'meta-keywords'],
           :description => article.fields[:'meta-description']
         )}
@@ -20,7 +20,7 @@ show_404 unless article
         <div id="content" class="row">
             <article>
                 <header>
-                    <h1>#{article[:title]}</h1>
+                    <h1>#{article.title}</h1>
                 </header>
 
                 #{article.fields[:body]}
