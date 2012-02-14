@@ -4,7 +4,7 @@
 Zen.root = __DIR__('../')
 
 # Set the application's mode. Available modes are "dev" and "live"
-Ramaze.options.mode     = :{mode}
+Ramaze.options.mode     = :dev
 Ramaze.options.app.name = :'yorickpeterse.com'
 
 # The session identifier to use for cookies.

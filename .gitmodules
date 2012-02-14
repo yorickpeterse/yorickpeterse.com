@@ -1,3 +1,0 @@
-[submodule "fabric_modules"]
-	path = fabric_modules
-	url = git://github.com/YorickPeterse/Fabric-Modules.git

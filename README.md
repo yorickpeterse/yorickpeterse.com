@@ -13,8 +13,6 @@ directory, are licensed under a [Creative Commons license][cc license].
 * Zen 0.3 or newer
 * PostgreSQL, MySQL or SQLite3 (please don't use that in production)
 * Ruby 1.9.2 or newer
-* Python 2.7 (Python 3.0 doesn't work with Fabric)
-* Fabric
 * Runit
 
 ## Installation
@@ -29,17 +27,20 @@ so you should change the server settings in ``fabfile.py``. And no, you won't
 get access to my server :)
 
 Once you've set the server details you can deploy the website. Assuming Ruby,
-PostgreSQL and all that are set up you can deploy the website by running the
-following commands:
+PostgreSQL and all that are set up you need to deploy the application. I'm using
+Git for deployments and thus you must add the target host as a remote:
 
-    $ fab setup
+    $ git remote add HOST ssh://user@host/path/to/repo/.git
 
-Regular deployments (after the webiste has been set up) are executed by running
-this:
+Once added you have to make sure that this repository has a valid post-receive
+hook and allows you to push to branches directly. The latter can be set as
+following:
 
-    $ fab deploy
+    $ git config --add receive.denycurrentbranch false
 
-For a full list of the available commands run ``fab --list``.
+Once this has been done you can deploy as following:
+
+    $ git push HOST master
 
 [zen]: http://zen-cms.com/
 [cc license]: http://creativecommons.org/licenses/by-nc-sa/3.0/
