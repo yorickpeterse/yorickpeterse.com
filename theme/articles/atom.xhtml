@@ -1,12 +1,10 @@
 <?r
-articles = get_entries('articles', :user => true)
-show_404 unless articles
+show_404 unless articles = get_entries('articles', :user => true)
 
-puts response.header['Content-Type'] = 'application/atom+xml'
+response.header['Content-Type'] = 'application/atom+xml'
 ?>
 <?xml version="1.0" encoding="utf-8" ?>
-<feed xmlns="http://www.w3.org/2005/Atom"
-xml:lang="#{get_setting(:frontend_language).value}"
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"
 xml:base="http://yorickpeterse.com">
     <!-- Base description of the feed -->
     <id>tag:yorickpeterse.com,2011-05-03:/articles/1304446233</id>
@@ -24,8 +22,9 @@ xml:base="http://yorickpeterse.com">
 
     <!-- List of all entries -->
     <?r articles.each do |article| ?>
+    <?r id_date = article.created_at.strftime('%Y-%m-%d') ?>
     <entry>
-        <id>tag:yorickpeterse.com,#{article.created_at.strftime('%Y-%m-%d')}:/articles/#{article.created_at.strftime('%Y-%m-%d')}</id>
+        <id>tag:yorickpeterse.com,#{id_date}:/articles/#{article.slug}</id>
 
         <!-- Details about the Atom entry -->
         <title>#{article.title}</title>
@@ -35,7 +34,9 @@ xml:base="http://yorickpeterse.com">
         <updated>#{article.created_at.strftime('%Y-%m-%dT%H:%M:%SZ')}</updated>
 
         <!-- URLs to the full article and the article in the raw Markdown format -->
-        <link href="http://yorickpeterse.com/articles/#{article.slug}" />
+        <link href="http://yorickpeterse.com/articles/#{article.slug}"
+        type="text/html" rel="alternate" />
+
         <link href="http://yorickpeterse.com/articles/#{article.slug}.md"
         rel="alternate" type="text/plain" />
 
