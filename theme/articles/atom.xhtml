@@ -25,7 +25,7 @@ xml:base="http://yorickpeterse.com">
     <!-- List of all entries -->
     <?r articles.each do |article| ?>
     <entry>
-        <id>tag:yorickpeterse.com,#{article.created_at.strftime('%Y-%m-%d')}:/articles/#{article.created_at}</id>
+        <id>tag:yorickpeterse.com,#{article.created_at.strftime('%Y-%m-%d')}:/articles/#{article.created_at.strftime('%Y-%m-%d')}</id>
 
         <!-- Details about the Atom entry -->
         <title>#{article.title}</title>
