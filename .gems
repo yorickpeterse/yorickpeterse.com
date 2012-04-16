@@ -2,6 +2,6 @@ zen
 pg
 dalli
 kgio
-rdiscount
+redcarpet
 unicorn
 sequel

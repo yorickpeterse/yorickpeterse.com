@@ -15,7 +15,7 @@ title="#{get_setting(:website_name).value} &bull; Atom Feed" />
 <meta name="description" content="#{@description}" />
 
 <!-- Load all stylesheets -->
-#{FrontendAsset.build_html(:css)}
+#{Zen::Theme[:yorickpeterse].env.asset.build_html(:css)}
 
 <!-- Javascript files -->
 <script type="text/javascript" src="/yorickpeterse/js/highlight.js"></script>
