@@ -31,7 +31,7 @@ homepage = get_entry('home')
                 #{homepage.fields[:body]}
 
                 <h2>Articles</h2>
-                <ul>
+                <ul class="boring">
                     <?r articles.each do |article| ?>
                     <li>
                         <a href="/articles/#{article.slug}">

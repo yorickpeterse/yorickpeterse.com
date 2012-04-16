@@ -82,7 +82,7 @@ ol
         list-style-type: decimal;
     }
 
-#home ul, #home ul li, #home ol, #home ol li
+ul.boring, ul.boring li, ol.boring, ol.boring li
 {
     list-style-type: none;
     margin-left:     0px;
