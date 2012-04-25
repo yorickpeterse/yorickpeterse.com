@@ -43,7 +43,7 @@ xml:base="http://yorickpeterse.com">
         <!-- The actual content (HTML) of the entry -->
         <content type="xhtml">
             <div xmlns="http://www.w3.org/1999/xhtml">
-                #{article.fields[:body]}
+                #{Zen::Security.sanitize(article.fields[:body])}
             </div>
         </content>
     </entry>

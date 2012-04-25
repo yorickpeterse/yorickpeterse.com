@@ -23,7 +23,7 @@ show_404 unless article
                     <h1>#{article.title}</h1>
                 </header>
 
-                #{article.fields[:body]}
+                #{Zen::Security.sanitize(article.fields[:body])}
             </article>
         </div>
 
