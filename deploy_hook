@@ -15,7 +15,7 @@ SERVICE_DIR="$HOME/service/yorickpeterse.com"
 RUN_TEMPLATE="#!/usr/bin/env bash
 source "$HOME/.bashrc"
 
-cd /srv/http/yorickpeterse.com
+cd $HTTP_DIR
 
 exec chpst -d 62914560 unicorn -c config/unicorn.rb config.ru 2>&1"
 
