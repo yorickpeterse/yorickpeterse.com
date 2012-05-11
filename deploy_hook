@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Deploy hook that will be executed on the remote server every time a set of
+# commits is pushed to this server.
+
+source "$HOME/.bashrc"
+
+# Directory where the application is deployed to.
+HTTP_DIR="/srv/http/yorickpeterse.com"
+
+# Path to the Runit service file.
+SERVICE_DIR="$HOME/service/yorickpeterse.com"
+
+# The content of the Runit service file.
+RUN_TEMPLATE="#!/usr/bin/env bash
+source "$HOME/.bashrc"
+
+cd /srv/http/yorickpeterse.com
+
+exec chpst -d 62914560 unicorn -c config/unicorn.rb config.ru 2>&1"
+
+# Content of the file for the Runit logging service.
+LOG_TEMPLATE="#!/usr/bin/env bash
+
+svlogd -tt $SERVICE_DIR/log 2>&1"
+
+cd $HTTP_DIR
+
+echo 'Migrating database'
+
+rake db:migrate --trace
+
+# Create the Runit service file if it doesn't exist.
+if [[ ! -d $SERVICE_DIR ]]; then
+    echo 'Creating Runit configuration files'
+
+    mkdir -p "$SERVICE_DIR/log"
+
+    echo -e $RUN_TEMPLATE > "$SERVICE_DIR/run"
+    echo -e $LOG_TEMPLATE > "$SERVICE_DIR/log/run"
+else
+    echo 'Restarting application'
+
+    sv restart $SERVICE_DIR
+fi
