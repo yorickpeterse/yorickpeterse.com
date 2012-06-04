@@ -36,8 +36,8 @@ if [[ ! -d $SERVICE_DIR ]]; then
 
     mkdir -p "$SERVICE_DIR/log"
 
-    echo -e $RUN_TEMPLATE > "$SERVICE_DIR/run"
-    echo -e $LOG_TEMPLATE > "$SERVICE_DIR/log/run"
+    echo -e "$RUN_TEMPLATE" > "$SERVICE_DIR/run"
+    echo -e "$LOG_TEMPLATE" > "$SERVICE_DIR/log/run"
 else
     echo 'Restarting application'
 
