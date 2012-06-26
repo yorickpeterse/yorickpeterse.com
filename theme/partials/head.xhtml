@@ -27,9 +27,11 @@ title="#{get_setting(:website_name).value} &bull; Atom Feed" />
 <![endif]-->
 
 <title>
-    <?r if !@page_title ?>
-    #{get_setting(:website_name).value}
-    <?r else ?>
-    Yorick Peterse &bull; #{@page_title}
-    <?r end ?>
+    #{
+    if @page_title
+      @page_title
+    else
+      get_setting(:website_name).value
+    end
+    }
 </title>
