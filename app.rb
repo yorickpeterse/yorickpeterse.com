@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'zen'
 require 'redcarpet'
 
