@@ -32,7 +32,7 @@ bundle install --deployment
 
 echo 'Migrating database'
 
-rake db:migrate --trace
+bundle exec rake db:migrate --trace
 
 # Create the Runit service file if it doesn't exist.
 if [[ ! -d $SERVICE_DIR ]]; then
