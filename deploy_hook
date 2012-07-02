@@ -28,7 +28,7 @@ cd $HTTP_DIR
 
 echo 'Installing/Updating Gems'
 
-bundle install
+bundle install --deployment
 
 echo 'Migrating database'
 
