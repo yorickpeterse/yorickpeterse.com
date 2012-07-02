@@ -17,7 +17,7 @@ source "$HOME/.bashrc"
 
 cd $HTTP_DIR
 
-exec chpst -d 62914560 unicorn -c config/unicorn.rb config.ru 2>&1"
+exec chpst -d 62914560 bundle exec unicorn -c config/unicorn.rb config.ru 2>&1"
 
 # Content of the file for the Runit logging service.
 LOG_TEMPLATE="#!/usr/bin/env bash
