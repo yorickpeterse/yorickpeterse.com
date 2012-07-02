@@ -26,6 +26,10 @@ svlogd -tt $SERVICE_DIR/log 2>&1"
 
 cd $HTTP_DIR
 
+echo 'Installing/Updating Gems'
+
+bundle install
+
 echo 'Migrating database'
 
 rake db:migrate --trace
