@@ -2,8 +2,7 @@
 
 # Deploy hook that is executed after a set of commits is pushed to a
 # production server.
-source $(readlink -f "$(dirname "$(readlink -f \
-    "${BASH_SOURCE[0]}")")/submodules/deployment/lib/deployment")
+source submodules/deployment/lib/deployment
 
 app_dir   '/srv/http/yorickpeterse.com'
 runit_dir "$HOME/service/yorickpeterse.com"
