@@ -1,49 +1,19 @@
 #!/usr/bin/env bash
 
-# Deploy hook that will be executed on the remote server every time a set of
-# commits is pushed to this server.
+# Deploy hook that is executed after a set of commits is pushed to a
+# production server.
+source $(readlink -f "$(dirname "$(readlink -f \
+    "${BASH_SOURCE[0]}")")/submodules/deployment/lib/deployment")
 
-source "$HOME/.bashrc"
+app_dir   '/srv/http/yorickpeterse.com'
+runit_dir "$HOME/service/yorickpeterse.com"
 
-# Directory where the application is deployed to.
-HTTP_DIR="/srv/http/yorickpeterse.com"
+runit_service 'exec chpst -d 62914560 bundle exec unicorn -c' \
+    'config/unicorn.rb config.ru 2>&1'
 
-# Path to the Runit service file.
-SERVICE_DIR="$HOME/service/yorickpeterse.com"
+runit_log_service "svlogd -tt $RUNIT_DIR/log 2>&1"
 
-# The content of the Runit service file.
-RUN_TEMPLATE="#!/usr/bin/env bash
-source "$HOME/.bashrc"
-
-cd $HTTP_DIR
-
-exec chpst -d 62914560 bundle exec unicorn -c config/unicorn.rb config.ru 2>&1"
-
-# Content of the file for the Runit logging service.
-LOG_TEMPLATE="#!/usr/bin/env bash
-
-svlogd -tt $SERVICE_DIR/log 2>&1"
-
-cd $HTTP_DIR
-
-echo 'Installing/Updating Gems'
-
-bundle install --deployment
-
-echo 'Migrating database'
-
-bundle exec rake db:migrate --trace
-
-# Create the Runit service file if it doesn't exist.
-if [[ ! -d $SERVICE_DIR ]]; then
-    echo 'Creating Runit configuration files'
-
-    mkdir -p "$SERVICE_DIR/log"
-
-    echo -e "$RUN_TEMPLATE" > "$SERVICE_DIR/run"
-    echo -e "$LOG_TEMPLATE" > "$SERVICE_DIR/log/run"
-else
-    echo 'Restarting application'
-
-    sv restart $SERVICE_DIR
-fi
+cd_app
+install_gems
+migrate_db
+restart_app
