@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-systemd_service="yorickpeterse.com"
+systemd_service="yorickpeterse.com.service"
 systemd_directory="~/.config/systemd/user"
 systemd_file="$systemd_directory/$systemd_service"
 
