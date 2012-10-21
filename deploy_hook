@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+systemd_service="yorickpeterse.com"
+systemd_directory="~/.config/systemd/user"
+systemd_file="$systemd_directory/$systemd_service"
+
+# Configure Systemd
+mkdir -p $systemd_directory
+
+if [[ -f $systemd_file ]]; then
+    systemctl --user stop $systemd_service
+fi
+
+cp ./config/systemd/$systemd_service $systemd_file
+
+bundle install
+rake db:migrate
+
+systemctl --user daemon-reload
+systemctl --user start $systemd_service

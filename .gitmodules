@@ -1,3 +1,0 @@
-[submodule "submodules/deployment"]
-	path = submodules/deployment
-	url = git://github.com/YorickPeterse/deployment.git
