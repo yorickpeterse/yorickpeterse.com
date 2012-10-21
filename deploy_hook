@@ -8,14 +8,19 @@ systemd_file="$systemd_directory/$systemd_service"
 # Configure Systemd
 mkdir -p $systemd_directory
 
-if [[ ! -f $systemd_file ]]; then
+if [[ -f $systemd_file ]]; then
+    echo 'Stopping Systemd service'
+
     systemctl --user stop $systemd_service
 fi
 
 cp ./config/systemd/$systemd_service $systemd_file
 
 bundle install
-rake db:migrate
+
+rake db:migrate --trace
+
+echo 'Starting Systemd service'
 
 systemctl --user daemon-reload
 systemctl --user start $systemd_service
