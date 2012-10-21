@@ -1,7 +1,7 @@
 require File.expand_path('../submodules/deployment/lib/deployment', __FILE__)
 
 application = Deployment::Application.new do |app|
-  app.name        = 'website'
+  app.name        = 'yorickpeterse.com'
   app.description = 'Personal website'
   app.directory   = '/srv/http/yorickpeterse.com'
   app.after       = ['postgresql.service', 'memcached.service']
