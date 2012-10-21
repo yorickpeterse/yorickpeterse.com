@@ -2,7 +2,7 @@
 set -e
 
 systemd_service="yorickpeterse.com.service"
-systemd_directory="~/.config/systemd/user"
+systemd_directory="$HOME/.config/systemd/user"
 systemd_file="$systemd_directory/$systemd_service"
 
 # Configure Systemd
