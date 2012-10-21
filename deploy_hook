@@ -8,7 +8,7 @@ systemd_file="$systemd_directory/$systemd_service"
 # Configure Systemd
 mkdir -p $systemd_directory
 
-if [[ -f $systemd_file ]]; then
+if [[ ! -f $systemd_file ]]; then
     systemctl --user stop $systemd_service
 fi
 
