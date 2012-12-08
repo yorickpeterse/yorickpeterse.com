@@ -1,0 +1,90 @@
+# Configuration
+
+redcarpet_options = {
+  :options => {
+    :tables             => true,
+    :fenced_code_blocks => true,
+    :strikethrough      => true
+  }
+}
+
+partials = ['_head', '_header', '_footer']
+layouts  = ['default', 'home']
+
+# Static files.
+
+compile '/css/*' do
+  if config[:minify]
+    filter :yui_compressor, :type => 'css'
+  end
+end
+
+compile '/js/*' do
+  if config[:minify]
+    filter :yui_compressor, :type => 'js'
+  end
+end
+
+# Articles
+
+compile '/articles/*' do
+  filter :redcarpet, redcarpet_options
+  layout 'default'
+end
+
+compile '/404' do
+  filter :redcarpet, redcarpet_options
+  layout 'default'
+end
+
+compile '/' do
+  filter :redcarpet, redcarpet_options
+  filter :erb
+  layout 'home'
+end
+
+compile '/feed' do
+  filter :erb
+end
+
+compile '*' do
+  nil
+end
+
+# Routes
+
+route '/css/*' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+route '/js/*' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+route '/feed' do
+  '/feed.xml'
+end
+
+route '/404' do
+  '/404.html'
+end
+
+route '*' do
+  if item.binary?
+    rep.item.identifier.chop + '.' + item[:extension]
+  else
+    rep.item.identifier + 'index.html'
+  end
+end
+
+# Layouts
+
+layouts.each do |file|
+  layout file, :erb
+end
+
+partials.each do |file|
+  layout file, :erb
+end
+
+# vim: set ft=ruby:

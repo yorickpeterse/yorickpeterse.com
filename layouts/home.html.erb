@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%=
+        render '_head',
+          :keywords    => @item[:keywords],
+          :description => @item[:description]
+        %>
+    </head>
+    <body id="home">
+        <%= render '_header' %>
+
+        <div id="content" class="row">
+            <section>
+                <header>
+                    <h1><%= @item[:title] %></h1>
+                </header>
+
+                <%= yield %>
+
+                <h2>Articles</h2>
+
+                <ul class="plain">
+                    <% sorted_articles.each do |article| %>
+                    <li>
+                        <a href="<%= url_for(article) %>">
+                            <%= article[:title] %>
+                        </a>
+                    </li>
+                    <% end %>
+                </ul>
+            </section>
+        </div>
+
+        <%= render '_footer' %>
+    </body>
+</html>

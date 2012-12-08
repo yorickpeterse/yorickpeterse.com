@@ -1,20 +1,3 @@
-.DS_Store
-
-# Ignore all configuration files
-config/config.rb
-config/database.rb
-config/unicorn.rb
-
-# Ignore all log files
-log/database/dev/*.log
-log/database/live/*.log
-log/unicorn/*.log
-log/nginx/*.log
-
-tmp/*
-!tmp/.gitkeep
-
-*.pyc
-
-public/minified/*
-!public/minified/.gitkeep
+crash.log
+tmp
+output
