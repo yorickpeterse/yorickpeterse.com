@@ -12,6 +12,7 @@ GEM
       cri (~> 2.2)
     rack (1.4.1)
     redcarpet (2.2.2)
+    systemu (2.5.2)
     yuicompressor (1.2.0)
 
 PLATFORMS
@@ -23,4 +24,5 @@ DEPENDENCIES
   mime-types
   nanoc
   redcarpet
+  systemu
   yuicompressor
