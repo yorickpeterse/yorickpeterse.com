@@ -16,10 +16,8 @@ data_sources:
 
 minify     : true
 title      : Yorick Peterse
-base_url   : http://localhost:3000
-feed_url   : http://localhost:3000/feed.xml
-#base_url  : http://yorickpeterse.com
-#feed_url  : http://yorickpeterse.com/articles/atom
+base_url   : http://yorickpeterse.com
+feed_url   : http://yorickpeterse.com/feed.xml
 author_name: Yorick Peterse
 author_uri : http://yorickpeterse.com
 
