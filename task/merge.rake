@@ -15,4 +15,6 @@ task :merge do
       handle.lines { |line| minified.write(line) }
     end
   end
+
+  minified.close
 end

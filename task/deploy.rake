@@ -1,5 +1,4 @@
 desc 'Deploys the website'
-task :deploy => :compile do
-  sh('rake merge')
+task :deploy => [:compile, :merge] do
   sh('nanoc deploy')
 end
