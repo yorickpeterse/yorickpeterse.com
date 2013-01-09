@@ -19,7 +19,8 @@ code myself such as a [static code analysis tool/linter for Ruby][ruby-lint].
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
-websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit].
+websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit]. I
+am currently not interested in any job offers.
 
 The source code of this website can be found on [Github][source] and is
 licensed under the MIT license (a copy of this license can be found in the
