@@ -11,7 +11,6 @@ directory, are licensed under a [Creative Commons license][cc license].
 
 * Ruby 1.9.2 or newer
 * Nanoc 3.0 or newer
-* Java for the YUI compressor library
 * Rake
 * Bundler
 * rsync
