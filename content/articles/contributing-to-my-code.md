@@ -23,9 +23,7 @@ HTML, CSS and JavaScript files. The latter is done because I strongly feel that
 2 spaces just isn't enough in XML based languages or languages that use curly
 braces. In all cases the use of tabs is forbidden. I'm not going to argue
 whether tabs are better than spaces (or the other way around). Bluntly put, if
-you want to contribute code you're going to use spaces. For Ruby developers
-this shouldn't be an issue since this is the universally accepted standard
-amongst Ruby developers.
+you want to contribute code you're going to use spaces.
 
 An example of correct indentation:
 
