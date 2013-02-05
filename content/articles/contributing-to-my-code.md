@@ -71,8 +71,10 @@ While this is not:
 
     end
 
-The former is better because it allows you to load the code on its own without
-having to worry about the entire namespace already being defined.
+The former is better as it allows you to load the file without manually having
+to define missing segments of the namespace. This becomes especially useful if
+you want to test specific files without loading the rest of a Gem or
+application.
 
 ## Documentation
 
