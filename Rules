@@ -15,7 +15,7 @@ layouts  = ['default', 'home']
 # Static files.
 
 compile '/stylesheets/*' do
-  filter :sass, :syntax => :scss#, :style => :compressed
+  filter :sass, :syntax => :scss, :style => :compressed
 end
 
 # Articles
