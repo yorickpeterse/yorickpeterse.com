@@ -34,7 +34,7 @@ An example of correct indentation:
       end
     end
 
-An example of an incorrect indentation:
+An example of incorrect indentation:
 
     #!ruby
     class User
