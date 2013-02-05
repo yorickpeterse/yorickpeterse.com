@@ -13,6 +13,7 @@ GEM
       cri (~> 2.2)
     nokogiri (1.5.6)
     rack (1.4.1)
+    rake (10.0.3)
     redcarpet (2.2.2)
     sass (3.2.5)
     systemu (2.5.2)
@@ -27,6 +28,7 @@ DEPENDENCIES
   mime-types
   nanoc
   nokogiri
+  rake
   redcarpet
   sass
   systemu

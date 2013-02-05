@@ -11,4 +11,5 @@ gem 'sass'
 group :development do
   gem 'mime-types'
   gem 'adsf'
+  gem 'rake'
 end
