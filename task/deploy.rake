@@ -1,5 +1,5 @@
 desc 'Deploys the website'
-task :deploy do
+task :deploy => [:clean] do
   sh('nanoc')
   sh('nanoc deploy')
 end
