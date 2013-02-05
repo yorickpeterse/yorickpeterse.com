@@ -1,11 +1,11 @@
-text_extensions   : ['css', 'js', 'md', 'html', 'erb']
+text_extensions   : ['scss', 'css', 'js', 'md', 'html', 'erb']
 output_dir        : output
 index_filenames   : ['index.html']
 enable_output_diff: false
 
 prune:
   auto_prune: true
-  exclude   : ['.git', 'minified.css']
+  exclude   : ['.git']
 
 data_sources:
   -
@@ -14,7 +14,6 @@ data_sources:
     layouts_root                : /
     allow_periods_in_identifiers: false
 
-minify     : true
 title      : Yorick Peterse
 base_url   : http://yorickpeterse.com
 feed_url   : http://yorickpeterse.com/feed.xml

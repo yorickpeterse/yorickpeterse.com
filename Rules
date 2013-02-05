@@ -1,7 +1,8 @@
 # Configuration
 
 redcarpet_options = {
-  :options => {
+  :renderer => CustomRedcarpet,
+  :options  => {
     :tables             => true,
     :fenced_code_blocks => true,
     :strikethrough      => true
@@ -13,22 +14,15 @@ layouts  = ['default', 'home']
 
 # Static files.
 
-compile '/css/*' do
-  if config[:minify]
-    filter :yui_compressor, :type => 'css'
-  end
-end
-
-compile '/js/*' do
-  if config[:minify]
-    filter :yui_compressor, :type => 'js'
-  end
+compile '/stylesheets/*' do
+  filter :sass, :syntax => :scss#, :style => :compressed
 end
 
 # Articles
 
 compile '/articles/*' do
   filter :redcarpet, redcarpet_options
+  filter :colorize_syntax
   layout 'default'
 end
 
@@ -53,12 +47,8 @@ end
 
 # Routes
 
-route '/css/*' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
-route '/js/*' do
-  item.identifier.chop + '.' + item[:extension]
+route '/stylesheets/*' do
+  item.identifier.chop + '.css'
 end
 
 route '/feed' do

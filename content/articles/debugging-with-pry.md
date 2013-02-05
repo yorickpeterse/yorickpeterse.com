@@ -1,17 +1,3 @@
----
-title: Debugging With Pry
-created_at: 2011-11-27 00:00
-kind: article
-keywords:
-  - pry
-  - repl
-  - ruby
-  - debugging
-  - irb
-description: "Pry is a REPL (Read Eval Print Loop) that was written as a better
-alternative to IRB."
----
-
 Pry is a REPL (Read Eval Print Loop) that was written as a better alternative
 to IRB. It comes with syntax highlighting, code indentation that actually works
 and several other features that make it easier to debug code. I stumbled upon
@@ -31,6 +17,7 @@ bit clunky. Indenting itself works fine most of the time but it fails to
 un-indent code properly as illustrated in the code snippet below (pasted
 directly from an IRB session):
 
+    #!text
     ruby-1.9.3-p0 :001 > class User
     ruby-1.9.3-p0 :002?>   def greet
     ruby-1.9.3-p0 :003?>     puts "Hello world"
@@ -43,6 +30,7 @@ resetting the terminal output every time a new line is entered. The downside of
 this approach is that it only works on terminals that understand ANSI escape
 codes.  In Pry the above example works like it should do:
 
+    #!text
     [1] pry(main)> class User
     [1] pry(main)*   def greet
     [1] pry(main)*     puts "Hello world"
@@ -59,6 +47,7 @@ code of a method or its documentation can be done by using the ``show-method``
 and ``show-doc`` command. For example, invoking ``show-method pry`` in a Pry
 session would give you the following output:
 
+    #!text
     [1] pry(main)> show-method pry
 
     From: /path/trimmed/for/readability/lib/pry/core_extensions.rb @ line 19:
@@ -72,6 +61,7 @@ session would give you the following output:
 
 Calling ``show-doc pry`` would instead show the following:
 
+    #!text
     [2] pry(main)> show-doc pry
 
     From: /path/trimmed/for/readability/lib/pry/core_extensions.rb @ line 19:
@@ -113,30 +103,29 @@ script.
 Lets say you have the following script and want to see the values of the
 variables:
 
-```ruby
-language = 'Ruby'
-number   = 10
+    #!ruby
+    language = 'Ruby'
+    number   = 10
 
-# Do something awesome with the above variables.
-```
+    # Do something awesome with the above variables.
 
 The typical approach would be to insert a puts statement above the comment
 followed by an exit statement. Pry in a way can do a similar thing, it just
 makes it a lot more awesome. If you modify the script as following you can
 truly debug your code like a boss:
 
-```ruby
-language = 'Ruby'
-number   = 10
+    #!ruby
+    language = 'Ruby'
+    number   = 10
 
-binding.pry
+    binding.pry
 
-# Do something awesome with the above variables.
-```
+    # Do something awesome with the above variables.
 
 If you now run the script by calling ``ruby -r pry file.rb`` you get a fancy
 Pry session:
 
+    #!text
     [yorickpeterse@Wifi-Ninja in ~]$ ruby -r pry file.rb
 
     From: file.rb @ line 4 in Object#N/A:
@@ -154,6 +143,7 @@ the call to ``binding.pry`` meaning you get access to data such as the local
 variables. These can be displayed by calling ``ls`` or by simply typing their
 name.
 
+    #!text
     [yorickpeterse@Wifi-Ninja in ~]$ ruby -r pry file.rb
 
     From: file.rb @ line 4 in Object#N/A:

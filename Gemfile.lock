@@ -4,16 +4,18 @@ GEM
     adsf (1.1.1)
       rack (>= 1.0.0)
     builder (3.1.4)
+    coderay (1.0.8)
     colored (1.2)
     cri (2.3.0)
       colored (>= 1.2)
     mime-types (1.19)
-    nanoc (3.4.2)
+    nanoc (3.5.0)
       cri (~> 2.2)
+    nokogiri (1.5.6)
     rack (1.4.1)
     redcarpet (2.2.2)
+    sass (3.2.5)
     systemu (2.5.2)
-    yuicompressor (1.2.0)
 
 PLATFORMS
   ruby
@@ -21,8 +23,10 @@ PLATFORMS
 DEPENDENCIES
   adsf
   builder
+  coderay
   mime-types
   nanoc
+  nokogiri
   redcarpet
+  sass
   systemu
-  yuicompressor

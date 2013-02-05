@@ -18,20 +18,7 @@ type="application/atom+xml" title="<%= config[:title] %>" />
 
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-<% if config[:minify] %>
-
-<link rel="stylesheet" href="/css/minified.css" />
-
-<% else %>
-
-<link rel="stylesheet" href="/css/reset.css" />
-<link rel="stylesheet" href="/css/github.css" />
-<link rel="stylesheet" href="/css/style.css" />
-
-<% end %>
-
-<script type="text/javascript" src="/js/highlight.js"></script>
-<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" href="/stylesheets/application.css" />
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

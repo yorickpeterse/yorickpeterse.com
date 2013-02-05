@@ -1,0 +1,44 @@
+@import 'reset';
+@import 'autumn';
+@import 'partials/variables';
+@import 'partials/text';
+@import 'partials/lists';
+
+body
+{
+    color: $text;
+    font-family: $font;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#top
+{
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    nav ul
+    {
+        margin: 0px auto;
+        width: 190px;
+
+        li
+        {
+            display: inline-block;
+            list-style-type: none;
+            margin-right: 15px;
+        }
+
+        li:last-child
+        {
+            margin-right: 0px;
+        }
+    }
+}
+
+#content, #top
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+}
