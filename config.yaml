@@ -1,26 +1,26 @@
-text_extensions   : ['scss', 'css', 'js', 'md', 'html', 'erb']
-output_dir        : output
-index_filenames   : ['index.html']
+text_extensions: ['scss', 'css', 'js', 'md', 'html', 'erb']
+output_dir: output
+index_filenames: ['index.html']
 enable_output_diff: false
 
 prune:
   auto_prune: true
-  exclude   : ['.git']
+  exclude: ['.git']
 
 data_sources:
   -
-    type                        : filesystem_unified
-    items_root                  : /
-    layouts_root                : /
+    type: filesystem_unified
+    items_root: /
+    layouts_root: /
     allow_periods_in_identifiers: false
 
-title      : Yorick Peterse
-base_url   : http://yorickpeterse.com
-feed_url   : http://yorickpeterse.com/feed.xml
+title: Yorick Peterse
+base_url: http://yorickpeterse.com
+feed_url: http://yorickpeterse.com/feed.xml
 author_name: Yorick Peterse
-author_uri : http://yorickpeterse.com
+author_uri: http://yorickpeterse.com
 
 deploy:
   default:
     kind: rsync
-    dst : "stewie.yorickpeterse.com:/srv/http/yorickpeterse.com/public"
+    dst: "stewie.yorickpeterse.com:/srv/http/yorickpeterse.com/public"

@@ -13,7 +13,7 @@ type="application/atom+xml" title="<%= config[:title] %>" />
 <% end %>
 
 <% if @description %>
-<meta name="description" content="<%= @description %>" />
+<meta name="description" content="<%= @description.strip %>" />
 <% end %>
 
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
