@@ -22,6 +22,10 @@ do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
 websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit]. I
 am currently not interested in any job offers.
 
+My GPG public key is `3649F444` registered using Email address
+`yorickpeterse@gmail.com`. Other keys registered on my name are no longer in
+use.
+
 The source code of this website can be found on [Github][source] and is
 licensed under the MIT license (a copy of this license can be found in the
 repository). All textual content on this website is licensed under a
