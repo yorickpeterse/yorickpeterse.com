@@ -23,7 +23,7 @@ websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit]. I
 am currently not interested in any job offers.
 
 My GPG public key is `3649F444` registered using Email address
-`yorickpeterse@gmail.com`. Other keys registered on my name are no longer in
+yorickpeterse@gmail.com. Other keys registered on my name are no longer in
 use.
 
 The source code of this website can be found on [Github][source] and is
