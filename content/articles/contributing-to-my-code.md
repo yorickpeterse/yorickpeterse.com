@@ -129,9 +129,10 @@ level.
 
 ## Testing
 
-Jesus Christ write some tests. I know myself well enough to know that unless I
-have a proper set of tests I'll just forget about potential problems until they
-bite me in the back when I least expect it.
+When working with code please write tests accordingly. For example, I know
+myself well enough to know that unless I have a proper set of tests I'll just
+forget about potential problems until they bite me in the back when I least
+expect it.
 
 When you're just starting out with a new feature and opened a pull request as
 the means to ask for feedback it's fine if you don't have any tests yet. I
@@ -202,8 +203,9 @@ understand what somebody was trying to do.
 Each commit, no matter how small, must be signed off using `git commit --sign`.
 When signing off a commit you indicate that you have read and accepted both the
 Developer's Certificate of Origin (found in the file DCO.md) as well as the
-license (found in the file LICENSE). Commits that are not signed off, no matter
-how useful, will **not** be accepted.
+license (found in the file LICENSE). Commits that are not signed will have to
+be modified accordingly before they can be merged (I'll inform people about
+this when needed).
 
 When signing your commits make sure your name and Email address are set
 correctly, these can be set as following:
@@ -216,6 +218,23 @@ Once configured properly you can sign off commits using the following command:
 
     #!text
     git commit --sign -m "Commit message goes in here
+
+The reason for signing off commits is that it acts as a way of saying that
+you've read and agreed with the license, a DCO and any other legal related
+files. Similar to autographs they don't introduce any form of security but
+instead are a simple way of showing that you agree with/understand something.
+
+One might say that they agree by default whenever dealing with a FOSS project.
+However, I'm personally not a fan of an implicit form of agreements. In the
+past this has already come back to haunt me and as a result I will at times
+enforce certain requirements. Especially signing off commits is easy and can
+potentially safe me quite a bit of time, effort and in the worst case even
+money.
+
+For small projects (e.g. my dotfiles) I really don't care about signing off
+commits or not. However, for bigger projects such as ruby-lint I do but in
+those cases there will be a mention of this guide and/or a DCO, typically in
+the `doc/` directory.
 
 ## Forbidden Files
 
