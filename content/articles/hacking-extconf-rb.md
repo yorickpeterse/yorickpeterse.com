@@ -1,6 +1,6 @@
 In Ruby land [RubyGems][rubygems] is the de facto package manager. RubyGems
 allows you to easily distribute your Ruby packages (known as "Gems"). These
-packages comes in two flavours:
+packages come in two flavours:
 
 * Pure Ruby Gems
 * Gems that include C code (or any other compiled code for that matter) that
