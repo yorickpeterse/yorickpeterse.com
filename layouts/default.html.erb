@@ -16,6 +16,12 @@
             <section>
                 <header>
                     <h1><%= item[:title] %></h1>
+
+                    <% if item[:created_at] %>
+                    <p class="meta">
+                        Published at: <%= date_tag(item[:created_at]) %>
+                    </p>
+                    <% end %>
                 </header>
 
                 <%= yield %>

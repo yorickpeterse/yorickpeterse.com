@@ -28,7 +28,7 @@ h4
 
 p, ul, ol, blockquote
 {
-    margin-bottom: 20px;
+    margin-bottom: $margin_bottom;
 }
 
 p
@@ -51,4 +51,9 @@ blockquote
     border-left: 1px dotted #000;
     font-style: italic;
     padding: 5px 5px 5px 15px;
+}
+
+time
+{
+    font-size: 14px;
 }

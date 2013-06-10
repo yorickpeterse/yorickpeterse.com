@@ -1,3 +1,11 @@
+<div class="note">
+    <p>
+        As it turns out you can make the process discussed in this article
+        easier by using a Rakefile instead of an extconf.rb file. See the
+        bottom of this article for more information.
+    </p>
+</div>
+
 In Ruby land [RubyGems][rubygems] is the de facto package manager. RubyGems
 allows you to easily distribute your Ruby packages (known as "Gems"). These
 packages come in two flavours:
@@ -160,8 +168,29 @@ extconf.rb file. An example of a project using this approach is
 [ruby-llvm][ruby-llvm]. I haven't investigated this option myself so I can't
 tell for certain though.
 
+## Using a Rakefile
+
+After writing this article it was discovered that the above process can be made
+significantly easier by using a Rakefile. To be more exact, any file that does
+not match the following pattern can be used without having to create the above
+dummy files:
+
+    #!ruby
+    /\A(extconf|makefile).rb\z/
+
+This information is based on [this][mkmf-wtf] code. These particular lines of
+code cause the installation process to fail (since mkmf exits with a non
+successful exit status) if the filename of an extension matches the above
+pattern and the variable `$extmk` is set to `false`.
+
+In our particular use case this meant that I could get rid of the dummy
+Makefile and C extension file since it's actually mkmf that insists on these
+files being created and not RubyGems. This in turn made the code considerably
+smaller and much less of a hack.
+
 [rubygems]: http://rubygems.org/
 [libxml2]: http://www.xmlsoft.org/
 [olery]: http://olery.com/
 [whitequark]: https://github.com/whitequark/
 [ruby-llvm]: https://github.com/ruby-llvm/ruby-llvm/blob/master/ruby-llvm.gemspec
+[mkmf-wtf]: https://github.com/ruby/ruby/blob/34f5700a0947243198dea5461b80fa8be5ba19ea/lib/mkmf.rb#L2598-L2600
