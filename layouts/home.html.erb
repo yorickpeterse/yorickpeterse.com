@@ -20,23 +20,16 @@
 
                 <h2>Articles</h2>
 
-                <table>
-                    <tbody>
-                        <% sorted_articles.each do |article| %>
-                        <tr>
-                            <td>
-                                <a href="<%= url_for(article) %>"
-                                title="<%= article[:title] %>">
-                                    <%= article[:title] %>
-                                </a>
-                            </td>
-                            <td class="align-right">
-                                <%= date_tag(article[:created_at]) %>
-                            </td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+                <ul class="plain">
+                    <% sorted_articles.each do |article| %>
+                    <li>
+                        <a href="<%= url_for(article) %>"
+                        title="<%= article[:title] %>">
+                            <%= article[:title] %>
+                        </a>
+                    </li>
+                    <% end %>
+                </ul>
             </section>
         </div>
 
