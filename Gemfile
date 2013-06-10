@@ -7,6 +7,7 @@ gem 'systemu'
 gem 'coderay'
 gem 'nokogiri'
 gem 'sass'
+gem 'haml'
 
 group :development do
   gem 'mime-types'

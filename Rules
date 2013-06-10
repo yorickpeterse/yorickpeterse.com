@@ -9,6 +9,11 @@ redcarpet_options = {
   }
 }
 
+haml_options = {
+  :format => :html5,
+  :ugly   => true
+}
+
 partials = ['_head', '_header', '_footer']
 layouts  = ['default', 'home']
 
@@ -33,7 +38,7 @@ end
 
 compile '/' do
   filter :redcarpet, redcarpet_options
-  filter :erb
+  filter :haml, haml_options
   layout 'home'
 end
 
@@ -70,11 +75,11 @@ end
 # Layouts
 
 layouts.each do |file|
-  layout file, :erb
+  layout file, :haml, haml_options
 end
 
 partials.each do |file|
-  layout file, :erb
+  layout file, :haml, haml_options
 end
 
 # vim: set ft=ruby:

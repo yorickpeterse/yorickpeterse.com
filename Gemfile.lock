@@ -8,6 +8,8 @@ GEM
     colored (1.2)
     cri (2.3.0)
       colored (>= 1.2)
+    haml (4.0.3)
+      tilt
     mime-types (1.23)
     nanoc (3.6.4)
       cri (~> 2.3)
@@ -17,6 +19,7 @@ GEM
     redcarpet (2.3.0)
     sass (3.2.9)
     systemu (2.5.2)
+    tilt (1.4.1)
 
 PLATFORMS
   ruby
@@ -25,6 +28,7 @@ DEPENDENCIES
   adsf
   builder
   coderay
+  haml
   mime-types
   nanoc
   nokogiri
