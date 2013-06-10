@@ -1,16 +1,3 @@
----
-title: Yorick Peterse
-created: 2011-05-04 00:01
-keywords:
-  - yorick peterse
-  - developer
-  - pry
-  - zen
-  - bcrypt
-description: "I am a programmer and geek living in the Netherlands who
-primarily writes Ruby"
----
-
 I am a programmer and geek living in the Netherlands who primarily writes Ruby
 code along with a mixture of various other languages such as Javascript and
 Python. Over the course of time I've contributed to projects such as
