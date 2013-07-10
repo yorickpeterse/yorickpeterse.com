@@ -14,7 +14,7 @@ haml_options = {
   :ugly   => true
 }
 
-partials = ['_head', '_header', '_footer']
+partials = ['_head', '_header']
 layouts  = ['default', 'home']
 
 # Static files.
