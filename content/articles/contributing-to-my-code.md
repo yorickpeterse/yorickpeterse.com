@@ -11,7 +11,6 @@ guide so expect things to change over the course of time.
 * [Testing](#testing)
 * [Git](#git)
   * [Commit Messages](#commit_messages)
-  * [Signing Off](#signing_off)
 * [Forbidden Files](#forbidden_files)
 * [Legal Requirements](#legal_requirements)
 * [Language Requirements](#language_requirements)
@@ -197,44 +196,6 @@ through code in order to find out what's going on. While I will always check
 every commit added by somebody else there are times when the code is not clear
 enough and I have no interest in spending an entire evening trying to
 understand what somebody was trying to do.
-
-### Signing Off
-
-Each commit, no matter how small, must be signed off using `git commit --sign`.
-When signing off a commit you indicate that you have read and accepted both the
-Developer's Certificate of Origin (found in the file DCO.md) as well as the
-license (found in the file LICENSE). Commits that are not signed will have to
-be modified accordingly before they can be merged (I'll inform people about
-this when needed).
-
-When signing your commits make sure your name and Email address are set
-correctly, these can be set as following:
-
-    #!text
-    git config --global --add user.name "YOUR NAME"
-    git config --global --add user.email "YOUR EMAIL"
-
-Once configured properly you can sign off commits using the following command:
-
-    #!text
-    git commit --sign -m "Commit message goes in here
-
-The reason for signing off commits is that it acts as a way of saying that
-you've read and agreed with the license, a DCO and any other legal related
-files. Similar to autographs they don't introduce any form of security but
-instead are a simple way of showing that you agree with/understand something.
-
-One might say that they agree by default whenever dealing with a FOSS project.
-However, I'm personally not a fan of an implicit form of agreements. In the
-past this has already come back to haunt me and as a result I will at times
-enforce certain requirements. Especially signing off commits is easy and can
-potentially safe me quite a bit of time, effort and in the worst case even
-money.
-
-For small projects (e.g. my dotfiles) I really don't care about signing off
-commits or not. However, for bigger projects such as ruby-lint I do but in
-those cases there will be a mention of this guide and/or a DCO, typically in
-the `doc/` directory.
 
 ## Forbidden Files
 
