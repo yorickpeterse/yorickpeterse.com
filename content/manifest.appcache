@@ -1,0 +1,4 @@
+CACHE MANIFEST
+# Date: <%= Time.now.to_s %>
+stylesheets/application.css
+favicon.ico

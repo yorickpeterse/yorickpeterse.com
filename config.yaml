@@ -1,4 +1,4 @@
-text_extensions: ['scss', 'css', 'js', 'md', 'html', 'erb']
+text_extensions: ['scss', 'css', 'js', 'md', 'html', 'erb', 'appcache']
 output_dir: output
 index_filenames: ['index.html']
 enable_output_diff: false

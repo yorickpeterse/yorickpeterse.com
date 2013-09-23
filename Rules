@@ -46,6 +46,10 @@ compile '/feed' do
   filter :erb
 end
 
+compile '/manifest' do
+  filter :erb
+end
+
 compile '*' do
   nil
 end
@@ -62,6 +66,10 @@ end
 
 route '/404' do
   '/404.html'
+end
+
+route '/manifest' do
+  '/manifest.appcache'
 end
 
 route '*' do
