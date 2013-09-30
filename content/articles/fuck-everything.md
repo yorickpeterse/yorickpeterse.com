@@ -5,7 +5,7 @@ butthurt when you don't talk purely about Ruby for more than 2 minutes.
 
 This article serves as a collection of random rants that I feel are worth
 writing down. Expect vulgar language, double standards, anger and badly written
-paragraphs.
+paragraphs. Don't expect well formed arguments.
 
 ## Index
 
