@@ -13,4 +13,6 @@ group :development do
   gem 'mime-types'
   gem 'adsf'
   gem 'rake'
+  gem 'pry'
+  gem 'pry-theme'
 end
