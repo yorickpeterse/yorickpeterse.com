@@ -8,7 +8,7 @@ include Nanoc::Helpers::Rendering
 # @return [String]
 #
 def format_date(date)
-  return attribute_to_time(date).dup.utc.strftime('%Y-%m-%d %R %Z')
+  return attribute_to_time(date).dup.utc.iso8601
 end
 
 ##
@@ -18,9 +18,8 @@ end
 # @return [String]
 #
 def date_tag(date)
-  machine_format = attribute_to_time(date).to_s
-  human_format   = format_date(date)
+  human_format   = attribute_to_time(date).to_s
+  machine_format = format_date(date)
 
-  return '<time pubdate="%s" datetime="%s">%s</time>' \
-    % [human_format, machine_format, human_format]
+  return '<time datetime="%s">%s</time>' % [machine_format, human_format]
 end
