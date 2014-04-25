@@ -31,6 +31,16 @@ p, ul, ol, blockquote
     margin-bottom: $margin_bottom;
 }
 
+a
+{
+    color: $link;
+}
+
+a:hover
+{
+    color: $link_hover;
+}
+
 blockquote
 {
     border-left: 1px dotted #000;
