@@ -5,15 +5,15 @@ guide so expect things to change over the course of time.
 ## Table Of Contents
 
 * [Indentation](#indentation)
-  * [Module and Class Indentation](#module_and_class_indentation)
+  * [Module and Class Indentation](#module-and-class-indentation)
 * [Documentation](#documentation)
 * [Dependencies](#dependencies)
 * [Testing](#testing)
 * [Git](#git)
-  * [Commit Messages](#commit_messages)
-* [Forbidden Files](#forbidden_files)
-* [Legal Requirements](#legal_requirements)
-* [Language Requirements](#language_requirements)
+  * [Commit Messages](#commit-messages)
+* [Forbidden Files](#forbidden-files)
+* [Legal Requirements](#legal-requirements)
+* [Language Requirements](#language-requirements)
 
 ## Indentation
 

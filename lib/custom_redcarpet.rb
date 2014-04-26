@@ -7,11 +7,11 @@ class CustomRedcarpet < Redcarpet::Render::HTML
   ##
   # @param [String] text The text of the header.
   # @param [Numeric] level The header level (`h2`, `h3`, etc).
+  # @param [String] identifier
   # @return [String]
   #
-  def header(text, level)
-    identifier = text.downcase.squeeze(' ').gsub(/\s+/, '_')
-    values     = [level, identifier, text, level]
+  def header(text, level, identifier)
+    values = [level, identifier, text, level]
 
     return '<h%s id="%s">%s</h%s>' % values
   end
