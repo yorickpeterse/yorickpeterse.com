@@ -1,5 +1,6 @@
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::Rendering
+include Nanoc::Helpers::LinkTo
 
 ##
 # Returns a `<time>` tag for the given date string.
