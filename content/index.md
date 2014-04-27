@@ -7,8 +7,10 @@ for Ruby, and [Oga][oga], a pure Ruby XML/HTML parser.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
-websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit]. I
-am currently not interested in any job offers.
+websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit].
+
+I am currently happily employed by [Olery][olery]. Although I appreciate the
+interest I am not interested in job offers at the moment.
 
 My GPG public key is `3649F444` registered using Email address
 yorickpeterse@gmail.com. Other keys registered on my name are no longer in
@@ -24,8 +26,9 @@ repository). All textual content on this website is licensed under a
 [ruby-lint]: https://github.com/yorickpeterse/ruby-lint
 [github]: https://github.com/yorickpeterse/
 [twitter]: http://twitter.com/yorickpeterse
-[reddit]: http://www.reddit.com/user/yorickpeterse/
+[reddit]: http://www.reddit.com/user/yorickpeterse
 [source]: https://github.com/yorickpeterse/yorickpeterse.com
-[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
+[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0
 [rubinius]: http://rubini.us
 [oga]: https://github.com/yorickpeterse/oga
+[olery]: http://www.olery.com.
