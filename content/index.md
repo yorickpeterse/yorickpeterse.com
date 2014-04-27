@@ -1,8 +1,9 @@
 I am a programmer and geek living in the Netherlands who primarily writes Ruby
 code along with a mixture of various other languages such as Javascript and
 Python. Over the course of time I've contributed to projects such as
-[Ramaze][ramaze] and [Pry][pry] as well as having written plenty of open source
-code myself such as a [static code analysis tool/linter for Ruby][ruby-lint].
+[Ramaze][ramaze], [Pry][pry] and [Rubinius][rubinius]. I also work on various
+personal projects such as [ruby-lint][ruby-lint], a static code analysis tool
+for Ruby, and [Oga][oga], a pure Ruby XML/HTML parser.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
@@ -26,3 +27,5 @@ repository). All textual content on this website is licensed under a
 [reddit]: http://www.reddit.com/user/yorickpeterse/
 [source]: https://github.com/yorickpeterse/yorickpeterse.com
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
+[rubinius]: http://rubini.us
+[oga]: https://github.com/yorickpeterse/oga
