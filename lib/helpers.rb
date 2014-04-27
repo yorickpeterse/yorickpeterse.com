@@ -9,10 +9,10 @@ include Nanoc::Helpers::LinkTo
 # @return [String]
 #
 def date_tag(date)
-  date = attribute_to_time(date)
+  date = attribute_to_time(date).dup.utc
 
   machine_format = date.iso8601
-  human_format   = date.dup.utc.strftime('%Y-%m-%d %R %Z')
+  human_format   = date.strftime('%B %d, %Y')
 
   return '<time datetime="%s">%s</time>' % [machine_format, human_format]
 end
