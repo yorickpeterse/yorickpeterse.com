@@ -20,6 +20,4 @@
         %ul.plain
           - sorted_articles.each do |article|
             %li
-              %a{:href => link_to(article[:title], article.path),
-              :title => article[:title]}
-                = article[:title]
+              = link_to(article[:title], article.path, :title => article[:title])
