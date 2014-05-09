@@ -31,4 +31,4 @@ repository). All textual content on this website is licensed under a
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0
 [rubinius]: http://rubini.us
 [oga]: https://github.com/yorickpeterse/oga
-[olery]: http://www.olery.com.
+[olery]: http://www.olery.com
