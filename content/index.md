@@ -3,7 +3,7 @@ code along with a mixture of various other languages such as Javascript and
 Python. Over the course of time I've contributed to projects such as
 [Ramaze][ramaze], [Pry][pry] and [Rubinius][rubinius]. I also work on various
 personal projects such as [ruby-lint][ruby-lint], a static code analysis tool
-for Ruby, and [Oga][oga], a Ruby XML/HTML parser.
+for Ruby, and [Oga][oga], an XML/HTML parser for Ruby.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
