@@ -3,7 +3,7 @@
         This article is rather blunt and a bit old. I've since become much more
         pragmatic about coding styles. Most of my newer repositories have an
         explicit contributing guide (often in CONTRIBUTING.md) so its best to
-        check those out in favour of this article.
+        check that out in favour of this article.
     </p>
 </div>
 
