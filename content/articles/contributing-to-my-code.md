@@ -164,7 +164,7 @@ descriptions and will result in me not accepting such commits.
 The second line of the commit should be empty as it acts as a separator between
 the subject and following lines. The following lines can be used to give a more
 in-depth description of what the commit does. These lines must not be longer
-than 79 characters per line.
+than 80 characters per line.
 
 An example of a good commit message is the following:
 
