@@ -1,3 +1,12 @@
+<div class="note">
+    <p>
+        This article is rather blunt and a bit old. I've since become much more
+        pragmatic about coding styles. Most of my newer repositories have an
+        explicit contributing guide (often in CONTRIBUTING.md) so its best to
+        check those out in favour of this article.
+    </p>
+</div>
+
 This document describes the various requirements that I have in order for me to
 accept third-party contributions. Note that this guide is an ever expanding
 guide so expect things to change over the course of time.
