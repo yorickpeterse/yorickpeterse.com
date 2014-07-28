@@ -1,25 +1,28 @@
-I am a programmer and geek living in the Netherlands who primarily writes Ruby
-code along with a mixture of various other languages such as Javascript and
-Python. Over the course of time I've contributed to projects such as
-[Ramaze][ramaze], [Pry][pry] and [Rubinius][rubinius]. I also work on various
-personal projects such as [ruby-lint][ruby-lint], a static code analysis tool
-for Ruby, and [Oga][oga], an XML/HTML parser for Ruby.
+I am a programmer and general geek living in The Netherlands. While my primary
+language is Ruby I also tend to use other languages such as Python, C/C++ and
+JavaScript.
+
+I'm currently employed by [Olery][olery] where I happily write Ruby code and
+occasionally curse at MongoDB. Although I appreciate the interest I am not
+interested in job offers at the moment.
+
+In my spare time I mostly work on free, open source software such as
+[Rubinius][rubinius], [ruby-lint][ruby-lint], [Oga][oga] and others. In the past
+I've also worked on [Ramaze][ramaze], [Pry][pry] and various other, smaller
+projects.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
-websites such as [Github][github], [Twitter][twitter] and [Reddit][reddit].
-
-I am currently happily employed by [Olery][olery]. Although I appreciate the
-interest I am not interested in job offers at the moment.
+[Github][github], [Twitter][twitter] and [Reddit][reddit].
 
 My GPG public key is `3649F444` registered using Email address
 yorickpeterse@gmail.com. Other keys registered on my name are no longer in
 use.
 
-The source code of this website can be found on [Github][source] and is
-licensed under the MIT license (a copy of this license can be found in the
-repository). All textual content on this website is licensed under a
-[Creative Commons][cc] license.
+The source code of this website can be found on [Github][source] and is licensed
+under the MIT license (a copy of this license can be found in the repository).
+The articles published on this website are licensed under a
+[Creative Commons][cc] license unless stated otherwise.
 
 [ramaze]: http://ramaze.net/
 [pry]: https://github.com/pry/pry
