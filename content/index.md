@@ -15,9 +15,8 @@ If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
 [Github][github], [Twitter][twitter] and [Reddit][reddit].
 
-My GPG public key is `3649F444` registered using Email address
-yorickpeterse@gmail.com. Other keys registered on my name are no longer in
-use.
+My GPG public key is [EB691AC9][gpg-key] registered using Email address
+yorickpeterse@gmail.com. Other keys registered on my name are no longer in use.
 
 The source code of this website can be found on [Github][source] and is licensed
 under the MIT license (a copy of this license can be found in the repository).
@@ -35,3 +34,4 @@ The articles published on this website are licensed under a
 [rubinius]: http://rubini.us
 [oga]: https://github.com/yorickpeterse/oga
 [olery]: http://www.olery.com
+[gpg-key]: /gpg_key.txt
