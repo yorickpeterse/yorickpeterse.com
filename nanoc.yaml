@@ -24,3 +24,4 @@ deploy:
   default:
     kind: rsync
     dst: "europa.yorickpeterse.com:/srv/http/yorickpeterse.com/public"
+    options: ['-aP', '--delete-after']
