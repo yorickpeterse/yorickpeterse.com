@@ -14,4 +14,5 @@ group :development do
   gem 'rake'
   gem 'pry'
   gem 'pry-theme'
+  gem 'guard-nanoc'
 end

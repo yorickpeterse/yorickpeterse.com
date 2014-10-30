@@ -1,8 +1,9 @@
 # Configuration
 
 kramdown_options = {
-  :auto_ids       => true,
-  :auto_id_prefix => 'header-'
+  :parse_block_html => true,
+  :auto_ids         => true,
+  :auto_id_prefix   => 'header-'
 }
 
 haml_options = {
