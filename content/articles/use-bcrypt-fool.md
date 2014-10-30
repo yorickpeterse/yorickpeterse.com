@@ -1,3 +1,18 @@
+---
+title: Use BCrypt Fool!
+created_at: 2011-04-13 09:41
+kind: article
+keywords:
+  - bcrypt
+  - password
+  - ruby
+  - hashing
+  - cost
+description: >
+  BCrypt is a hashing algorithm based on Blowfish with a small twist: it keeps
+  up with Moore's law.
+---
+
 Almost any application will eventually need to store a collection of passwords
 or another type of data that has to be stored using a hashing algorithm. Blogs,
 forums, issue trackers, they all need to store user data and these passwords.

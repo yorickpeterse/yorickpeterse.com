@@ -1,3 +1,15 @@
+---
+title: Yorick Peterse
+created: 2011-05-04 00:01
+keywords:
+  - yorick peterse
+  - programmer
+  - ruby
+  - netherlands
+  - oga
+description: I am a programmer and general geek living in The Netherlands.
+---
+
 I am a programmer and general geek living in The Netherlands. While my primary
 language is Ruby I also tend to use other languages such as Python, C/C++ and
 JavaScript.

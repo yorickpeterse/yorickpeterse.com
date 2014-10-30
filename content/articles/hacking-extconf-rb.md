@@ -1,9 +1,20 @@
+---
+title: Hacking extconf.rb
+created_at: 2013-06-08 23:00
+kind: article
+keywords:
+  - ruby
+  - extconf
+  - hack
+  - rubygems
+description: >
+  Hacking extconf.rb to run arbitrary commands upon Gem installation.
+---
+
 <div class="note">
-    <p>
-        As it turns out you can make the process discussed in this article
-        easier by using a Rakefile instead of an extconf.rb file. See the
-        bottom of this article for more information.
-    </p>
+As it turns out you can make the process discussed in this article easier by
+using a Rakefile instead of an extconf.rb file. See the bottom of this article
+for more information.
 </div>
 
 In Ruby land [RubyGems][rubygems] is the de facto package manager. RubyGems

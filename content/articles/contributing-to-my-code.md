@@ -1,10 +1,21 @@
+---
+title: Contributing To My Code
+created_at: 2013-02-05 20:00:00
+kind: article
+keywords:
+  - contributing
+  - open source
+  - coding standard
+description: >
+  This document describes the various requirements that I have in
+  order for me to accept third-party contributions.
+---
+
 <div class="note">
-    <p>
-        This article is rather blunt and a bit old. I've since become much more
-        pragmatic about coding styles. Most of my newer repositories have an
-        explicit contributing guide (often in CONTRIBUTING.md) so its best to
-        check that out in favour of this article.
-    </p>
+This article is rather blunt and a bit old. I've since become much more
+pragmatic about coding styles. Most of my newer repositories have an explicit
+contributing guide (often in CONTRIBUTING.md) so its best to check that out in
+favour of this article.
 </div>
 
 This document describes the various requirements that I have in order for me to
@@ -13,16 +24,8 @@ guide so expect things to change over the course of time.
 
 ## Table Of Contents
 
-* [Indentation](#indentation)
-  * [Module and Class Indentation](#module-and-class-indentation)
-* [Documentation](#documentation)
-* [Dependencies](#dependencies)
-* [Testing](#testing)
-* [Git](#git)
-  * [Commit Messages](#commit-messages)
-* [Forbidden Files](#forbidden-files)
-* [Legal Requirements](#legal-requirements)
-* [Language Requirements](#language-requirements)
+* TOC
+{:toc}
 
 ## Indentation
 

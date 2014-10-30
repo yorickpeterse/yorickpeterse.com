@@ -1,3 +1,18 @@
+---
+title: Debugging With Pry
+created_at: 2011-11-27 00:00
+kind: article
+keywords:
+  - pry
+  - repl
+  - ruby
+  - debugging
+  - irb
+description: >
+  Pry is a REPL (Read Eval Print Loop) that was written as a better alternative
+  to IRB.
+---
+
 Pry is a REPL (Read Eval Print Loop) that was written as a better alternative
 to IRB. It comes with syntax highlighting, code indentation that actually works
 and several other features that make it easier to debug code. I stumbled upon
