@@ -1,12 +1,8 @@
 # Configuration
 
-redcarpet_options = {
-  :renderer => CustomRedcarpet,
-  :options  => {
-    :tables             => true,
-    :fenced_code_blocks => true,
-    :strikethrough      => true
-  }
+kramdown_options = {
+  :auto_ids       => true,
+  :auto_id_prefix => 'header-'
 }
 
 haml_options = {
@@ -14,8 +10,7 @@ haml_options = {
   :ugly   => true
 }
 
-partials = ['_head', '_header']
-layouts  = ['default', 'home']
+layouts = %w{default home _head _header}
 
 # Static files.
 
@@ -26,18 +21,18 @@ end
 # Articles
 
 compile '/articles/*' do
-  filter :redcarpet, redcarpet_options
+  filter :kramdown, kramdown_options
   filter :colorize_syntax
   layout 'default'
 end
 
 compile '/404' do
-  filter :redcarpet, redcarpet_options
+  filter :kramdown, kramdown_options
   layout 'default'
 end
 
 compile '/' do
-  filter :redcarpet, redcarpet_options
+  filter :kramdown, kramdown_options
   filter :haml, haml_options
   layout 'home'
 end
@@ -75,11 +70,7 @@ end
 # Layouts
 
 layouts.each do |file|
-  layout file, :haml, haml_options
-end
-
-partials.each do |file|
-  layout file, :haml, haml_options
+  layout(file, :haml, haml_options)
 end
 
 # vim: set ft=ruby:
