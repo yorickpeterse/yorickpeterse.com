@@ -1,4 +1,4 @@
 desc 'Deploys the website'
 task :deploy => [:build] do
-  sh 'nanoc deploy'
+  sh 'bundle exec nanoc deploy'
 end
