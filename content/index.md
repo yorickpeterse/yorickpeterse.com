@@ -42,7 +42,7 @@ The articles published on this website are licensed under a
 [twitter]: http://twitter.com/yorickpeterse
 [reddit]: http://www.reddit.com/user/yorickpeterse
 [source]: https://github.com/yorickpeterse/yorickpeterse.com
-[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0
+[cc]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [rubinius]: http://rubini.us
 [oga]: https://github.com/yorickpeterse/oga
 [olery]: http://www.olery.com
