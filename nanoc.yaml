@@ -22,6 +22,8 @@ author_uri: http://yorickpeterse.com
 
 deploy:
   default:
-    kind: rsync
-    dst: "europa.yorickpeterse.com:/srv/http/yorickpeterse.com/public"
-    options: ['-aP', '--delete-after']
+    kind: amazon_s3
+    region: eu-west-1
+    bucket: yorickpeterse.com
+    cloudfront_distribution: E38R9TE90MPQA7
+    age: 86400

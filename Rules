@@ -1,4 +1,5 @@
 # Configuration
+require_relative 'lib/nanoc/extra/deployers/amazon_s3'
 
 kramdown_options = {
   :parse_block_html => true,
