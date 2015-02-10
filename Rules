@@ -35,7 +35,6 @@ end
 
 compile '/' do
   filter :kramdown, kramdown_options
-  filter :haml, haml_options
   layout 'home'
 end
 
