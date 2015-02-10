@@ -15,8 +15,8 @@ language is Ruby I also tend to use other languages such as Python, C/C++ and
 JavaScript.
 
 I'm currently employed by [Olery][olery] where I happily write Ruby code and
-occasionally curse at MongoDB. Although I appreciate the interest I am not
-interested in job offers at the moment.
+occasionally <del>curse at MongoDB</del> cheer at PostgreSQL. Although I
+appreciate the interest I am not interested in job offers at the moment.
 
 In my spare time I mostly work on free, open source software such as
 [Rubinius][rubinius], [ruby-lint][ruby-lint], [Oga][oga] and others. In the past
