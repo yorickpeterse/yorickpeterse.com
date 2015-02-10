@@ -7,7 +7,7 @@ gem 'coderay'
 gem 'nokogiri'
 gem 'sass'
 gem 'haml'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.0'
 
 group :development do
   gem 'mime-types'

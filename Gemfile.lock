@@ -3,15 +3,11 @@ GEM
   specs:
     adsf (1.2.0)
       rack (>= 1.0.0)
-    aws-sdk (2.0.23)
-      aws-sdk-resources (= 2.0.23)
-    aws-sdk-core (2.0.23)
-      builder (~> 3.0)
-      jmespath (~> 1.0)
-      multi_json (~> 1.0)
-      multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.23)
-      aws-sdk-core (= 2.0.23)
+    aws-sdk (1.61.0)
+      aws-sdk-v1 (= 1.61.0)
+    aws-sdk-v1 (1.61.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -36,8 +32,6 @@ GEM
     haml (4.0.6)
       tilt
     hitimes (1.2.2)
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
     json (1.8.2)
     kramdown (1.5.0)
     listen (2.8.5)
@@ -48,8 +42,6 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
-    multi_json (1.10.1)
-    multi_xml (0.5.5)
     nanoc (3.7.5)
       cri (~> 2.3)
     nenv (0.2.0)
@@ -83,7 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   adsf
-  aws-sdk
+  aws-sdk (~> 1.0)
   builder
   coderay
   guard-nanoc
