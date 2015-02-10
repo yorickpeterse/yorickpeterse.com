@@ -21,7 +21,7 @@ module Nanoc
         def initialize(*args)
           super
 
-          require 'aws'
+          require 'aws-sdk'
           require 'securerandom'
           require 'pathname'
           require 'mime-types'
