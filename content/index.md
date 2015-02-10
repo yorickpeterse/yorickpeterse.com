@@ -10,18 +10,25 @@ keywords:
 description: I am a programmer and general geek living in The Netherlands.
 ---
 
-I am a programmer and general geek living in The Netherlands. While my primary
-language is Ruby I also tend to use other languages such as Python, C/C++ and
-JavaScript.
+I am a programmer and general geek living in The Netherlands. My primary
+language of choice is Ruby, although I'm also proficient in other languages such
+as C/C++, Java and Javascript.
 
 I'm currently employed by [Olery][olery] where I happily write Ruby code and
 occasionally <del>curse at MongoDB</del> cheer at PostgreSQL. Although I
 appreciate the interest I am not interested in job offers at the moment.
 
-In my spare time I mostly work on free, open source software such as
-[Rubinius][rubinius], [ruby-lint][ruby-lint], [Oga][oga] and others. In the past
-I've also worked on [Ramaze][ramaze], [Pry][pry] and various other, smaller
-projects.
+In my spare time I mostly work on free, open source software. Currently I
+actively work on the following projects:
+
+* [Rubinius][rubinius]: an implementation of the Ruby programming language
+* [Oga][oga]: an XML/HTML parser for Ruby with XPath and CSS support
+* [ruby-ll][ruby-ll]: an LL(1) parser generator for Ruby
+* [ruby-lint][ruby-lint]: a static code analysis tool for Ruby, capable of
+  detecting undefined methods, incorrect type usage, etc
+
+In the past I've also worked on [OpeNER][opener], [Ramaze][ramaze], [Pry][pry]
+and various other, smaller projects.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
@@ -47,3 +54,5 @@ The articles published on this website are licensed under a
 [oga]: https://github.com/yorickpeterse/oga
 [olery]: http://www.olery.com
 [gpg-key]: /gpg_key.txt
+[ruby-ll]: https://github.com/YorickPeterse/ruby-ll
+[opener]: http://www.opener-project.eu/
