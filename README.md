@@ -3,17 +3,14 @@
 This repository contains the source code for my website
 (<http://yorickpeterse.com/>).
 
-The source code is licensed under the MIT license, a copy of this license can be
-found in the file "LICENSE". The articles, which are found in the "articles"
-directory, are licensed under a [Creative Commons license][cc license].
+## License
 
-## Requirements
+All source code in this repository is subject to the terms of the Mozilla Public
+License, version 2.0 unless stated otherwise. A copy of this license can be
+found the file "LICENSE" or at <https://www.mozilla.org/MPL/2.0/>.
 
-* Ruby 1.9.2 or newer
-* Nanoc 3.0 or newer
-* Rake
-* Bundler
-* rsync
+The articles, which are found in the "articles" directory, are licensed under a
+[Creative Commons license][cc license].
 
 [nanoc]: https://github.com/ddfreyne/nanoc/
 [cc license]: http://creativecommons.org/licenses/by-nc-sa/3.0/
