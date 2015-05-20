@@ -30,8 +30,8 @@ was introduced.
 
 A lot has changed over the last 16 months. The old Racc parsers have been
 replaced by LL(1) parsers using [ruby-ll][ruby-ll], support was added for HTML5,
-XML/HTML entity conversion, handling of invalid XML/HTML, better SAX parsing and
-much more.
+XML/HTML entity conversion, handling of invalid XML/HTML, better SAX parsing,
+Windows support and much more.
 
 The exact list of changes can be found in the [changelog][changelog]. If you
 want to jump straight to trying out Oga you can install it from RubyGems:
