@@ -34,11 +34,13 @@ p, ul, ol, blockquote
 a
 {
     color: $link;
+    text-decoration: none;
 }
 
 a:hover
 {
     color: $link_hover;
+    text-decoration: underline;
 }
 
 blockquote
