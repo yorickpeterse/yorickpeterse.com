@@ -24,7 +24,7 @@ end
 
 compile '/articles/*' do
   filter :kramdown, kramdown_options
-  filter :colorize_syntax
+  filter :colorize_syntax, :default_colorizer => :rouge
   layout 'default'
 end
 
