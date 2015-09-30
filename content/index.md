@@ -14,9 +14,9 @@ I am a programmer and general geek living in The Netherlands. My primary
 language of choice is Ruby, although I'm also proficient in other languages such
 as C/C++, Java and Javascript.
 
-I'm currently employed by [Olery][olery] where I happily write Ruby code and
-occasionally <del>curse at MongoDB</del> cheer at PostgreSQL. Although I
-appreciate the interest I am not interested in job offers at the moment.
+I'm currently employed by [GitLab][gitlab] where I work on the performance of
+their platform, and on Rubinius. I am currently not interested in any job
+offers.
 
 In my spare time I mostly work on free, open source software. Currently I
 actively work on the following projects:
@@ -28,7 +28,8 @@ actively work on the following projects:
   detecting undefined methods, incorrect type usage, etc
 
 In the past I've also worked on [OpeNER][opener], [Ramaze][ramaze], [Pry][pry]
-and various other, smaller projects.
+and various other, smaller projects. I'm also an avid practitioner of Krav Maga,
+prior to that I practiced Taekwondo and Wing Chun Kung Fu.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
@@ -52,7 +53,7 @@ The articles published on this website are licensed under a
 [cc]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [rubinius]: http://rubini.us
 [oga]: https://github.com/yorickpeterse/oga
-[olery]: http://www.olery.com
+[gitlab]: https://about.gitlab.com/
 [gpg-key]: /gpg_key.txt
 [ruby-ll]: https://github.com/YorickPeterse/ruby-ll
 [opener]: http://www.opener-project.eu/
