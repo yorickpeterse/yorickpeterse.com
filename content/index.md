@@ -29,7 +29,7 @@ actively work on the following projects:
 
 In the past I've also worked on [OpeNER][opener], [Ramaze][ramaze], [Pry][pry]
 and various other, smaller projects. I'm also an avid practitioner of Krav Maga,
-prior to that I practiced Taekwondo and Wing Chun Kung Fu.
+prior to that I practised Taekwondo and Wing Chun Kung Fu.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
