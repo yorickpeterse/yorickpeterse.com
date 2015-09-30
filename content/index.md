@@ -12,7 +12,7 @@ description: I am a programmer and general geek living in The Netherlands.
 
 I am a programmer and general geek living in The Netherlands. My primary
 language of choice is Ruby, although I'm also proficient in other languages such
-as C/C++, Java and Javascript.
+as C/C++, JavaScript and Rust.
 
 I'm currently employed by [GitLab][gitlab] where I work on the performance of
 their platform, and on Rubinius. I am currently not interested in any job
