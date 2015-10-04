@@ -14,11 +14,11 @@ I am a programmer and general geek living in The Netherlands. My primary
 language of choice is Ruby, although I'm also proficient in other languages such
 as C/C++, JavaScript, and Rust.
 
-I'm currently employed by [GitLab][gitlab] where I work on the performance of
-their platform, and on Rubinius. I am currently not interested in any job
-offers.
+I'm currently employed by [GitLab][gitlab] where I work on improving performance
+of GitLab as well as improving Rubinius in general. I am currently not
+interested in any job offers.
 
-In my spare time I mostly work on free, open source software. Currently I
+In my spare time I mostly work on free and open source software. Currently I
 actively work on the following projects:
 
 * [Rubinius][rubinius]: an implementation of the Ruby programming language
