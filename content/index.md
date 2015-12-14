@@ -16,7 +16,8 @@ as C/C++, JavaScript, and Rust.
 
 I'm currently employed by [GitLab][gitlab] where I work on improving performance
 of GitLab as well as improving Rubinius in general. I am currently not
-interested in any job offers.
+interested in any job offers. I also don't do business with recruiters, so
+please don't bother contacting me if you're a recruiter.
 
 In my spare time I mostly work on free and open source software. Currently I
 actively work on the following projects:
