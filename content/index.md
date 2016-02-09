@@ -40,8 +40,8 @@ My GPG public key is [EB691AC9][gpg-key] registered using Email address
 yorickpeterse@gmail.com. Other keys registered on my name are no longer in use.
 
 The source code of this website can be found on [Github][source] and is licensed
-under the MIT license (a copy of this license can be found in the repository).
-The articles published on this website are licensed under a
+under the Mozilla Public License 2.0 (a copy of this license can be found in the
+repository). The articles published on this website are licensed under a
 [Creative Commons][cc] license unless stated otherwise.
 
 [ramaze]: http://ramaze.net/
