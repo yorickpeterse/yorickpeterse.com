@@ -19,14 +19,19 @@ of GitLab as well as improving Rubinius in general. I am currently not
 interested in any job offers. I also don't do business with recruiters, so
 please don't bother contacting me if you're a recruiter.
 
-In my spare time I mostly work on free and open source software. Currently I
-actively work on the following projects:
+In my spare time I mostly work on free and open source software. Some of these
+projects include (but are not limited to):
 
 * [Rubinius][rubinius]: an implementation of the Ruby programming language
 * [Oga][oga]: an XML/HTML parser for Ruby with XPath and CSS support
 * [ruby-ll][ruby-ll]: an LL(1) parser generator for Ruby
 * [ruby-lint][ruby-lint]: a static code analysis tool for Ruby, capable of
   detecting undefined methods, incorrect type usage, etc
+* [rubysl][rubysl]: Ruby standard library for Rubinius, most notably
+  [rubysl-socket][rubysl-socket] which is a pure Ruby implementation of the Ruby
+  Socket standard library.
+* [Aeon][aeon]: a gradually typed, interpreted programming language inspired by
+  Ruby and Smalltalk with a Rust based virtual machine.
 
 In the past I've also worked on [OpeNER][opener], [Ramaze][ramaze], [Pry][pry]
 and various other, smaller projects. I'm also an avid practitioner of Krav Maga,
@@ -58,3 +63,6 @@ repository). The articles published on this website are licensed under a
 [gpg-key]: /gpg_key.txt
 [ruby-ll]: https://github.com/YorickPeterse/ruby-ll
 [opener]: http://www.opener-project.eu/
+[rubysl]: https://github.com/rubysl
+[rubysl-socket]: https://github.com/rubysl/rubysl-socket
+[aeon]: https://github.com/YorickPeterse/aeon
