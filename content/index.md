@@ -11,13 +11,9 @@ description: I am a programmer and general geek living in The Netherlands.
 ---
 
 I am a programmer and general geek living in The Netherlands. My primary
-language of choice is Ruby, although I'm also proficient in other languages such
-as C/C++, JavaScript, and Rust.
-
-I'm currently employed by [GitLab][gitlab] where I work on improving performance
-of GitLab as well as improving Rubinius in general. I am currently not
-interested in any job offers. I also don't do business with recruiters, so
-please don't bother contacting me if you're a recruiter.
+languages of choice are Ruby, Rust, and C/C++. I'm currently employed by
+[GitLab][gitlab] to improve performance of GitLab and work on Rubinius. I am
+currently **not** interested in any job offers.
 
 In my spare time I mostly work on free and open source software. Some of these
 projects include (but are not limited to):
