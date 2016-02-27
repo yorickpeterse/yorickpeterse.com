@@ -7,13 +7,15 @@ keywords:
   - ruby
   - netherlands
   - oga
-description: I am a programmer and general geek living in The Netherlands.
+description: >
+  Software developer, cat enthusiast, and a geek in general living in
+  The Netherlands.
 ---
 
-I am a programmer and general geek living in The Netherlands. My primary
-languages of choice are Ruby, Rust, and C/C++. I'm currently employed by
-[GitLab][gitlab] to improve performance of GitLab and work on Rubinius. I am
-currently **not** interested in any job offers.
+I am a software developer, cat enthusiast, and a geek in general living in The
+Netherlands. I primarily work with Ruby, Rust, and at times I also (reluctantly)
+use C/C++. I'm currently employed by [GitLab][gitlab] where I work on improving
+performance of GitLab. I am currently **not** interested in any job offers.
 
 In my spare time I mostly work on free and open source software. Some of these
 projects include (but are not limited to):
@@ -31,11 +33,11 @@ projects include (but are not limited to):
 
 In the past I've also worked on [OpeNER][opener], [Ramaze][ramaze], [Pry][pry]
 and various other, smaller projects. I'm also an avid practitioner of Krav Maga,
-prior to that I practised Taekwondo and Wing Chun Kung Fu.
+prior to that I practised Wing Chun Kung Fu and Taekwondo.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
-[Github][github], [Twitter][twitter] and [Reddit][reddit].
+[Github][github], [Twitter][twitter], and [Reddit][reddit].
 
 My GPG public key is [EB691AC9][gpg-key] registered using Email address
 yorickpeterse@gmail.com. Other keys registered on my name are no longer in use.
