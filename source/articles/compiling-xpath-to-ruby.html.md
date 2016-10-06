@@ -1,13 +1,7 @@
 ---
 title: Compiling XPath to Ruby
-created_at: 2015-09-06 22:45 CEST
-kind: article
-keywords:
-  - oga
-  - xpath
-  - ruby
-  - compile
-
+date: 2015-09-06 22:45 CEST
+tags: oga, xpath, ruby, compile
 description: "Compiling XPath to Ruby in Oga 1.3.0"
 ---
 
@@ -113,7 +107,6 @@ takes a [10 MB test file][test-file] and runs the query
 `descendant-or-self::location` 10 times, measuring the execution time for every
 iteration. Using Oga 1.2.3 we get the following output:
 
-    #!text
     Iteration: 1: 3.493
     Iteration: 2: 2.868
     Iteration: 3: 2.934
@@ -130,7 +123,6 @@ iteration. Using Oga 1.2.3 we get the following output:
 
 Using Oga 1.3.0 the output is as following instead:
 
-    #!text
     Iteration: 1: 0.432
     Iteration: 2: 0.448
     Iteration: 3: 0.522
@@ -157,7 +149,6 @@ having to stop all threads more often.
 
 Using Oga 1.2.3 the results of this benchmark are as following:
 
-    #!text
     Preparing...
     Starting threads...
     Samples: 50
@@ -165,7 +156,6 @@ Using Oga 1.2.3 the results of this benchmark are as following:
 
 Using Oga 1.3.0:
 
-    #!text
     Preparing...
     Starting threads...
     Samples: 50
@@ -192,7 +182,6 @@ query language versus the rest I've included it any way.
 
 Using these Gems and Oga 1.2.3, the results are as following:
 
-    #!text
     Calculating -------------------------------------
                       Ox    14.548k i/100ms
                 Nokogiri     3.879k i/100ms
@@ -212,7 +201,6 @@ Using these Gems and Oga 1.2.3, the results are as following:
 
 And using Oga 1.3.0:
 
-    #!text
     Calculating -------------------------------------
                       Ox    15.227k i/100ms
                 Nokogiri     3.966k i/100ms

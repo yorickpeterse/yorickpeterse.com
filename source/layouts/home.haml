@@ -1,0 +1,24 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    = partial('head',
+      locals: { keywords: current_page.data.tags,
+                description: current_page.data.description })
+
+  %body#home
+    = partial('header')
+
+    .row#content
+      %section
+        %header
+          %h1= current_page.data.title
+
+        = yield
+
+        %h2 Articles
+
+        %ul.plain
+          - blog.articles.each do |article|
+            %li
+              %a{ href: article.url, title: article.title }
+                = article.title

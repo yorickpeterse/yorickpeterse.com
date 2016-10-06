@@ -1,7 +1,7 @@
 ---
 title: Yorick Peterse
 created: 2011-05-04 00:01
-keywords:
+tags:
   - yorick peterse
   - programmer
   - ruby

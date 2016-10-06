@@ -1,14 +1,7 @@
 ---
 title: "Oga: a new XML/HTML parser for Ruby"
-created_at: 2014-09-12 14:45
-kind: article
-keywords:
-  - ruby
-  - html
-  - xml
-  - parser
-  - oga
-
+date: 2014-09-12 14:45
+tags: ruby, html, xml, parser, oga
 description: "Oga is an XML/HTML parser written in Ruby"
 ---
 
@@ -62,23 +55,23 @@ information, see the [Oga README][readme].
 Oga can be installed from RubyGems as following (the installation process should
 only take a few seconds):
 
-    #!text
     gem install oga
 
 Once installed you can start parsing XML and HTML documents. For example, lets
 parse the Reddit frontpage and get all article titles:
 
-    #!ruby
-    require 'oga'
-    require 'net/http'
+```ruby
+require 'oga'
+require 'net/http'
 
-    body     = Net::HTTP.get(URI.parse('http://www.reddit.com/'))
-    document = Oga.parse_html(body)
-    titles   = document.xpath('//div[contains(@class, "entry")]/p[@class="title"]/a/text()')
+body     = Net::HTTP.get(URI.parse('http://www.reddit.com/'))
+document = Oga.parse_html(body)
+titles   = document.xpath('//div[contains(@class, "entry")]/p[@class="title"]/a/text()')
 
-    titles.each do |title|
-      puts title.text
-    end
+titles.each do |title|
+  puts title.text
+end
+```
 
 Because Oga is a very young library there is a big chance you'll bump into bugs
 or other issues (I'm going to be honest here). For example, HTML parsing is not

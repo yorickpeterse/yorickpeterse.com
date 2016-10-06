@@ -1,13 +1,7 @@
 ---
 title: Oga 1.0 Released
-created_at: 2015-05-20 21:00
-kind: article
-keywords:
-  - ruby
-  - xml
-  - html
-  - oga
-
+date: 2015-05-20 21:00
+tags: ruby, xml, html, oga
 description: Oga 1.0 has been released
 ---
 
@@ -36,7 +30,6 @@ Windows support and much more.
 The exact list of changes can be found in the [changelog][changelog]. If you
 want to jump straight to trying out Oga you can install it from RubyGems:
 
-    #!text
     gem install oga
 
 Oga doesn't depend on libxml so the installation process should only take a few

@@ -1,19 +1,15 @@
-source 'https://rubygems.org/'
+source 'https://rubygems.org'
 
-gem 'builder'
-gem 'nanoc'
+gem 'haml', '~> 4.0'
 gem 'kramdown'
-gem 'rouge'
-gem 'nokogiri'
-gem 'sass'
-gem 'haml'
-gem 'aws-sdk', '~> 1.0'
+gem 'builder'
+gem 'rake'
 
-group :development do
-  gem 'mime-types'
-  gem 'adsf'
-  gem 'rake'
-  gem 'pry'
-  gem 'pry-theme'
-  gem 'guard-nanoc'
-end
+gem 'middleman', '~> 4.0'
+gem 'middleman-livereload'
+gem 'middleman-blog'
+gem 'middleman-syntax'
+
+gem 'mime-types'
+gem 'middleman-s3_sync'
+gem 'middleman-cloudfront', git: 'https://github.com/andrusha/middleman-cloudfront.git'

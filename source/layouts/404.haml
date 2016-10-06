@@ -1,0 +1,14 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    = partial('head')
+
+  %body#home
+    = partial('header')
+
+    .row#content
+      %section
+        %header
+          %h1= current_page.data.title
+
+        = yield

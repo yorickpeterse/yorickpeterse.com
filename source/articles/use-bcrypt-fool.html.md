@@ -1,13 +1,7 @@
 ---
 title: Use BCrypt Fool!
-created_at: 2011-04-13 09:41
-kind: article
-keywords:
-  - bcrypt
-  - password
-  - ruby
-  - hashing
-  - cost
+date: 2011-04-13 09:41
+tags: bcrypt, password, ruby, hashing, cost
 description: >
   BCrypt is a hashing algorithm based on Blowfish with a small twist: it keeps
   up with Moore's law.
@@ -53,7 +47,6 @@ the actual root of the problem.  Time for an example. Assuming we have a
 hashing function called "hash" and two strings, A and B (where A and B are
 unique), our hashing process of these strings would look like the following:
 
-    #!text
     pwd1 = hash(A)
     pwd2 = hash(B)
 
@@ -86,13 +79,11 @@ to bust as it depends on the algorithm that is used. If we look back at our
 hash() function the process of hashing a hash multiple times would look like
 the following:
 
-    #!text
     hash = hash( hash(hash(A)) )
 
 In this example there are 3 calls to the hashing function. If A was "yorick"
 this would look a bit like the following:
 
-    #!text
     hash(yorick)  -> j238103
     hash(j238103) -> a9shda9
     hash(a9shda9) -> 11s08j1
@@ -111,7 +102,6 @@ password.
 
 In order to explain this properly I simplified the process of hashing A N times:
 
-    #!text
     password --> hash 1 --> hash 2 --> final hash
 
 In order to retrieve the original password ("password") we'd have to find a
@@ -127,13 +117,14 @@ original password common hashing algorithms only use regular characters
 (letters and numbers) for their output. A good example of this is the following
 Ruby example:
 
-    #!ruby
-    require 'digest'
+```ruby
+require 'digest'
 
-    password = 'as9(A*&SD&(@))'
-    hash     = Digest::SHA1.new.hexdigest(password)
+password = 'as9(A*&SD&(@))'
+hash     = Digest::SHA1.new.hexdigest(password)
 
-    p hash # => "d4c36f9b1f003bee2e5dcafdf6b006110709dfb5"
+p hash # => "d4c36f9b1f003bee2e5dcafdf6b006110709dfb5"
+```
 
 The hash of the password (which is just something I randomly typed on my
 keyboard) may be longer but it only uses letters and numbers opposed to all the
@@ -168,41 +159,41 @@ N times longer than when not using a workfactor.
 
 Time for an example in Ruby:
 
-    #!ruby
-    require 'benchmark'
-    require 'bcrypt'
+```ruby
+require 'benchmark'
+require 'bcrypt'
 
-    password = 'yorick'
-    amount   = 100
+password = 'yorick'
+amount   = 100
 
-    Benchmark.bmbm(20) do |run|
+Benchmark.bmbm(20) do |run|
 
-      run.report("Cost of 5") do
-        amount.times do
-          hash = BCrypt::Password.create(password, :cost => 5)
-        end
-      end
-
-      run.report("Cost of 10") do
-        amount.times do
-          hash = BCrypt::Password.create(password, :cost => 10)
-        end
-      end
-
-      run.report("Cost of 15") do
-        amount.times do
-          hash = BCrypt::Password.create(password, :cost => 15)
-        end
-      end
-
+  run.report("Cost of 5") do
+    amount.times do
+      hash = BCrypt::Password.create(password, :cost => 5)
     end
+  end
+
+  run.report("Cost of 10") do
+    amount.times do
+      hash = BCrypt::Password.create(password, :cost => 10)
+    end
+  end
+
+  run.report("Cost of 15") do
+    amount.times do
+      hash = BCrypt::Password.create(password, :cost => 15)
+    end
+  end
+
+end
+```
 
 For the non Ruby people, this is a simple benchmark script that shows the time
 it takes to hash "yorick" with BCrypt with a cost/workfactor of 5, 10 and 15 a
 total of 100 times.  The results of this benchmark would look like the
 following:
 
-    #!text
     Rehearsal -------------------------------------------------------
     Cost of 5             0.250000   0.000000   0.250000 (  0.249723)
     Cost of 10            7.740000   0.010000   7.750000 (  7.879849)
@@ -233,40 +224,42 @@ BCrypt right away.
 PHP allows you to use BCrypt passwords using the [crypt()][php crypt] function.
 This works as following:
 
-    #!php
-    <?php
+```ruby
+<?php
 
-    $hash = crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$');
+$hash = crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$');
+```
 
 ### Ruby
 
 For Ruby there's a gem called "bcrypt-ruby" which can be installed using
 Rubygems:
 
-    #!text
     $ gem install bcrypt-ruby
 
 Once installed you can use it as following:
 
-    #!ruby
-    require 'bcrypt'
+```
+require 'bcrypt'
 
-    hash = BCrypt::Password.create('yorick', :cost => 10)
+hash = BCrypt::Password.create('yorick', :cost => 10)
+```
 
 ### Perl
 
 For Perl there's [Crypt::Eksblowfish][perl bcrypt] which works as following:
 
-    #!text
-    use Crypt::Eksblowfish::Bcrypt qw(bcrypt_hash);
+```perl
+use Crypt::Eksblowfish::Bcrypt qw(bcrypt_hash);
 
-    $salt     = '1p23j1-9381-23';
-    $password = 'yorick';
-    $hash     = bcrypt_hash({
-        key_nul => 1,
-        cost    => 10,
-        salt    => $salt,
-    }, $password);
+$salt     = '1p23j1-9381-23';
+$password = 'yorick';
+$hash     = bcrypt_hash({
+    key_nul => 1,
+    cost    => 10,
+    salt    => $salt,
+}, $password);
+```
 
 ### Others
 

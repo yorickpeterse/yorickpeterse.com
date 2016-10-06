@@ -1,0 +1,24 @@
+%meta{ charset: 'utf-8' }
+
+%meta{ name: 'google-site-verification',
+       content: '-L_V_27r8NmVJh-1OGyEhGcNVulPnxjfbma6m3SqNME' }
+
+%meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+
+%link{ rel: 'alternate', href: config[:feed_url], type: 'application/atom+xml',
+       title: config[:title] }
+
+%link{ rel: 'canonical',
+       href: defined?(canonical) ? config[:website_url] + canonical : config[:website_url] }
+
+- if defined?(keywords)
+  %meta{ name: 'keywords', content: keywords.join(', ') }
+
+- if defined?(description)
+  %meta{ name: 'description', content: description.strip }
+
+%link{ rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }
+
+= stylesheet_link_tag(:all)
+
+%title= current_page.data.title || config[:website_title]

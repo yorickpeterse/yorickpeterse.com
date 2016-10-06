@@ -1,12 +1,7 @@
 ---
 title: Hello, GitLab!
-created_at: 2015-08-31 20:49 CEST
-kind: article
-keywords:
-  - gitlab
-  - rubinius
-  - olery
-
+date: 2015-08-31 20:49 CEST
+tags: gitlab, rubinius, olery
 description: >
   I'm excited to announce that as of October 1st, I will be joining GitLab.
 ---

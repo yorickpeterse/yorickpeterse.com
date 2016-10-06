@@ -1,4 +1,4 @@
-crash.log
-tmp
-output
+.bundle
+build
 .sass-cache
+.cache

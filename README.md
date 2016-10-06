@@ -12,5 +12,4 @@ found the file "LICENSE" or at <https://www.mozilla.org/MPL/2.0/>.
 The articles, which are found in the "articles" directory, are licensed under a
 [Creative Commons license][cc license].
 
-[nanoc]: https://github.com/ddfreyne/nanoc/
 [cc license]: http://creativecommons.org/licenses/by-nc-sa/3.0/

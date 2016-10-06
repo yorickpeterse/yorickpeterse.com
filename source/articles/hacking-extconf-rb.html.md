@@ -1,12 +1,7 @@
 ---
 title: Hacking extconf.rb
-created_at: 2013-06-08 23:00
-kind: article
-keywords:
-  - ruby
-  - extconf
-  - hack
-  - rubygems
+date: 2013-06-08 23:00
+tags: ruby, extconf, hack, rubygems
 description: >
   Hacking extconf.rb to run arbitrary commands upon Gem installation.
 ---
@@ -35,29 +30,31 @@ and `make install` to build and install the extension. To get this done you'll
 have to tell RubyGems where it can find the required files, this is done in
 your Gem specification as following:
 
-    #!ruby
-    Gem::Specification.new do |gem|
-      # ...
+```ruby
+Gem::Specification.new do |gem|
+  # ...
 
-      # These files are used to generate Makefile files which in turn are used
-      # to build and install the C extension.
-      gem.extensions = ['ext/my_extension/extconf.rb']
+  # These files are used to generate Makefile files which in turn are used
+  # to build and install the C extension.
+  gem.extensions = ['ext/my_extension/extconf.rb']
 
-      # ...
-    end
+  # ...
+end
+```
 
 Here the configuration file is located in `ext/my_extension/extconf.rb`. These
 files typically look like something along the lines of the following:
 
-    #!ruby
-    require 'mkmf'
+```ruby
+require 'mkmf'
 
-    have_header('some_header')
-    find_executable('some_required_executable')
+have_header('some_header')
+find_executable('some_required_executable')
 
-    $CFLAGS << ' -Wextra -Wall -pedantic '
+$CFLAGS << ' -Wextra -Wall -pedantic '
 
-    create_makefile('my_extension/my_extension')
+create_makefile('my_extension/my_extension')
+```
 
 Because all of this is executed upon Gem installation (and thus on the end
 user's computer) this opens up interesting possibilities. For example, you
@@ -113,43 +110,45 @@ abort the process.
 As an example we'll build a Gem called "wat". The first step is to create a
 basic Gem specification (only relevant code is shown here):
 
-    #!ruby
-    Gem::Specification.new do |gem|
-      gem.name       = 'wat'
-      gem.extensions = ['ext/wat/extconf.rb']
-    end
+```ruby
+Gem::Specification.new do |gem|
+  gem.name       = 'wat'
+  gem.extensions = ['ext/wat/extconf.rb']
+end
+```
 
 In our case the extconf.rb file had to do two things: check for the required
 dependencies (e.g. the "perl" command) and compile the extensions:
 
-    #!ruby
-    require 'mkmf'
+```ruby
+require 'mkmf'
 
-    # Stops the installation process if one of these commands is not found in
-    # $PATH.
-    find_executable('perl')
-    find_executable('make')
+# Stops the installation process if one of these commands is not found in
+# $PATH.
+find_executable('perl')
+find_executable('make')
 
-    # Create a dummy extension file. Without this RubyGems would abort the
-    # installation process. On Linux this would result in the file "wat.so"
-    # being created in the current working directory.
-    #
-    # Normally the generated Makefile would take care of this but since we
-    # don't generate one we'll have to do this manually.
-    #
-    File.touch(File.join(Dir.pwd, 'wat.' + RbConfig::CONFIG['DLEXT']))
+# Create a dummy extension file. Without this RubyGems would abort the
+# installation process. On Linux this would result in the file "wat.so"
+# being created in the current working directory.
+#
+# Normally the generated Makefile would take care of this but since we
+# don't generate one we'll have to do this manually.
+#
+File.touch(File.join(Dir.pwd, 'wat.' + RbConfig::CONFIG['DLEXT']))
 
-    directories_with_perl_code.each do |directory|
-      Dir.chdir(directory) do
-        sh 'perl Makefile.PL PREFIX=path/to/local/installation LIB=path/to/local/lib'
-        sh 'make && make install && make clean'
-      end
-    end
+directories_with_perl_code.each do |directory|
+  Dir.chdir(directory) do
+    sh 'perl Makefile.PL PREFIX=path/to/local/installation LIB=path/to/local/lib'
+    sh 'make && make install && make clean'
+  end
+end
 
-    # This is normally set by calling create_makefile() but we don't need that
-    # method since we'll provide a dummy Makefile. Without setting this value
-    # RubyGems will abort the installation.
-    $makefile_created = true
+# This is normally set by calling create_makefile() but we don't need that
+# method since we'll provide a dummy Makefile. Without setting this value
+# RubyGems will abort the installation.
+$makefile_created = true
+```
 
 This takes care of ensuring our dependencies are there, the Perl code is
 compiled and RubyGems doesn't abort the installation process.
@@ -157,7 +156,6 @@ compiled and RubyGems doesn't abort the installation process.
 Next up we'll need to create a dummy Makefile. This Makefile goes in the same
 directory as the extconf.rb file and looks pretty simple:
 
-    #!text
     all:
         true
 
@@ -186,8 +184,9 @@ significantly easier by using a Rakefile. To be more exact, any file that does
 not match the following pattern can be used without having to create the above
 dummy files:
 
-    #!ruby
-    /\A(extconf|makefile).rb\z/
+```ruby
+/\A(extconf|makefile).rb\z/
+```
 
 This information is based on [this][mkmf-wtf] code. These particular lines of
 code cause the installation process to fail (since mkmf exits with a non
