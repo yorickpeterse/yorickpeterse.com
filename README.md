@@ -1,7 +1,7 @@
 # yorickpeterse.com
 
 This repository contains the source code for my website
-(<http://yorickpeterse.com/>).
+(<https://yorickpeterse.com/>).
 
 ## License
 

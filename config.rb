@@ -9,7 +9,7 @@ Time.zone = 'Europe/Amsterdam'
 
 set :website_title, 'Yorick Peterse'
 set :blog_author, 'Yorick Peterse'
-set :website_url, 'http://yorickpeterse.com'
+set :website_url, 'https://yorickpeterse.com'
 set :feed_url, "#{config[:website_url]}/feed.xml"
 
 set :markdown_engine, :kramdown
