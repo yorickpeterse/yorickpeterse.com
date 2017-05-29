@@ -36,7 +36,7 @@ are not limited to):
 * [ruby-lint][ruby-lint]: a static code analysis tool for Ruby, capable of
   detecting undefined methods, incorrect type usage, etc.
 * [Rubinius][rubinius]: an implementation of the Ruby programming language.
-* [rubysl][rubysl]: Ruby standard library for Rubinius, most notably.
+* [rubysl][rubysl]: Ruby standard library for Rubinius, most notably
   [rubysl-socket][rubysl-socket] which is a pure Ruby implementation of the Ruby
   Socket standard library.
 * [OpeNER][opener]: natural language processing framework for 6 different
