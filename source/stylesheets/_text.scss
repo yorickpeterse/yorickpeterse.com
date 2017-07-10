@@ -56,9 +56,16 @@ a:hover
 
 blockquote
 {
-    border-left: 1px dotted #000;
+    border-left: 5px solid #ddd;
+    color: #666;
     font-style: italic;
-    padding: 5px 5px 5px 15px;
+    margin-bottom: $margin_bottom;
+    padding: 5px 5px 5px 10px;
+}
+
+blockquote p
+{
+    margin-bottom: 0px;
 }
 
 time
