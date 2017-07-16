@@ -7,6 +7,7 @@ tags:
   - ruby
   - netherlands
   - oga
+  - gitlab
 description: >
   Software developer, cat enthusiast, and a geek in general living in
   The Netherlands.
