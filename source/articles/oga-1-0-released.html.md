@@ -35,7 +35,7 @@ want to jump straight to trying out Oga you can install it from RubyGems:
 Oga doesn't depend on libxml so the installation process should only take a few
 seconds.
 
-Oga's Git repository is located at <https://github.com/YorickPeterse/oga>, the
+Oga's Git repository is located at <https://gitlab.com/yorickpeterse/oga>, the
 documentation can be found at <http://code.yorickpeterse.com/oga/latest/>. Those
 interested in migrating from Nokogiri can use to the guide
 ["Migrating From Nokogiri"][migrating-nokogiri].
@@ -45,5 +45,5 @@ interested in migrating from Nokogiri can use to the guide
 [nokogiri]: http://www.nokogiri.org/
 [oga-announce]: /articles/oga-a-new-xml-and-html-parser-for-ruby/
 [first-oga-commit]: https://github.com/YorickPeterse/oga/commit/6326bdd8c943299e9adc4d2cb6de00934da3609b
-[ruby-ll]: https://github.com/yorickpeterse/ruby-ll
+[ruby-ll]: https://gitlab.com/yorickpeterse/ruby-ll
 [migrating-nokogiri]: http://code.yorickpeterse.com/oga/latest/file.migrating_from_nokogiri.html

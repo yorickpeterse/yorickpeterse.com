@@ -42,7 +42,7 @@ All of this prompted me to start working on an alternative, an alternative that
 doesn't require complicated system libraries or Ruby implementation specific
 codebases. For the past 8 months I've been working on exactly that. I've called
 the project Oga, and it can be found on GitHub:
-<https://github.com/YorickPeterse/oga>. Today, 199 days after the first Git
+<https://gitlab.com/yorickpeterse/oga>. Today, 199 days after the first Git
 commit, I'll be releasing the first version on RubyGems.
 
 Oga is primarily written in Ruby (91% Ruby according to Github), with a small
@@ -75,9 +75,9 @@ end
 
 Because Oga is a very young library there is a big chance you'll bump into bugs
 or other issues (I'm going to be honest here). For example, HTML parsing is not
-yet as solid as it should be (<https://github.com/YorickPeterse/oga/issues/20>),
+yet as solid as it should be (<https://gitlab.com/yorickpeterse/oga/issues/20>),
 Oga also does not yet honor the encoding set in the document itself
-(<https://github.com/YorickPeterse/oga/issues/29>). If you happen to run into
+(<https://gitlab.com/yorickpeterse/oga/issues/29>). If you happen to run into
 any problems/bugs, please report these at the [issue tracker][issue-tracker].
 Feedback and questions are also more than welcome.
 
@@ -98,7 +98,7 @@ And last, I'd like to thank the following people:
   working on Oga
 
 [brixen]: https://github.com/brixen
-[readme]: https://github.com/YorickPeterse/oga/blob/master/README.md
-[issue-tracker]: https://github.com/YorickPeterse/oga/issues/new
+[readme]: https://gitlab.com/yorickpeterse/oga/blob/master/README.md
+[issue-tracker]: https://gitlab.com/yorickpeterse/oga/issues/new
 [whitequark]: https://github.com/whitequark
 [headius]: https://github.com/headius
