@@ -20,7 +20,7 @@ specialist][db-specialist]. I am currently **not** interested in any job offers.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
-[GitHub][github], [GitLab][gitlab], [Twitter][twitter] and [Reddit][reddit].
+[GitLab][gitlab], [GitHub][github], [Twitter][twitter], and [Reddit][reddit].
 
 My GPG public key is [EB691AC9][gpg-key] registered using Email address
 yorickpeterse@gmail.com. Other keys registered on my name are no longer in use.
@@ -48,18 +48,18 @@ are not limited to):
 
 [ramaze]: http://ramaze.net/
 [pry]: https://github.com/pry/pry
-[ruby-lint]: https://github.com/yorickpeterse/ruby-lint
-[github]: https://github.com/yorickpeterse/
+[ruby-lint]: https://gitlab.com/yorickpeterse/ruby-lint
+[github]: https://gitlab.com/yorickpeterse/
 [twitter]: http://twitter.com/yorickpeterse
 [reddit]: http://www.reddit.com/user/yorickpeterse
 [rubinius]: http://rubini.us
-[oga]: https://github.com/yorickpeterse/oga
+[oga]: https://gitlab.com/yorickpeterse/oga
 [gitlab]: https://about.gitlab.com/
 [gpg-key]: /gpg_key.txt
-[ruby-ll]: https://github.com/YorickPeterse/ruby-ll
+[ruby-ll]: https://gitlab.com/yorickpeterse/ruby-ll
 [opener]: http://www.opener-project.eu/
 [rubysl]: https://github.com/rubysl
 [rubysl-socket]: https://github.com/rubysl/rubysl-socket
-[inko]: https://github.com/YorickPeterse/inko
+[inko]: https://gitlab.com/yorickpeterse/inko
 [db-specialist]: https://about.gitlab.com/jobs/specialist/database/
 [gitlab]: https://gitlab.com/yorickpeterse
