@@ -15,8 +15,9 @@ description: >
 
 I am a software developer, cat enthusiast, and a geek in general living in The
 Netherlands. My primary programming languages are Ruby, Rust and at times
-C/C++. I am currently employed by [GitLab][gitlab] as a [database
-specialist][db-specialist]. I am currently **not** interested in any job offers.
+C/C++. I am currently employed by [GitLab][gitlab] as a [Staff
+Developer][staff-developer]. I am currently **not** interested in any job
+offers.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
@@ -61,5 +62,5 @@ are not limited to):
 [rubysl]: https://github.com/rubysl
 [rubysl-socket]: https://github.com/rubysl/rubysl-socket
 [inko]: https://gitlab.com/yorickpeterse/inko
-[db-specialist]: https://about.gitlab.com/jobs/specialist/database/
+[staff-developer]: https://about.gitlab.com/roles/engineering/developer/#staff-developer
 [gitlab]: https://gitlab.com/yorickpeterse
