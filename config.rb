@@ -1,3 +1,5 @@
+require 'lib/inko_lexer'
+
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
