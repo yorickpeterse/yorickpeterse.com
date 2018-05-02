@@ -23,7 +23,8 @@ set :markdown,
     auto_id_prefix: 'header-',
     tables: true,
     input: 'GFM',
-    hard_wrap: false
+    hard_wrap: false,
+    toc_levels: 1..3
 
 set :haml, ugly: true, format: :html5
 
