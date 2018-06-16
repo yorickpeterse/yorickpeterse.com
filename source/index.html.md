@@ -61,6 +61,6 @@ are not limited to):
 [opener]: http://www.opener-project.eu/
 [rubysl]: https://github.com/rubysl
 [rubysl-socket]: https://github.com/rubysl/rubysl-socket
-[inko]: https://gitlab.com/yorickpeterse/inko
+[inko]: https://gitlab.com/inko-lang/inko
 [staff-developer]: https://about.gitlab.com/roles/engineering/developer/#staff-developer
 [gitlab]: https://gitlab.com/yorickpeterse

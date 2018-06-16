@@ -699,7 +699,7 @@ To try things out you need to have three things installed:
 Once these requirements are met you can clone the Git repository:
 
 ```bash
-git clone git@gitlab.com:yorickpeterse/inko.git
+git clone git@gitlab.com:inko-lang/inko.git
 cd inko
 ```
 
@@ -755,16 +755,16 @@ news the easiest ways of doing so are:
 1. Subscribe to my website's [Atom feed][atom].
 1. Follow me on [Twitter][twitter].
 
-[mr1]: https://gitlab.com/yorickpeterse/inko/merge_requests/1
+[mr1]: https://gitlab.com/inko-lang/inko/merge_requests/1
 [prototypes]: https://en.wikipedia.org/wiki/Prototype-based_programming
-[inko]: https://gitlab.com/yorickpeterse/inko
+[inko]: https://gitlab.com/inko-lang/inko
 [traits]: https://en.wikipedia.org/wiki/Trait_(computer_programming)
 [dlang]: https://dlang.org/
 [the-error-model]: http://joeduffyblog.com/2016/02/07/the-error-model/
-[issue-99]: https://gitlab.com/yorickpeterse/inko/issues/99
+[issue-99]: https://gitlab.com/inko-lang/inko/issues/99
 [immix]: http://www.cs.utexas.edu/users/speedway/DaCapo/papers/immix-pldi-2008.pdf
 [jikes-rvm]: https://github.com/JikesRVM/JikesRVM
 [jar]: https://en.wikipedia.org/wiki/JAR_(file_format)
-[inko-stdlib]: https://gitlab.com/yorickpeterse/inko/tree/master/runtime/std
+[inko-stdlib]: https://gitlab.com/inko-lang/inko/tree/master/runtime/std
 [atom]: /feed.xml
 [twitter]: https://twitter.com/YorickPeterse
