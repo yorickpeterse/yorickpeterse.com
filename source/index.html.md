@@ -9,15 +9,14 @@ tags:
   - oga
   - gitlab
 description: >
-  Software developer, cat enthusiast, and a geek in general living in
-  The Netherlands.
+  The personal website of Yorick Peterse, a software developer and cat
+  enthusiast from The Netherlands.
 ---
 
-I am a software developer, cat enthusiast, and a geek in general living in The
-Netherlands. My primary programming languages are Ruby, Rust and at times
-C/C++. I am currently employed by [GitLab][gitlab] as a [Staff
-Developer][staff-developer]. I am currently **not** interested in any job
-offers.
+I am a software developer and cat enthusiast from The Netherlands. My primary
+programming languages are Ruby, Rust and at times C. I am currently employed by
+[GitLab][gitlab] as a [Staff Developer][staff-developer]. I am currently **not**
+interested in any job offers.
 
 If you happen to have any questions or would simply like to contact me you can
 do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
