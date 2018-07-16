@@ -41,7 +41,7 @@ is just not an option.
 All of this prompted me to start working on an alternative, an alternative that
 doesn't require complicated system libraries or Ruby implementation specific
 codebases. For the past 8 months I've been working on exactly that. I've called
-the project Oga, and it can be found on GitHub:
+the project Oga, and it can be found on GitLab.com:
 <https://gitlab.com/yorickpeterse/oga>. Today, 199 days after the first Git
 commit, I'll be releasing the first version on RubyGems.
 
