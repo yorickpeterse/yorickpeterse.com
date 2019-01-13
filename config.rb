@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 require 'lib/inko_lexer'
+
+Haml::TempleEngine.disable_option_validator!
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -13,7 +17,6 @@ set :website_title, 'Yorick Peterse'
 set :blog_author, 'Yorick Peterse'
 set :website_url, 'https://yorickpeterse.com'
 set :feed_url, "#{config[:website_url]}/feed.xml"
-
 set :markdown_engine, :kramdown
 
 set :markdown,
@@ -26,7 +29,7 @@ set :markdown,
     hard_wrap: false,
     toc_levels: 1..3
 
-set :haml, ugly: true, format: :html5
+set :haml, format: :html5
 
 activate :syntax, line_numbers: false
 
@@ -47,12 +50,6 @@ activate :s3_sync do |s3|
 end
 
 default_caching_policy max_age: 24 * 60 * 60
-
-activate :cloudfront do |cf|
-  cf.distribution_id = 'E38R9TE90MPQA7'
-  cf.access_key_id = ENV['AWS_ACCESS_KEY_ID']
-  cf.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-end
 
 configure :development do
   activate :livereload

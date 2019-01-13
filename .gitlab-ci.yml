@@ -1,0 +1,28 @@
+---
+
+stages:
+  - deploy
+
+deploy:
+  image: ruby:2.5-alpine
+  stage: deploy
+  variables:
+    DISTRIBUTION_ID: E38R9TE90MPQA7
+  before_script:
+    - echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+    - apk add --update build-base nodejs tzdata coreutils aws-cli
+    - gem install bundler --no-doc
+    - ruby --version
+    - gem --version
+    - bundle --version
+    - bundle install --path vendor --retry=3 --jobs=$(nproc)
+  script:
+    - rake deploy
+  cache:
+    paths:
+      - vendor
+  only:
+    - master
+  environment:
+    name: production
+    url: https://yorickpeterse.com

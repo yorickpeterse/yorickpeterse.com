@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'haml', '~> 4.0'
-gem 'kramdown'
-gem 'builder'
-gem 'rake'
+gem 'builder', '~> 3.2'
+gem 'haml', '~> 5.0'
+gem 'kramdown', '~> 1.0'
+gem 'middleman', '~> 4.2'
+gem 'middleman-blog', '~> 4.0'
+gem 'middleman-livereload', '~> 3.4'
+gem 'middleman-s3_sync', '~> 4.0'
+gem 'middleman-syntax', '~> 3.0'
+gem 'mime-types', '~> 3.1'
+gem 'nokogiri', '~> 1.10'
+gem 'rake', '~> 12.3'
 
-gem 'middleman', '~> 4.0'
-gem 'middleman-livereload'
-gem 'middleman-blog'
-gem 'middleman-syntax'
-
-gem 'mime-types'
-gem 'middleman-s3_sync'
-gem 'middleman-cloudfront', git: 'https://github.com/andrusha/middleman-cloudfront.git'
+group :development do
+  gem 'rubocop', '~> 0.62'
+end
