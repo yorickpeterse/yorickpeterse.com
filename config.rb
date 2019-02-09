@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'lib/inko_lexer'
+require 'uglifier'
 
 Haml::TempleEngine.disable_option_validator!
 
@@ -57,5 +58,6 @@ end
 
 configure :build do
   activate :minify_css
+  activate :minify_javascript, compressor: proc { Uglifier.new(harmony: true) }
   activate :asset_hash
 end
