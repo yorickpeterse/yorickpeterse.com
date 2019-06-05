@@ -11,10 +11,10 @@
 %link{ rel: 'canonical',
        href: defined?(canonical) ? config[:website_url] + canonical : config[:website_url] }
 
-- if defined?(keywords)
+- if defined?(keywords) && keywords
   %meta{ name: 'keywords', content: keywords.join(', ') }
 
-- if defined?(description)
+- if defined?(description) && description
   %meta{ name: 'description', content: description.strip }
 
 %link{ rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }
