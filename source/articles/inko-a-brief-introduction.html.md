@@ -7,6 +7,7 @@ description: >
   gradually typed, object-oriented programming language for writing concurrent
   programs.
 ---
+<!-- vale off -->
 
 [Inko][inko] is a programming language I started working on in early 2015. The
 goal of the project is to create a gradually typed, object-oriented programming

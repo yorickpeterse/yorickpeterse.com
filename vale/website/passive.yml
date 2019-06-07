@@ -1,7 +1,7 @@
 extends: existence
 message: "'%s' may be passive voice. Use active voice if you can."
 ignorecase: true
-level: warning
+level: error
 raw:
   - \b(am|are|were|being|been|was|be)\b\s*
 tokens:

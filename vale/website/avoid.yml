@@ -1,6 +1,6 @@
 extends: substitution
 message: Avoid using '%s', instead use '%s'
-level: warning
+level: error
 ignorecase: true
 swap:
   Some of the: Some

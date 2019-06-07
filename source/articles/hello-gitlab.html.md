@@ -5,6 +5,7 @@ tags: gitlab, rubinius, olery
 description: >
   I'm excited to announce that as of October 1st, I will be joining GitLab.
 ---
+<!-- vale off -->
 
 I'm excited to announce that I will be joining [GitLab][gitlab] starting October
 1st. I greatly enjoyed my time at [Olery][olery], but after almost 3 years I

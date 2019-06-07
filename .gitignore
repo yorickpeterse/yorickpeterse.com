@@ -1,4 +1,4 @@
-.bundle
-build
-.sass-cache
-.cache
+/.bundle
+/build
+/.sass-cache
+/.cache

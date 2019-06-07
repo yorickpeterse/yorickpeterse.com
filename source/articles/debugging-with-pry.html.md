@@ -6,6 +6,7 @@ description: >
   Pry is a REPL (Read Eval Print Loop) that was written as a better alternative
   to IRB.
 ---
+<!-- vale off -->
 
 Pry is a REPL (Read Eval Print Loop) that was written as a better alternative
 to IRB. It comes with syntax highlighting, code indentation that actually works

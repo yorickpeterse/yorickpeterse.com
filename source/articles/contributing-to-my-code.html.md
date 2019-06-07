@@ -6,6 +6,7 @@ description: >
   This document describes the various requirements that I have in
   order for me to accept third-party contributions.
 ---
+<!-- vale off -->
 
 <div class="note">
 This article is rather blunt and a bit old. I've since become much more

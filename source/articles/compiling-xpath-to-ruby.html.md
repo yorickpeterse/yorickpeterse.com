@@ -4,6 +4,7 @@ date: 2015-09-06 22:45 CEST
 tags: oga, xpath, ruby, compile
 description: "Compiling XPath to Ruby in Oga 1.3.0"
 ---
+<!-- vale off -->
 
 The process of evaluating a programming or query language is typically broken up
 in 3 steps:

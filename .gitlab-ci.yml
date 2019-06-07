@@ -1,17 +1,48 @@
 ---
 
+.docker: &docker
+  stage: docker
+  services:
+    - docker:dind
+  image: docker:git
+  script:
+    - ./docker/build "${CI_REGISTRY_IMAGE}:${IMAGE}" docker/${IMAGE}/Dockerfile
+
 stages:
+  - docker
+  - lint
   - deploy
 
+docker:vale:
+  <<: *docker
+  variables:
+    IMAGE: vale
+  only:
+    changes:
+      - docker/vale/Dockerfile
+
+docker:ruby:
+  <<: *docker
+  variables:
+    IMAGE: ruby
+  only:
+    changes:
+      - docker/ruby/Dockerfile
+
+lint:vale:
+  image: registry.gitlab.com/yorickpeterse/yorickpeterse.com:vale
+  stage: lint
+  before_script:
+    - vale --version
+  script:
+    - vale --no-wrap --sort source/articles
+
 deploy:
-  image: ruby:2.5-alpine
+  image: registry.gitlab.com/yorickpeterse/yorickpeterse.com:ruby
   stage: deploy
   variables:
     DISTRIBUTION_ID: E38R9TE90MPQA7
   before_script:
-    - apk add --update build-base nodejs tzdata python3 python3-dev coreutils
-    - pip3 install awscli
-    - gem install bundler --no-doc
     - ruby --version
     - gem --version
     - bundle --version

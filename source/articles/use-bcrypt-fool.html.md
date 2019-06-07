@@ -6,6 +6,7 @@ description: >
   BCrypt is a hashing algorithm based on Blowfish with a small twist: it keeps
   up with Moore's law.
 ---
+<!-- vale off -->
 
 Almost any application will eventually need to store a collection of passwords
 or another type of data that has to be stored using a hashing algorithm. Blogs,

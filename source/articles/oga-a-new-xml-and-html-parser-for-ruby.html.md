@@ -4,6 +4,7 @@ date: 2014-09-12 14:45
 tags: ruby, html, xml, parser, oga
 description: "Oga is an XML/HTML parser written in Ruby"
 ---
+<!-- vale off -->
 
 In the Ruby ecosystem there are plenty of HTTP libraries. Net::HTTP, HTTParty,
 HTTPClient, Patron, Curb, Excon, Tyhpoeus, just to name a few. There are so many

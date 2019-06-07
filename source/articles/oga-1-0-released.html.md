@@ -4,6 +4,7 @@ date: 2015-05-20 21:00
 tags: ruby, xml, html, oga
 description: Oga 1.0 has been released
 ---
+<!-- vale off -->
 
 Until now if one wanted to parse XML and/or HTML in Ruby the most common choice
 would be [Nokogiri][nokogiri]. Nokogiri however is not without its problem,
