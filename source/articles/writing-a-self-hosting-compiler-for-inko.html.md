@@ -1,6 +1,6 @@
 ---
 title: Writing a self-hosting compiler for Inko
-date: 2019-06-08 12:00:00 UTC
+date: 2019-06-08 00:00:00 UTC
 ---
 
 About a year ago I wrote ["Inko: a brief introduction"][inko-introduction], and
