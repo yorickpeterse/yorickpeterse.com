@@ -36,6 +36,9 @@ lint:vale:
     - vale --version
   script:
     - vale --no-wrap --sort source/articles
+  only:
+    changes:
+      - source/articles/**/*.html.md
 
 deploy:
   image: registry.gitlab.com/yorickpeterse/yorickpeterse.com:ruby
@@ -53,7 +56,14 @@ deploy:
     paths:
       - vendor
   only:
-    - master
+    refs:
+      - master
+    changes:
+      - config.rb
+      - source/**/*
+      - lib/**/*
+      - Gemfile
+      - Gemfile.lock
   environment:
     name: production
     url: https://yorickpeterse.com
