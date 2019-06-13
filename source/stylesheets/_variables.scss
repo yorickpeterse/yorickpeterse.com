@@ -1,7 +1,9 @@
 // Generic variables.
 $text: #000;
-$link: #5E9419;
-$link_hover: #456E12;
+$link: #0c52bb;
+$link_hover: lighten($link, 20%);
+$link_visited: adjust-hue($link, 55deg);
+$link_visited_hover: lighten($link_visited, 20%);
 $font: 'Open Sans', sans-serif;
 $margin_bottom: 20px;
 

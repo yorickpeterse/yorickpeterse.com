@@ -54,13 +54,21 @@ p, ul, ol, blockquote
 a
 {
     color: $link;
-    text-decoration: none;
 }
 
 a:hover
 {
     color: $link_hover;
-    text-decoration: underline;
+}
+
+a:visited
+{
+  color: $link_visited;
+}
+
+a:visited:hover
+{
+  color: $link_visited_hover;
 }
 
 blockquote
