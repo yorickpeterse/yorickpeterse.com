@@ -19,11 +19,11 @@ programming languages are Ruby, Rust and at times C. I am currently employed by
 interested in any job offers.
 
 If you happen to have any questions or would simply like to contact me you can
-do so by [Email](mailto:yorickpeterse@gmail.com). You can also find me on
+do so by [Email](mailto:yorick@yorickpeterse.com). You can also find me on
 [GitLab][gitlab], [GitHub][github], [Twitter][twitter], and [Reddit][reddit].
 
 My GPG public key is [EB691AC9][gpg-key] registered using Email address
-yorickpeterse@gmail.com. Other keys registered on my name are no longer in use.
+yorick@yorickpeterse.com. Other keys registered on my name are no longer in use.
 
 ## Free And Open Source Software
 
