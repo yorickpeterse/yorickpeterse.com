@@ -11,7 +11,7 @@ module Rouge
 
       KEYWORDS = %w[
         object import trait let mut return self throw else impl for as do lambda
-        where try try!
+        where try try! static
       ].freeze
 
       state :root do
