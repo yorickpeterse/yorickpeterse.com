@@ -27,6 +27,10 @@ collect garbage. I do vaguely recall it's discussed somewhere in the book, but I
 was unable to find this by looking at the table of contents and skimming through
 several chapters.
 
+In this article we'll take a look at the different techniques that can be used
+to decide when to collect garbage, how to implement such a technique, and what
+techniques a few programming languages out there use.
+
 ## Table of contents
 {:.no_toc}
 
@@ -36,7 +40,7 @@ several chapters.
 ## Deciding when to collect
 
 Let's start by taking a look at the different ways a collector can determine if
-garbage collection is necessary.
+garbage collection is necessary, in no particular order.
 
 ### Collecting based on object allocation counts
 
