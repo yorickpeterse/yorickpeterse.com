@@ -156,11 +156,33 @@ collection if the previous collection spent too much time tracing objects. By
 delaying the collection, the collector may need to trace fewer objects the next
 time it runs.
 
+## The flaw of collecting based on allocations
+
+Triggering collections based on allocations comes with a flaw: allocations and
+the amount of garbage may not necessarily be related. This means that in some
+cases a collection may be triggered too soon, while other times collections may
+be triggered too late.
+
+Since tracing collectors operate on the live objects, there's not much that can
+be done about this. Reference counting collectors operate on dead objects and
+thus would have a better view of how much garbage there is, but efficient
+reference counting collectors are complex and come with their own drawbacks.
+High performance reference counting collectors also behave similar to tracing
+collectors, but may be much more complex to implement; meaning you may be better
+off just using a tracing collector.
+
+There may be some sort of hybrid approach where a tracing collector keeps track
+of (an estimate of) dead objects, without using a fully blown reference counting
+system. These statistics (perhaps in combination with other statistics) could
+then be used to decide when a collection is needed. I am not aware of any
+collectors that use this technique, and I have my doubts about the benefits
+being greater than the drawbacks this technique would introduce.
+
 ## Deciding when to collect using Rust
 
-Let's implement a simple strategy to determine when to collect by counting the
-allocated objects. For these examples I'll use Rust. First we'll start with some
-boilerplate:
+With that all covered, let's implement a simple strategy to determine when to
+collect by counting the allocated objects. For these examples I'll use Rust.
+First we'll start with some boilerplate:
 
 ```rust
 use std::alloc::{alloc, handle_alloc_error, Layout};
