@@ -20,8 +20,12 @@
 
         %h2 Articles
 
-        %ul.plain
+        %table.articles-index
+          %tbody
           - blog.articles.each do |article|
-            %li
-              %a{ href: article.url, title: article.title }
-                = article.title
+            %tr
+              %td.time
+                %time{ datetime: article.date.to_time.iso8601 }
+                  = article.date.to_time.strftime('%B %e, %Y')
+              %td
+                %a{ href: article.url, title: article.title }= article.title

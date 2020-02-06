@@ -18,6 +18,6 @@
           %p.meta
             Published on:
             %time{ datetime: current_article.date.to_time.iso8601 }
-              = current_article.date.to_time.strftime('%B %d, %Y')
+              = current_article.date.to_time.strftime('%B %e, %Y')
 
         = yield
