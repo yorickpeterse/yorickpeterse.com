@@ -1,63 +1,231 @@
 @import 'reset';
 @import 'rouge';
-@import 'variables';
-@import 'helpers';
-@import 'text';
-@import 'lists';
-@import 'tables';
 
-body
-{
-    color: $text;
-    font-family: $font;
-    font-size: 16px;
-    line-height: 1.8;
+$border: #eee;
+$code-font: monospace;
+$code-color: #4d4d4c;
+$font: 'Open Sans', sans-serif;
+$inline-code-color: #c82829;
+$link: #0c52bb;
+$link-hover: lighten($link, 20%);
+$link-visited: adjust-hue($link, 55deg);
+$link-visited-hover: lighten($link-visited, 20%);
+$margin-bottom: 20px;
+$text: #000;
+$note-background: #ffffc5;
+$note-border: #ececaa;
+$quote-border: #ddd;
+$quote-color: #666;
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'),
+    local('OpenSans'),
+    url('../fonts/open-sans-v13-latin-ext_latin-regular.woff2') format('woff2'),
+    url('../fonts/open-sans-v13-latin-ext_latin-regular.woff') format('woff');
 }
 
-.profile_photo
-{
-    display: none;
-    float: right;
-    margin-left: 20px;
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'),
+    local('OpenSans-SemiBold'),
+    url('../fonts/open-sans-semi-bold.woff2') format('woff2');
+}
 
-    @media only screen and (min-width: 750px) {
-      display: inline;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin-bottom: $margin-bottom;
+}
+
+a {
+  color: $link;
+}
+
+a:hover {
+  color: $link-hover;
+}
+
+a:visited {
+  color: $link-visited;
+}
+
+a:visited:hover {
+  color: $link-visited-hover;
+}
+
+blockquote {
+  border-left: 5px solid $quote-border;
+  color: $quote-color;
+  font-style: italic;
+  margin-bottom: $margin-bottom;
+  padding: 5px 5px 5px 10px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+time {
+  font-size: 14px;
+}
+
+em {
+  font-style: italic;
+}
+
+pre {
+  background: none;
+  color: $code-color;
+  font-family: $code-font;
+  font-size: 12px;
+  margin-bottom: $margin-bottom;
+  padding: 0 0 0 30px;
+  white-space: pre-wrap;
+}
+
+p code,
+li code {
+  color: $inline-code-color;
+  font-family: $code-font;
+}
+
+body {
+  color: $text;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+ul {
+  margin-left: 20px;
+
+  li {
+    list-style-type: disc;
+
+    ul {
+      margin-bottom: 0;
     }
-}
 
-#top
-{
-    border-bottom: 1px solid #eee;
-    padding: 10px 0px;
-    font-size: 16px;
-
-    nav ul
-    {
-        margin: 0px auto;
-        width: 195px;
-
-        li
-        {
-            display: inline-block;
-            list-style-type: none;
-            margin-right: 15px;
-        }
-
-        li:last-child
-        {
-            margin-right: 0px;
-        }
+    li {
+      list-style-type: circle;
     }
+  }
 }
 
-#content, #top
-{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 700px;
+ol {
+  margin-left: 25px;
+
+  li {
+    list-style-type: decimal;
+  }
 }
 
-#content
-{
-    padding: 0px 15px;
+table {
+  margin-bottom: $margin-bottom;
+
+  th {
+    border-bottom: 1px solid $border;
+  }
+}
+
+.profile-photo {
+  display: none;
+  float: right;
+  margin-left: 20px;
+
+  @media only screen and (min-width: 750px) {
+    display: inline;
+  }
+}
+
+.meta {
+  font-size: 14px;
+}
+
+.note {
+  background: $note-background;
+  border: 1px solid $note-border;
+  margin-bottom: $margin-bottom;
+  padding: 10px;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.articles-index {
+  .time {
+    color: lighten($text, 40%);
+    max-width: 80px;
+  }
+
+  @media only screen and (max-width: 660px) {
+    .time {
+      display: none;
+    }
+  }
+}
+
+.top {
+  border-bottom: 1px solid $border;
+  font-size: 16px;
+  padding: 10px 0;
+
+  nav ul {
+    margin: 0 auto;
+    width: 195px;
+  }
+
+  nav li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 15px;
+  }
+
+  nav li:last-child {
+    margin-right: 0;
+  }
+}
+
+.content,
+.top {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.content {
+  padding: 0 15px;
 }

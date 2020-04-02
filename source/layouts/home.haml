@@ -5,15 +5,15 @@
       locals: { keywords: current_page.data.tags,
                 description: current_page.data.description })
 
-  %body#home
+  %body.home
     = partial('header')
 
-    .row#content
+    .row.content
       %section
         %header
           %h1 About Me
 
-        %img.profile_photo{ src: '/images/profile_photo.jpg',
+        %img.profile-photo{ src: '/images/profile_photo.jpg',
           width: '150', alt: 'Profile Photo' }
 
         = yield
