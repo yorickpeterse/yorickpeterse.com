@@ -1,11 +1,8 @@
 @import 'reset';
-@import 'rouge';
 
 $border: #eee;
 $code-font: monospace;
-$code-color: #4d4d4c;
 $font: 'Open Sans', sans-serif;
-$inline-code-color: #c82829;
 $link: #0c52bb;
 $link-hover: lighten($link, 20%);
 $link-visited: adjust-hue($link, 55deg);
@@ -16,6 +13,8 @@ $note-background: #ffffc5;
 $note-border: #ececaa;
 $quote-border: #ddd;
 $quote-color: #666;
+$green: #436023;
+$white: #fff;
 
 @font-face {
   font-family: 'Open Sans';
@@ -106,8 +105,6 @@ em {
 }
 
 pre {
-  background: none;
-  color: $code-color;
   font-family: $code-font;
   font-size: 12px;
   margin-bottom: $margin-bottom;
@@ -117,11 +114,39 @@ pre {
 
 p code,
 li code {
-  color: $inline-code-color;
-  font-family: $code-font;
+  font-weight: bold;
+}
+
+.highlight {
+  .k {
+    font-weight: bold;
+  }
+
+  .s,
+  .s1,
+  .s2 {
+    color: $green;
+  }
+
+  .mf,
+  .mh,
+  .mi,
+  .mo,
+  .il {
+    color: $link;
+  }
+
+  .c,
+  .cp,
+  .cm,
+  .cs,
+  .c1 {
+    color: lighten($text, 40%);
+  }
 }
 
 body {
+  background: $white;
   color: $text;
   font-family: $font;
   font-size: 16px;
