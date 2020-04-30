@@ -1,8 +1,0 @@
-AllCops:
-  TargetRubyVersion: 2.5
-
-Documentation:
-  Enabled: false
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented

@@ -9,7 +9,3 @@ gem 'middleman-s3_sync', '~> 4.0'
 gem 'middleman-syntax', '~> 3.0'
 gem 'mime-types', '~> 3.1'
 gem 'rake', '~> 12.3'
-
-group :development do
-  gem 'rubocop', '~> 0.62'
-end
