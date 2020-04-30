@@ -8,7 +8,6 @@ gem 'middleman-livereload', '~> 3.4'
 gem 'middleman-s3_sync', '~> 4.0'
 gem 'middleman-syntax', '~> 3.0'
 gem 'mime-types', '~> 3.1'
-gem 'nokogiri', '~> 1.10'
 gem 'rake', '~> 12.3'
 
 group :development do
