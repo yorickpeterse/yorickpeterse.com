@@ -163,7 +163,6 @@ DEPENDENCIES
   middleman-livereload (~> 3.4)
   middleman-s3_sync (~> 4.0)
   middleman-syntax (~> 3.0)
-  mime-types (~> 3.1)
   rake (~> 12.3)
 
 BUNDLED WITH
