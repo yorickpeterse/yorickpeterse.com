@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'builder', '~> 3.2'
 gem 'haml', '~> 5.0'
 gem 'kramdown', '~> 1.0'
 gem 'middleman', '~> 4.2'

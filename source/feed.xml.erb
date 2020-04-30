@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id><%= config[:website_url].chomp('/') + '/' %></id>
+  <title><%= config[:website_title] %></title>
+  <%- unless blog.articles.empty? -%>
+  <updated><%= blog.articles.first.date.to_time.utc.iso8601 %></updated>
+  <%- end -%>
+
+  <link href="<%= config[:website_url] %>" rel="alternate" />
+  <link href="<%= URI.join(config[:website_url], current_page.path) %>" rel="self" />
+
+  <author>
+    <name><%= config[:blog_author] %></name>
+    <uri><%= config[:website_url] %></uri>
+  </author>
+
+  <%- blog.articles.each do |article| -%>
+  <entry>
+    <id><%= URI.join(config[:website_url], article.url) %></id>
+    <title><%= article.title %></title>
+    <published><%= article.date.to_time.utc.iso8601 %></published>
+    <updated><%= last_updated_at(article.source_file).utc.iso8601 %></updated>
+    <link href="<%= URI.join(config[:website_url], article.url) %>" rel="alternate" />
+    <content type="html"><%= escape_html(article.body) %></content>
+  </entry>
+  <%- end -%>
+</feed>

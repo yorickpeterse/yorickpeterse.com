@@ -61,3 +61,9 @@ configure :build do
   activate :minify_javascript, compressor: proc { Uglifier.new(harmony: true) }
   activate :asset_hash
 end
+
+helpers do
+  def last_updated_at(path)
+    Time.at(Integer(`git log -1 --format=%ct #{path} 2>&1`.strip))
+  end
+end

@@ -169,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  builder (~> 3.2)
   haml (~> 5.0)
   kramdown (~> 1.0)
   middleman (~> 4.2)
