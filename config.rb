@@ -42,16 +42,6 @@ end
 
 activate :directory_indexes
 
-activate :s3_sync do |s3|
-  s3.bucket = 'yorickpeterse.com'
-  s3.region = 'eu-west-1'
-  s3.acl = 'public-read'
-  s3.index_document = 'index.html'
-  s3.error_document = '404.html'
-end
-
-default_caching_policy max_age: 24 * 60 * 60
-
 configure :development do
   activate :livereload
 end

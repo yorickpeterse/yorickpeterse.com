@@ -45,6 +45,8 @@ deploy:
   stage: deploy
   variables:
     DISTRIBUTION_ID: E38R9TE90MPQA7
+    BUCKET: yorickpeterse.com
+    AWS_DEFAULT_REGION: eu-west-1
   before_script:
     - ruby --version
     - gem --version
@@ -56,6 +58,7 @@ deploy:
   cache:
     paths:
       - vendor
+      - build
   only:
     refs:
       - master
