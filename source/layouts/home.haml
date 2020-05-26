@@ -25,7 +25,7 @@
           - blog.articles.each do |article|
             %tr
               %td.time
-                %time{ datetime: article.date.to_time.iso8601 }
-                  = article.date.to_time.strftime('%B %e, %Y')
+                %time{ datetime: article.date.to_time.utc.iso8601 }
+                  = article.date.to_time.utc.strftime('%B %e, %Y')
               %td
                 %a{ href: article.url, title: article.title }= article.title
