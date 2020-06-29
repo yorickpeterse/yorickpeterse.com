@@ -171,7 +171,7 @@ ul {
 }
 
 ol {
-  margin-left: 25px;
+  margin-left: 20px;
 
   li {
     list-style-type: decimal;
@@ -254,4 +254,8 @@ table {
 
 .content {
   padding: 0 15px;
+}
+
+.article header {
+  text-align: center;
 }
