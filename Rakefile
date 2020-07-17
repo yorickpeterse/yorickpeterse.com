@@ -5,7 +5,6 @@ require 'time'
 
 CLEAN.include('build')
 
-
 desc 'Generate a new article'
 task :article, :title do |_, args|
   abort 'You must specify a title' unless args.title
@@ -23,7 +22,27 @@ task :article, :title do |_, args|
       date: #{Time.now.utc.strftime('%Y-%m-%d %H:%M:%S %Z')}
       ---
 
-      The article goes here.
+    TEMPLATE
+  end
+end
+
+desc 'Generate a new note'
+task :note, :title do |_, args|
+  abort 'You must specify a title' unless args.title
+
+  title = args.title.strip
+  filename = title
+    .downcase
+    .gsub(/\s+/, '-')
+    .gsub(/[^\p{Word}\-]+/, '')
+
+  File.open("source/notes/#{filename}.html.md", 'w') do |handle|
+    handle.puts <<~TEMPLATE.strip
+      ---
+      title: #{title}
+      date: #{Time.now.utc.strftime('%Y-%m-%d %H:%M:%S %Z')}
+      ---
+
     TEMPLATE
   end
 end

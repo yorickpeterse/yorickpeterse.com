@@ -214,7 +214,7 @@ table {
 .articles-index {
   .time {
     color: lighten($text, 40%);
-    max-width: 65px;
+    width: 110px;
   }
 
   @media only screen and (max-width: 660px) {

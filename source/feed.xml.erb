@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id><%= config[:website_url].chomp('/') + '/' %></id>
   <title><%= config[:website_title] %></title>
-  <%- unless blog.articles.empty? -%>
-  <updated><%= blog.articles.first.date.to_time.utc.iso8601 %></updated>
+  <%- unless blog('blog').articles.empty? -%>
+  <updated><%= blog('blog').articles.first.date.to_time.utc.iso8601 %></updated>
   <%- end -%>
 
   <link href="<%= config[:website_url] %>" rel="alternate" />
@@ -14,7 +14,7 @@
     <uri><%= config[:website_url] %></uri>
   </author>
 
-  <%- blog.articles.each do |article| -%>
+  <%- blog('blog').articles.each do |article| -%>
   <entry>
     <id><%= URI.join(config[:website_url], article.url) %></id>
     <title><%= article.title %></title>

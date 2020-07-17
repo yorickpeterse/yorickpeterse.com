@@ -20,12 +20,13 @@
 
         %h2 Articles
 
-        %table.articles-index
-          %tbody
-          - blog.articles.each do |article|
-            %tr
-              %td.time
-                %time{ datetime: article.date.to_time.utc.iso8601 }
-                  = article.date.to_time.utc.strftime('%b %e, %Y')
-              %td
-                %a{ href: article.url, title: article.title }= article.title
+        = partial('articles', locals: { articles: blog('blog').articles })
+
+        %h2 Notes
+
+        %p
+          A collection of notes on various topics. These notes are primarily
+          meant for myself, and published here so I don't lose track of them
+          over time.
+
+        = partial('articles', locals: { articles: blog('notes').articles })

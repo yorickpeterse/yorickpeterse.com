@@ -35,7 +35,15 @@ set :haml, format: :html5
 activate :syntax, line_numbers: false
 
 activate :blog do |blog|
+  blog.name = 'blog'
   blog.prefix = 'articles'
+  blog.sources = '{title}.html'
+  blog.permalink = '{title}/index.html'
+end
+
+activate :blog do |blog|
+  blog.name = 'notes'
+  blog.prefix = 'notes'
   blog.sources = '{title}.html'
   blog.permalink = '{title}/index.html'
 end
