@@ -56,7 +56,7 @@ arguments can throw or not. Leaving this up to the user of the methods means
 they have to be generic, like so:
 
 ```inko
-def some_method!(E)(block: do !! E) -> Something {
+def some_method!(E)(block: do !! E) !! E -> Something {
   ...
 }
 ```
@@ -174,3 +174,54 @@ Probably an easier way is to just assume `value` escapes, even if it doesn't.
 After all, it's better to allocate onto the heap when this may not be necessary,
 compared to allocating on the stack when this may break. For most cases this is
 probably good enough.
+
+Relying on escape analysis may not always produce reliable or expected results.
+Take this for example:
+
+```inko
+def foo -> do !! Integer {
+  { throw 10 }
+}
+
+let x = foo
+```
+
+Here it's fine for the closure to escape the scope of `foo`, as the type of `x`
+is inferred to `do !! Integer`. Thus calling this closure would require
+something like this:
+
+```inko
+try x.call else ...
+```
+
+Similarly, this is totally fine:
+
+```inko
+def foo -> do !! Integer {
+  { throw 10 }
+}
+
+let blocks: Array!(do !! Integer) = Array.new(foo)
+
+try blocks.pop.call else ...
+```
+
+Then there is the issue of `throw` acting a bit like a local and non-local
+operation. Take this for example:
+
+```inko
+some_condition.if_true { throw 10 }
+```
+
+Here `throw` throws/unwinds from the closure, which in turn results in unwinding
+from `if_true`. Sticking with the rules that throwing requires a matching `try`,
+this would thus require:
+
+```inko
+try some_condition.if_true { throw 10 }
+```
+
+But this can result in verbose code, as throwing from closures will be common.
+For this reason we don't require this at the moment, and only allow this code in
+a method (a top-level `throw` is not valid). This makes it difficult to
+implement a consistent set of rules.
