@@ -113,7 +113,8 @@ pre {
 }
 
 p code,
-li code {
+li code,
+table code {
   font-family: $code-font;
   font-weight: bold;
 }
