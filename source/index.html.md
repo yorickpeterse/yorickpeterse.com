@@ -38,7 +38,7 @@ on or have worked on in the past:
 * [ruby-ll][ruby-ll]: an LL(1) parser generator for Ruby.
 * [ruby-lint][ruby-lint]: a static code analysis tool for Ruby.
 * [Rubinius][rubinius]: an implementation of the Ruby programming language.
-* [rubysl][rubysl]: Ruby standard library for Rubinius, most notably
+* [rubysl][rubysl]: Ruby standard library for Rubinius
 * [rubysl-socket][rubysl-socket]: a pure Ruby implementation of the Ruby Socket
   standard library.
 * [OpeNER][opener]: natural language processing framework for 6 different languages.
