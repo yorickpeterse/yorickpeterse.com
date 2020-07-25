@@ -21,8 +21,8 @@ Ruby, Rust, and at times C.
 
 You can contact me via [Email](mailto:yorick@yorickpeterse.com),
 [Twitter][twitter], or [Reddit][reddit]; though I prefer Email. You can also
-find me on [GitLab][@gitlab], [GitHub][@github]. Please do **not** contact me if
-you are a recruiter.
+find me on [GitLab][@gitlab] and [GitHub][@github]. Please do **not** contact me
+if you are a recruiter.
 
 My GPG public key is [EB691AC9][gpg-key] registered using Email address
 yorick@yorickpeterse.com. Other keys registered on my name are no longer in use.
