@@ -18,11 +18,11 @@
 
         = yield
 
-        %h2 Articles
+        %h2#header-articles Articles
 
         = partial('articles', locals: { articles: blog('blog').articles })
 
-        %h2 Notes
+        %h2#header-notes Notes
 
         %p
           A collection of notes on various topics. These notes are primarily

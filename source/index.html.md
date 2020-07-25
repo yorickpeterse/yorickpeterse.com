@@ -13,11 +13,14 @@ description: >
   Netherlands.
 ---
 
-I'm a software developer from The Netherlands, working at [GitLab][gitlab] as a
-[Staff Backend Engineer][staff-backend-engineer]. Outside of the work I do for
-GitLab, I'm interested in the development and theory of compilers, virtual
-machines, garbage collectors, and programming languages. I primarily work with
-Ruby, Rust, and at times C.
+I'm a software developer from The Netherlands, with over a decade of software
+development experience. I work at [GitLab][gitlab] as a [Staff Backend
+Engineer][staff-backend-engineer].
+
+I'm interested in the development and theory of compilers, virtual machines,
+garbage collectors, and programming languages. I'm also the author of the [Inko
+programming language][inko]. If you'd like to support my work on free and
+open-source software, you can do so using [GitHub Sponsors][github-sponsors].
 
 You can contact me via [Email](mailto:yorick@yorickpeterse.com),
 [Twitter][twitter], or [Reddit][reddit]; though I prefer Email. You can also
@@ -27,13 +30,15 @@ if you are a recruiter.
 My GPG public key is [EB691AC9][gpg-key] registered using Email address
 yorick@yorickpeterse.com. Other keys registered on my name are no longer in use.
 
-## Free And Open Source Software
+## Free And open-source software
 
 A non-exhaustive list of the Free and Open Source Software projects that I work
 on or have worked on in the past:
 
-* [Inko][inko]: a gradually typed, object-oriented programming language focusing
-  on concurrency and safety; inspired by Ruby, Smalltalk, Erlang and Rust.
+* [Inko][inko]: a statically typed, object-oriented programming language
+  focusing on concurrency and safety; inspired by Ruby, Smalltalk, Erlang and
+  Rust.
+* [GitLab][gitlab]: a complete CI/CD toolchain in a single application.
 * [Oga][oga]: an XML/HTML parser for Ruby with XPath and CSS support.
 * [ruby-ll][ruby-ll]: an LL(1) parser generator for Ruby.
 * [ruby-lint][ruby-lint]: a static code analysis tool for Ruby.
@@ -50,7 +55,7 @@ on or have worked on in the past:
 [@gitlab]: https://gitlab.com/yorickpeterse
 [gitlab]: https://about.gitlab.com/
 [gpg-key]: /gpg_key.txt
-[inko]: https://gitlab.com/inko-lang/inko
+[inko]: https://inko-lang.org
 [oga]: https://gitlab.com/yorickpeterse/oga
 [opener]: http://www.opener-project.eu/
 [pry]: https://github.com/pry/pry
@@ -63,3 +68,4 @@ on or have worked on in the past:
 [rubysl]: https://rubygems.org/gems/rubysl
 [staff-backend-engineer]: https://about.gitlab.com/job-families/engineering/backend-engineer/#staff-backend-engineer
 [twitter]: http://twitter.com/yorickpeterse
+[github-sponsors]: https://github.com/sponsors/YorickPeterse
