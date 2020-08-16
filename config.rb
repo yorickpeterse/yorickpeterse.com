@@ -41,13 +41,6 @@ activate :blog do |blog|
   blog.permalink = '{title}/index.html'
 end
 
-activate :blog do |blog|
-  blog.name = 'notes'
-  blog.prefix = 'notes'
-  blog.sources = '{title}.html'
-  blog.permalink = '{title}/index.html'
-end
-
 activate :directory_indexes
 
 configure :development do
