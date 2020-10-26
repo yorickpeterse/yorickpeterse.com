@@ -15,6 +15,7 @@ $quote-border: #ddd;
 $quote-color: #666;
 $green: #436023;
 $white: #fff;
+$lgrey: #f7f7f7;
 
 @font-face {
   font-family: 'Open Sans';
@@ -115,8 +116,8 @@ pre {
 p code,
 li code,
 table code {
+  background: $lgrey;
   font-family: $code-font;
-  font-weight: bold;
 }
 
 .highlight {
