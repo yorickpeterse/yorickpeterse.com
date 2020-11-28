@@ -2,7 +2,7 @@
 
 $border: #eee;
 $code-font: monospace;
-$font: 'Open Sans', sans-serif;
+$font: sans-serif;
 $link: #0c52bb;
 $link-hover: lighten($link, 20%);
 $link-visited: adjust-hue($link, 55deg);
@@ -16,25 +16,6 @@ $quote-color: #666;
 $green: #436023;
 $white: #fff;
 $lgrey: #f7f7f7;
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'),
-    local('OpenSans-Regular'),
-    url('../fonts/open-sans-v13-latin-ext_latin-regular.woff2') format('woff2'),
-    url('../fonts/open-sans-v13-latin-ext_latin-regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Open Sans SemiBold'),
-    local('OpenSans-SemiBold'),
-    url('../fonts/open-sans-semi-bold.woff2') format('woff2');
-}
 
 h1,
 h2,
