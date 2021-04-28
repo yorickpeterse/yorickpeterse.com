@@ -5,8 +5,6 @@ $code-font: monospace;
 $font: sans-serif;
 $link: #0c52bb;
 $link-hover: lighten($link, 20%);
-$link-visited: adjust-hue($link, 55deg);
-$link-visited-hover: lighten($link-visited, 20%);
 $margin-bottom: 20px;
 $text: #000;
 $note-background: #ffffc5;
@@ -56,14 +54,6 @@ a {
 
 a:hover {
   color: $link-hover;
-}
-
-a:visited {
-  color: $link-visited;
-}
-
-a:visited:hover {
-  color: $link-visited-hover;
 }
 
 blockquote {
