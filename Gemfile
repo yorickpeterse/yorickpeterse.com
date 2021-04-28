@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'haml', '~> 5.0'
-gem 'kramdown', '~> 1.0'
+gem 'haml', '~> 5.2'
+gem 'kramdown', '~> 2.0'
+gem 'kramdown-parser-gfm', '~> 1.1'
 gem 'middleman', '~> 4.3'
 gem 'middleman-blog', '~> 4.0'
 gem 'middleman-livereload', '~> 3.4'
-gem 'middleman-syntax', '~> 3.0'
+gem 'middleman-syntax', '~> 3.2'
 gem 'rake', '~> 13.0'
