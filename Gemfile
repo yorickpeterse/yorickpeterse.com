@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'haml', '~> 5.2'
-gem 'kramdown', '~> 2.0'
+gem 'kramdown', '~> 2.3'
 gem 'kramdown-parser-gfm', '~> 1.1'
-gem 'middleman', '~> 4.3'
+gem 'middleman', '~> 4.4'
 gem 'middleman-blog', '~> 4.0'
 gem 'middleman-livereload', '~> 3.4'
 gem 'middleman-syntax', '~> 3.2'
