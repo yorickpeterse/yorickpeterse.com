@@ -3,6 +3,8 @@ title: Deciding when to collect garbage
 date: 2019-12-02 17:15:00 UTC
 ---
 
+<!-- vale off -->
+
 How to perform garbage collection is a widely explored topic, and there are all
 sorts of different techniques. Sequential collectors, parallel collectors,
 concurrent collectors, incremental collectors, real-time collectors, the list

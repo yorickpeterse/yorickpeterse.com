@@ -3,6 +3,8 @@ title: 10 years of software development
 date: 2020-06-30 00:00:00 UTC
 ---
 
+<!-- vale off -->
+
 June 2020 marks my 10-year anniversary of becoming a software developer. When I
 first started out I just turned 18 years old, and yet somehow thought I knew
 everything better than everybody else. Of course this wasn't true, quite the

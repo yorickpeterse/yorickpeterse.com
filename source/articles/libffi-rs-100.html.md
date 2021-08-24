@@ -3,6 +3,8 @@ title: libffi-rs 1.0.0 is released
 date: 2020-10-25 00:09:55 UTC
 ---
 
+<!-- vale off -->
+
 [libffi-rs](https://crates.io/crates/libffi) ([GitHub
 repository](https://github.com/tov/libffi-rs/)) is a Rust crate that provides
 bindings to [libffi](https://sourceware.org/libffi/). I've been using the crate
