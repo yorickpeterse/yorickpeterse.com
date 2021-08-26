@@ -33,9 +33,7 @@ and references. When an owned value goes out of scope, it's deallocated. When
 creating a reference, you increment a counter stored in the owned value the
 reference points to. When the reference goes out of scope, the count is reduced.
 When an owned value goes out of scope and its reference count is not zero, the
-program terminates with an error (which I'll refer to as a "panic"). A crucial
-detail is that incrementing reference counts doesn't require traversing object
-graphs.
+program terminates with an error (which I'll refer to as a "panic").
 
 Of course this approach has its own downside: a program may panic at when
 dropping an owned value, if it still has one or more references pointing to it.
