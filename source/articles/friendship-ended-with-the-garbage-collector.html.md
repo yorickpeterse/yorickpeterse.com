@@ -126,10 +126,11 @@ def main {
 ```
 
 Defining processes is done using `async class`. When you create an instance of
-an async class, a process is spawned that owns the instance. The process that
-created the instance is given a value of type `async T`, or `async Counter` in
-the above example. This type acts as the client, with the process acting as a
-server. Clients can be copied and sent to other processes.
+an async class, a lightweight process (not an OS process) is spawned that owns
+the instance. The process that created the instance is given a value of type
+`async T`, or `async Counter` in the above example. This type acts as the
+client, with the process acting as a server. Clients can be copied and sent to
+other processes.
 
 Messages are essentially remote procedure calls, and look like regular method
 calls. When you create a process with one or more fields, or pass arguments
