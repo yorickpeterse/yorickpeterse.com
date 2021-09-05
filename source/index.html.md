@@ -8,6 +8,7 @@ tags:
   - netherlands
   - oga
   - gitlab
+  - inko
 description: >
   The personal website of Yorick Peterse, a software developer from The
   Netherlands.
@@ -22,13 +23,13 @@ garbage collectors, and programming languages. I'm also the author of the [Inko
 programming language][inko]. If you'd like to support my work on free and
 open-source software, you can do so using [GitHub Sponsors][github-sponsors].
 
-You can contact me via [Email](mailto:yorick@yorickpeterse.com),
-[Twitter][twitter], or [Reddit][reddit]; though I prefer Email. You can also
-find me on [GitLab][@gitlab] and [GitHub][@github]. Please do **not** contact me
-if you are a recruiter.
+You can find me on [GitLab][@gitlab], [GitHub][@github], [Twitter][twitter],
+[Reddit][reddit] and [lobste.rs][lobsters]. If you wish to contact me through
+Email, my Email address is `yorick` at this domain name. Emails sent by
+recruiters will be marked as spam.
 
-My GPG public key is [EB691AC9][gpg-key] registered using Email address
-yorick@yorickpeterse.com. Other keys registered on my name are no longer in use.
+My GPG public key is [EB691AC9][gpg-key]. Other keys registered on my name are
+no longer in use.
 
 ## Free And open-source software
 
@@ -39,6 +40,7 @@ on or have worked on in the past:
   focusing on concurrency and safety; inspired by Ruby, Smalltalk, Erlang and
   Rust.
 * [GitLab][gitlab]: a complete CI/CD toolchain in a single application.
+* [libbfi-rs][libffi]: Rust bindings for libffi.
 * [Oga][oga]: an XML/HTML parser for Ruby with XPath and CSS support.
 * [ruby-ll][ruby-ll]: an LL(1) parser generator for Ruby.
 * [ruby-lint][ruby-lint]: a static code analysis tool for Ruby.
@@ -69,3 +71,5 @@ on or have worked on in the past:
 [staff-backend-engineer]: https://about.gitlab.com/job-families/engineering/backend-engineer/#staff-backend-engineer
 [twitter]: http://twitter.com/yorickpeterse
 [github-sponsors]: https://github.com/sponsors/YorickPeterse
+[libffi]: https://github.com/tov/libffi-rs
+[lobsters]: https://lobste.rs/u/yorickpeterse
