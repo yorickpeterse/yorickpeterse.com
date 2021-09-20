@@ -1,3 +1,4 @@
+%meta{ 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'none'; object-src 'none'" }
 %meta{ charset: 'utf-8' }
 
 %meta{ name: 'google-site-verification',
@@ -19,7 +20,6 @@
 
 %link{ rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }
 
-%style{ type: 'text/css' }
-  = sitemap.find_resource_by_path('stylesheets/all.css').render.tr("\n", ' ')
+= stylesheet_link_tag(:all)
 
 %title= current_page.data.title || config[:website_title]
