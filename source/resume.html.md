@@ -37,7 +37,7 @@ on or have worked on in the past:
 ### GitLab B.V.
 
 | Period                           | Title
-|:---------------------------------|:----------------------
+|----------------------------------|----------------------
 | October 2015 until December 2021 | Staff backend engineer
 
 During my time at GitLab I worked on optimising application performance,
@@ -80,7 +80,7 @@ and release process, and more. Notable projects include:
 ### Olery B.V.
 
 | Period                           | Title
-|:---------------------------------|:----------------------
+|----------------------------------|----------------------
 | December 2012 until October 2015 | Backend developer
 
 Olery is/was (as of December 2021 they still exist, but I'm not sure in what
@@ -103,7 +103,7 @@ projects include:
 ### Isset Internet Professionals
 
 | Period                        | Title
-|:------------------------------|:----------------------
+|-------------------------------|-----------------------
 | June 2010 until November 2012 | Backend developer
 
 Isset is a small web development agency based in Hilversum, The Netherlands.
