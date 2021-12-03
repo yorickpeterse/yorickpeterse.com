@@ -38,6 +38,7 @@ activate :blog do |blog|
   blog.name = 'blog'
   blog.prefix = 'articles'
   blog.sources = '{title}.html'
+  blog.layout = 'article'
   blog.permalink = '{title}/index.html'
 end
 

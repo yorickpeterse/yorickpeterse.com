@@ -1,0 +1,23 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    = partial('head',
+      locals: { keywords: current_article.tags,
+                description: current_article.data.description,
+                canonical: current_article.url,
+                page_title: current_article.title })
+
+  %body
+    = partial('header')
+
+    .row.content
+      %section.article
+        %header
+          %h1= current_article.title
+
+          %p.meta
+            Published on:
+            %time{ datetime: current_article.date.to_time.utc.iso8601 }
+              = current_article.date.to_time.utc.strftime('%B %e, %Y')
+
+        = yield
