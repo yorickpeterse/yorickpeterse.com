@@ -6,7 +6,7 @@ $font: sans-serif;
 $link: #0c52bb;
 $link-hover: lighten($link, 20%);
 $margin-bottom: 20px;
-$text: #000;
+$text: #282c4f;
 $note-background: #ffffc5;
 $note-border: #ececaa;
 $quote-border: #ddd;
@@ -117,7 +117,7 @@ table code {
   .cm,
   .cs,
   .c1 {
-    color: lighten($text, 40%);
+    color: lighten($text, 20%);
   }
 
   .vi {
@@ -192,7 +192,6 @@ table {
 
 .articles-index {
   .time {
-    color: lighten($text, 40%);
     width: 110px;
   }
 
