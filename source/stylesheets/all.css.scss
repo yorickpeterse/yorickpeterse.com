@@ -6,7 +6,7 @@ $font: sans-serif;
 $link: #0c52bb;
 $link-hover: lighten($link, 20%);
 $margin-bottom: 20px;
-$text: #282c4f;
+$text: #000;
 $note-background: #ffffc5;
 $note-border: #ececaa;
 $quote-border: #ddd;
@@ -117,7 +117,7 @@ table code {
   .cm,
   .cs,
   .c1 {
-    color: lighten($text, 20%);
+    color: lighten($text, 40%);
   }
 
   .vi {
