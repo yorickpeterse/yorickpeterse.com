@@ -38,7 +38,7 @@ module Rouge
           groups Str::Symbol, Punctuation
         end
 
-        rule(/(def)(\s+)([^\(|^ ]+)/) do
+        rule(/(fn)(\s+)([^\(|^ ]+)/) do
           groups Keyword, Text, Name::Function
         end
 
