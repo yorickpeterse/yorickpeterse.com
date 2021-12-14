@@ -26,27 +26,6 @@ task :article, :title do |_, args|
   end
 end
 
-desc 'Generate a new note'
-task :note, :title do |_, args|
-  abort 'You must specify a title' unless args.title
-
-  title = args.title.strip
-  filename = title
-    .downcase
-    .gsub(/\s+/, '-')
-    .gsub(/[^\p{Word}\-]+/, '')
-
-  File.open("source/notes/#{filename}.html.md", 'w') do |handle|
-    handle.puts <<~TEMPLATE.strip
-      ---
-      title: #{title}
-      date: #{Time.now.utc.strftime('%Y-%m-%d %H:%M:%S %Z')}
-      ---
-
-    TEMPLATE
-  end
-end
-
 desc 'Builds the website'
 task :build do
   sh 'bundle exec middleman build'
