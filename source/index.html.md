@@ -27,8 +27,9 @@ You can find me on [GitLab][@gitlab], [GitHub][@github], [Twitter][twitter],
 Email, my Email address is `yorick` at this domain name. I'm not interested in
 unsolicited Emails from recruiters, and mark such Emails as spam.
 
-My GPG public key is [EB691AC9][gpg-key]. Other keys registered on my name are
-no longer in use.
+I sign my Git commits using [these SSH public keys](/ssh_keys.txt). In the past
+I used [this GPG key](/gpg_key.txt) for signing Git commits, but the key is no
+longer in use.
 
 [@github]: https://github.com/yorickpeterse/
 [@gitlab]: https://gitlab.com/yorickpeterse
