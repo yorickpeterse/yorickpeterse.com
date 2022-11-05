@@ -94,7 +94,10 @@ p code,
 li code,
 table code {
   background: $lgrey;
+  border: 1px solid $quote-border;
+  border-radius: 5px;
   font-family: $code-font;
+  padding: 0 5px 2px 5px;
 }
 
 .highlight {
