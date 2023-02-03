@@ -22,10 +22,10 @@ worked as a [Staff Backend Engineer][staff-backend-engineer] at
 [GitLab](https://about.gitlab.com). For more details, refer to my
 [resume](/resume).
 
-You can find me on [GitLab][@gitlab], [GitHub][@github], [Twitter][twitter],
-[Reddit][reddit] and [lobste.rs][lobsters]. If you wish to contact me through
-Email, my Email address is `yorick` at this domain name. I'm not interested in
-unsolicited Emails from recruiters, and mark such Emails as spam.
+You can find me on [GitLab][@gitlab], [GitHub][@github] and [Reddit][reddit]. If
+you wish to contact me through Email, my Email address is `yorick` at this
+domain name. I'm not interested in unsolicited Emails from recruiters, and mark
+such Emails as spam.
 
 I sign my Git commits using [these SSH public keys](/ssh_keys.txt). In the past
 I used [this GPG key](/gpg_key.txt) for signing Git commits, but the key is no
@@ -36,6 +36,4 @@ longer in use.
 [gpg-key]: /gpg_key.txt
 [reddit]: http://www.reddit.com/user/yorickpeterse
 [staff-backend-engineer]: https://about.gitlab.com/job-families/engineering/backend-engineer/#staff-backend-engineer
-[twitter]: http://twitter.com/yorickpeterse
 [github-sponsors]: https://github.com/sponsors/YorickPeterse
-[lobsters]: https://lobste.rs/u/yorickpeterse

@@ -768,4 +768,4 @@ news the easiest ways of doing so are:
 [jar]: https://en.wikipedia.org/wiki/JAR_(file_format)
 [inko-stdlib]: https://gitlab.com/inko-lang/inko/tree/master/runtime/std
 [atom]: /feed.xml
-[twitter]: https://twitter.com/YorickPeterse
+[twitter]: https://archive.is/6LWOm
