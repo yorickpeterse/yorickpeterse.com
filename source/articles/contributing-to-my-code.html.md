@@ -1,6 +1,6 @@
 ---
 title: Contributing To My Code
-date: 2013-02-05 20:00:00
+date: "2013-02-05 20:00:00"
 tags: contributing, open source, coding standard
 description: >
   This document describes the various requirements that I have in
