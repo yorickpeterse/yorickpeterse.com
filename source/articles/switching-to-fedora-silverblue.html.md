@@ -71,7 +71,7 @@ Through this I found a few potential issues/challenges to deal with:
   [U2F](https://en.wikipedia.org/wiki/Universal_2nd_Factor), meaning I wouldn't
   be able to use my YubiKey with Firefox. This turned out to work just fine.
 
-Having determined these issues hard workarounds that I could live with, I
+Having determined these issues had workarounds that I could live with, I
 proceeded with the installation process. The installation process itself was
 easy and ran without any issues, discussed below in no particular order.
 
