@@ -4,9 +4,10 @@ $border: #eee;
 $code-font: monospace;
 $font: sans-serif;
 $link: #0c52bb;
-$link-hover: lighten($link, 20%);
+$link-hover: #3b84f2;
 $margin-bottom: 20px;
 $text: #000;
+$comment: #666;
 $note-background: #ffffc5;
 $note-border: #ececaa;
 $quote-border: #ddd;
@@ -124,7 +125,7 @@ table code {
   .cm,
   .cs,
   .c1 {
-    color: lighten($text, 40%);
+    color: $comment;
   }
 
   .vi {

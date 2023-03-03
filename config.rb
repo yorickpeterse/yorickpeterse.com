@@ -56,5 +56,7 @@ end
 helpers do
   def last_updated_at(path)
     Time.at(Integer(`git log -1 --format=%ct #{path} 2>&1`.strip))
+  rescue ArgumentError
+    Time.now.utc
   end
 end

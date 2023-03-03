@@ -19,7 +19,7 @@ task :article, :title do |_, args|
     handle.puts <<~TEMPLATE.strip
       ---
       title: #{title}
-      date: #{Time.now.utc.strftime('%Y-%m-%d %H:%M:%S %Z')}
+      date: "#{Time.now.utc.strftime('%Y-%m-%d %H:%M:%S %Z')}"
       ---
 
     TEMPLATE
