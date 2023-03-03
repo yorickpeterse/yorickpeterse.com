@@ -245,8 +245,10 @@ per their README, and looking at existing packages on copr it seems it's not
 used a lot. Oh and it also spits out the most useless error messages I've ever
 seen, such as this:
 
-    $ rpkg local --spec ~/path/to/spec/outside/of/the/current/dir
-    git_dir_version failed with value 1
+```bash
+$ rpkg local --spec ~/path/to/spec/outside/of/the/current/dir
+git_dir_version failed with value 1
+```
 
 Then there's [tito](https://github.com/rpm-software-management/tito), which
 tries to do a whole bunch of things related to packaging and releasing, but
@@ -320,10 +322,12 @@ without issue.
 While SELinux does log when there are errors (assuming you even remember that it
 does and where they're stored), the logs themselves aren't helpful. For example:
 
-    type=AVC msg=audit(1677382357.686:651): avc:  denied  { read } for
-    pid=16822 comm="tlp-readconfs" name="tlp.conf" dev="dm-0" ino=533021
-    scontext=system_u:system_r:tlp_t:s0 tcontext=system_u:object_r:dosfs_t:s0
-    tclass=file permissive=0
+```
+type=AVC msg=audit(1677382357.686:651): avc:  denied  { read } for
+pid=16822 comm="tlp-readconfs" name="tlp.conf" dev="dm-0" ino=533021
+scontext=system_u:system_r:tlp_t:s0
+tcontext=system_u:object_r:dosfs_t:s0 tclass=file permissive=0
+```
 
 While this log line includes a ton of information, it does nothing to help me
 understand what I need to do to fix the actual problem.
@@ -398,11 +402,15 @@ end
 
 Outside a container this results in a prompt like this:
 
-    Downloads $ input-here
+```bash
+Downloads $ input-here
+```
 
 And inside a container:
 
-    [fedora] Downloads $ input-here
+```bash
+[fedora] Downloads $ input-here
+```
 
 ### Use GNOME terminal profiles for your containers
 
@@ -481,7 +489,9 @@ updates. This is done in two steps:
 You can then verify if it's enabled by running `rpm-ostree status`. If enabled
 you should see a message at the top along the lines of:
 
-    AutomaticUpdates: stage; rpm-ostreed-automatic.timer: last run 24h ago
+```
+AutomaticUpdates: stage; rpm-ostreed-automatic.timer: last run 24h ago
+```
 
 ### Layer adw-gtk3
 
