@@ -18,11 +18,11 @@ on or have worked on in the past:
 * [GitLab](https://about.gitlab.com/): a complete CI/CD toolchain in a single
   application.
 * [libbfi-rs](https://github.com/tov/libffi-rs): Rust bindings for libffi.
-* [Oga](https://gitlab.com/yorickpeterse/oga): an XML/HTML parser for Ruby with
+* [Oga](https://github.com/yorickpeterse/oga): an XML/HTML parser for Ruby with
   XPath and CSS support.
-* [ruby-ll](https://gitlab.com/yorickpeterse/ruby-ll): an LL(1) parser generator
+* [ruby-ll](https://github.com/yorickpeterse/ruby-ll): an LL(1) parser generator
   for Ruby.
-* [ruby-lint](https://gitlab.com/yorickpeterse/ruby-lint): a static code
+* [ruby-lint](https://github.com/yorickpeterse/ruby-lint): a static code
   analysis tool for Ruby.
 * [Rubinius](https://github.com/rubinius/rubinius): an implementation of the
   Ruby programming language.
