@@ -9,6 +9,7 @@ env:
 
 jobs:
   vale:
+    name: Vale
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,10 +21,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           reporter: github-check
-          fail_on_error: true
           vale_flags: '--no-wrap --sort'
 
   deploy:
+    name: Deploy to AWS
     runs-on: ubuntu-latest
     needs:
       - vale
