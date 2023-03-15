@@ -46,15 +46,16 @@ jobs:
             build
           key: ${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock') }}
 
-      - name: Version information
+      - name: Prepare
         run: |
+          gem install --no-document bundler
           ruby --version
           gem --version
           bundle --version
+          bundle config set path vendor
 
       - name: Install dependencies
         run: |
-          bundle config set path vendor
           bundle install --retry=3 --jobs=$(nproc)
 
       - name: Deploy
