@@ -33,7 +33,7 @@ end
 
 desc 'Updates the local build directory from S3'
 task :download do
-  sh "aws s3 sync s3://#{ENV.fetch('BUCKET')} build"
+  sh "aws s3 sync --no-progress s3://#{ENV.fetch('BUCKET')} build"
 end
 
 desc 'Deploys the website'
@@ -42,7 +42,7 @@ task deploy: [:download, :build] do
   dist = ENV.fetch('DISTRIBUTION_ID')
 
   sh "aws s3 sync build s3://#{bucket} --acl=public-read --delete " \
-    "--cache-control max-age=86400"
+    "--cache-control max-age=86400 --no-progress"
 
   sh "aws cloudfront create-invalidation --distribution-id #{dist} --paths '/*'"
 end
