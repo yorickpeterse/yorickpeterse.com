@@ -37,26 +37,19 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
       - name: Cache build files
-        id: cache-ruby
+        id: cache-build
         uses: actions/cache@v3
         with:
           path: |
-            vendor
             build
-          key: ${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock') }}
-
-      - name: Prepare
-        run: |
-          gem install --no-document bundler
-          ruby --version
-          gem --version
-          bundle --version
-          bundle config set path vendor
-
-      - name: Install dependencies
-        run: |
-          bundle install --retry=3 --jobs=$(nproc)
+          key: ${{ runner.os }}-deploy-${{ hashFiles('source/**/*.*', 'config.rb', 'Gemfile.lock', 'lib/**/*.*') }}
 
       - name: Deploy
         env:
