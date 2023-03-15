@@ -8,29 +8,20 @@ env:
   AWS_DEFAULT_REGION: eu-west-1
 
 jobs:
-  docker-vale:
-    permissions:
-      contents: read
-      packages: write
-    uses: ./.github/workflows/image.yml
-    with:
-      image: vale
-    secrets: inherit
-
   vale:
     runs-on: ubuntu-latest
-    needs:
-      - docker-vale
-    container:
-      image: ghcr.io/yorickpeterse/yorickpeterse.com:vale
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Run Vale
-        run: |
-          vale --version
-          vale --no-wrap --sort source/articles
+        uses: errata-ai/vale-action@reviewdog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          reporter: github-check
+          fail_on_error: true
+          vale_flags: '--no-wrap --sort'
 
   deploy:
     runs-on: ubuntu-latest
