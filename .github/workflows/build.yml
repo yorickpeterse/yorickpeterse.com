@@ -1,0 +1,99 @@
+---
+name: Build and test
+on: push
+
+env:
+  DISTRIBUTION_ID: E38R9TE90MPQA7
+  BUCKET: yorickpeterse.com
+  AWS_DEFAULT_REGION: eu-west-1
+
+jobs:
+  docker-vale:
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/image.yml
+    with:
+      image: vale
+    secrets: inherit
+
+  docker-ruby:
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/image.yml
+    with:
+      image: ruby
+    secrets: inherit
+
+  vale:
+    runs-on: ubuntu-latest
+    needs:
+      - docker-vale
+    container:
+      image: ghcr.io/yorickpeterse/yorickpeterse.com:vale
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Vale
+        run: |
+          vale --version
+          vale --no-wrap --sort source/articles
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - docker-ruby
+      - vale
+    container:
+      image: ghcr.io/yorickpeterse/yorickpeterse.com:ruby
+    if: |
+      github.repository == 'yorickpeterse/yorickpeterse.com' &&
+        github.ref_name == 'main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Get the changed files
+        uses: tj-actions/changed-files@v35
+        id: changed-files
+        with:
+          files: |
+            config.rb
+            source/**/*
+            lib/**/*
+            Gemfile
+            Gemfile.lock
+
+      - name: Cache build files
+        id: cache-ruby
+        uses: actions/cache@v3
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          path: |
+            vendor
+            build
+          key: ${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock') }}
+
+      - name: Version information
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          ruby --version
+          gem --version
+          bundle --version
+
+      - name: Install dependencies
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          bundle config set path vendor
+          bundle install --retry=3 --jobs=$(nproc)
+
+      - name: Deploy
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: rake deploy

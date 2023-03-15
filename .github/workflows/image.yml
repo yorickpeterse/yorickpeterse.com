@@ -1,0 +1,44 @@
+---
+name: Build a container image
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        required: true
+        type: string
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Get the changed files
+        uses: tj-actions/changed-files@v35
+        id: changed-files
+        with:
+          files: 'images/${{ inputs.image }}/Dockerfile'
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ${{ inputs.image }}
+        uses: docker/build-push-action@v4
+        if: steps.changed-files.outputs.any_changed == 'true'
+        with:
+          context: images/${{ inputs.image }}
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.image }}
