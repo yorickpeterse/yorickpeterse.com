@@ -12,11 +12,8 @@ jobs:
     name: Vale
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Run Vale
-        uses: errata-ai/vale-action@reviewdog
+      - uses: actions/checkout@v3
+      - uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -32,27 +29,18 @@ jobs:
       github.repository == 'yorickpeterse/yorickpeterse.com' &&
         github.ref_name == 'main'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
           bundler-cache: true
-
-      - name: Cache build files
+      - uses: actions/cache@v3
         id: cache-build
-        uses: actions/cache@v3
         with:
           path: |
             build
-          key: ${{ runner.os }}-deploy-${{ hashFiles('source/**/*.*', 'config.rb', 'Gemfile.lock', 'lib/**/*.*') }}
-
-      - name: Deploy
+          key: ${{ runner.os }}
+      - run: rake deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: rake deploy
