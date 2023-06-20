@@ -343,3 +343,8 @@ table th {
 .article header {
   text-align: center;
 }
+
+.atom .note {
+  margin-top: var(--margin-bottom);
+  margin-bottom: 10px;
+}
