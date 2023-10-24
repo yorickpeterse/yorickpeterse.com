@@ -11,10 +11,11 @@
   --note-border: #ececaa;
   --quote-border: #ddd;
   --quote-color: #666;
-  --green: #436023;
+  --green: #1c5708;
   --white: #fff;
   --lgrey: #f7f7f7;
   --purple: #5c21a5;
+  --orange: #a55000;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -201,6 +202,10 @@ table code {
 .highlight .s1,
 .highlight .s2 {
   color: var(--green);
+}
+
+.highlight .ss {
+  color: var(--orange);
 }
 
 .highlight .mf,
