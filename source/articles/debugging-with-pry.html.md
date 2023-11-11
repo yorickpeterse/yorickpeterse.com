@@ -180,7 +180,7 @@ locals: _  _dir_  _ex_  _file_  _in_  _out_  _pry_  language  number
 ```
 
 Moving out of the "breakpoint" (or moving to the next one if you have multiple
-ones defined) can be done by hitting ^D (Ctrl+D usually).
+ones defined) can be done by hitting `^D` (Ctrl+D usually).
 
 Besides the features mentioned in this article Pry has several more. For
 example, long output is piped to Less. This can be quite useful if you're
