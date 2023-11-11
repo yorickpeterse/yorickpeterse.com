@@ -56,7 +56,9 @@ information, see the [Oga README][readme].
 Oga can be installed from RubyGems as following (the installation process should
 only take a few seconds):
 
-    gem install oga
+```
+gem install oga
+```
 
 Once installed you can start parsing XML and HTML documents. For example, lets
 parse the Reddit frontpage and get all article titles:

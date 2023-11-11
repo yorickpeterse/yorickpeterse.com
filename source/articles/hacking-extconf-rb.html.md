@@ -157,11 +157,13 @@ compiled and RubyGems doesn't abort the installation process.
 Next up we'll need to create a dummy Makefile. This Makefile goes in the same
 directory as the extconf.rb file and looks pretty simple:
 
-    all:
-        true
+```
+all:
+    true
 
-    install:
-        true
+install:
+    true
+```
 
 The `true` commands are used to ensure that the commands run successfully,
 again RubyGems would abort installation if one of them failed.

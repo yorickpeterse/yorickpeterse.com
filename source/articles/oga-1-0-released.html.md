@@ -31,7 +31,9 @@ Windows support and much more.
 The exact list of changes can be found in the [changelog][changelog]. If you
 want to jump straight to trying out Oga you can install it from RubyGems:
 
-    gem install oga
+```
+gem install oga
+```
 
 Oga doesn't depend on libxml so the installation process should only take a few
 seconds.

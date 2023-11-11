@@ -48,8 +48,10 @@ the actual root of the problem.  Time for an example. Assuming we have a
 hashing function called "hash" and two strings, A and B (where A and B are
 unique), our hashing process of these strings would look like the following:
 
-    pwd1 = hash(A)
-    pwd2 = hash(B)
+```
+pwd1 = hash(A)
+pwd2 = hash(B)
+```
 
 In this case both pwd1 and pwd2 are unique. At this point a lot of people think
 they're good to go as they assume nobody is willing to wait for a certain
@@ -80,14 +82,18 @@ to bust as it depends on the algorithm that is used. If we look back at our
 hash() function the process of hashing a hash multiple times would look like
 the following:
 
-    hash = hash( hash(hash(A)) )
+```
+hash = hash( hash(hash(A)) )
+```
 
 In this example there are 3 calls to the hashing function. If A was "yorick"
 this would look a bit like the following:
 
-    hash(yorick)  -> j238103
-    hash(j238103) -> a9shda9
-    hash(a9shda9) -> 11s08j1
+```
+hash(yorick)  -> j238103
+hash(j238103) -> a9shda9
+hash(a9shda9) -> 11s08j1
+```
 
 In this case "11s08j1" is the final hash that will be stored in our database.
 At this point developers usually lay down their work and take a coffee or a tea
@@ -103,7 +109,9 @@ password.
 
 In order to explain this properly I simplified the process of hashing A N times:
 
-    password --> hash 1 --> hash 2 --> final hash
+```
+password --> hash 1 --> hash 2 --> final hash
+```
 
 In order to retrieve the original password ("password") we'd have to find a
 collision for "hash 2". We can't use hash 1 as it's source ("password") can be
@@ -195,16 +203,18 @@ it takes to hash "yorick" with BCrypt with a cost/workfactor of 5, 10 and 15 a
 total of 100 times.  The results of this benchmark would look like the
 following:
 
-    Rehearsal -------------------------------------------------------
-    Cost of 5             0.250000   0.000000   0.250000 (  0.249723)
-    Cost of 10            7.740000   0.010000   7.750000 (  7.879849)
-    Cost of 15          247.510000   0.460000 247.970000 (255.346897)
-    -------------------------------------------- total: 255.970000sec
+```
+Rehearsal -------------------------------------------------------
+Cost of 5             0.250000   0.000000   0.250000 (  0.249723)
+Cost of 10            7.740000   0.010000   7.750000 (  7.879849)
+Cost of 15          247.510000   0.460000 247.970000 (255.346897)
+-------------------------------------------- total: 255.970000sec
 
-                              user     system      total        real
-    Cost of 5             0.250000   0.000000   0.250000 (  0.272549)
-    Cost of 10            7.750000   0.030000   7.780000 (  8.442511)
-    Cost of 15          247.530000   0.480000 248.010000 (254.815985)
+                          user     system      total        real
+Cost of 5             0.250000   0.000000   0.250000 (  0.272549)
+Cost of 10            7.750000   0.030000   7.780000 (  8.442511)
+Cost of 15          247.530000   0.480000 248.010000 (254.815985)
+```
 
 The column we're really interested in is the "real" column. As you can see a
 cost of 5 only takes about 250 miliseconds while a cost of 15 takes a whopping
@@ -236,7 +246,9 @@ $hash = crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$');
 For Ruby there's a gem called "bcrypt-ruby" which can be installed using
 Rubygems:
 
-    $ gem install bcrypt-ruby
+```
+$ gem install bcrypt-ruby
+```
 
 Once installed you can use it as following:
 

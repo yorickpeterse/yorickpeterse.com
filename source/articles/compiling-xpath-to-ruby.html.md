@@ -108,35 +108,39 @@ takes a [10 MB test file][test-file] and runs the query
 `descendant-or-self::location` 10 times, measuring the execution time for every
 iteration. Using Oga 1.2.3 we get the following output:
 
-    Iteration: 1: 3.493
-    Iteration: 2: 2.868
-    Iteration: 3: 2.934
-    Iteration: 4: 2.965
-    Iteration: 5: 2.926
-    Iteration: 6: 2.928
-    Iteration: 7: 3.008
-    Iteration: 8: 2.977
-    Iteration: 9: 2.938
-    Iteration: 10: 2.993
+```
+Iteration: 1: 3.493
+Iteration: 2: 2.868
+Iteration: 3: 2.934
+Iteration: 4: 2.965
+Iteration: 5: 2.926
+Iteration: 6: 2.928
+Iteration: 7: 3.008
+Iteration: 8: 2.977
+Iteration: 9: 2.938
+Iteration: 10: 2.993
 
-    Iterations: 10
-    Average:    3.003 sec
+Iterations: 10
+Average:    3.003 sec
+```
 
 Using Oga 1.3.0 the output is as following instead:
 
-    Iteration: 1: 0.432
-    Iteration: 2: 0.448
-    Iteration: 3: 0.522
-    Iteration: 4: 0.453
-    Iteration: 5: 0.44
-    Iteration: 6: 0.494
-    Iteration: 7: 0.448
-    Iteration: 8: 0.431
-    Iteration: 9: 0.432
-    Iteration: 10: 0.437
+```
+Iteration: 1: 0.432
+Iteration: 2: 0.448
+Iteration: 3: 0.522
+Iteration: 4: 0.453
+Iteration: 5: 0.44
+Iteration: 6: 0.494
+Iteration: 7: 0.448
+Iteration: 8: 0.431
+Iteration: 9: 0.432
+Iteration: 10: 0.437
 
-    Iterations: 10
-    Average:    0.454 sec
+Iterations: 10
+Average:    0.454 sec
+```
 
 Here Oga 1.3.0 is about 6.6 times faster.
 
@@ -150,17 +154,21 @@ having to stop all threads more often.
 
 Using Oga 1.2.3 the results of this benchmark are as following:
 
-    Preparing...
-    Starting threads...
-    Samples: 50
-    Average: 0.2316 seconds
+```
+Preparing...
+Starting threads...
+Samples: 50
+Average: 0.2316 seconds
+```
 
 Using Oga 1.3.0:
 
-    Preparing...
-    Starting threads...
-    Samples: 50
-    Average: 0.0342 seconds
+```
+Preparing...
+Starting threads...
+Samples: 50
+Average: 0.0342 seconds
+```
 
 Here Oga 1.3.0 is also around 6.6 times faster.
 
@@ -183,41 +191,45 @@ query language versus the rest I've included it any way.
 
 Using these Gems and Oga 1.2.3, the results are as following:
 
-    Calculating -------------------------------------
-                      Ox    14.548k i/100ms
-                Nokogiri     3.879k i/100ms
-                     Oga     2.681k i/100ms
-                   REXML     1.114k i/100ms
-    -------------------------------------------------
-                      Ox    197.284k (± 3.9%) i/s -    989.264k
-                Nokogiri     46.701k (± 9.7%) i/s -    232.740k
-                     Oga     28.293k (± 2.0%) i/s -    142.093k
-                   REXML     11.901k (± 2.8%) i/s -     60.156k
+```
+Calculating -------------------------------------
+                  Ox    14.548k i/100ms
+            Nokogiri     3.879k i/100ms
+                 Oga     2.681k i/100ms
+               REXML     1.114k i/100ms
+-------------------------------------------------
+                  Ox    197.284k (± 3.9%) i/s -    989.264k
+            Nokogiri     46.701k (± 9.7%) i/s -    232.740k
+                 Oga     28.293k (± 2.0%) i/s -    142.093k
+               REXML     11.901k (± 2.8%) i/s -     60.156k
 
-    Comparison:
-                      Ox:   197284.2 i/s
-                Nokogiri:    46701.1 i/s - 4.22x slower
-                     Oga:    28292.6 i/s - 6.97x slower
-                   REXML:    11900.5 i/s - 16.58x slower
+Comparison:
+                  Ox:   197284.2 i/s
+            Nokogiri:    46701.1 i/s - 4.22x slower
+                 Oga:    28292.6 i/s - 6.97x slower
+               REXML:    11900.5 i/s - 16.58x slower
+```
 
 And using Oga 1.3.0:
 
-    Calculating -------------------------------------
-                      Ox    15.227k i/100ms
-                Nokogiri     3.966k i/100ms
-                     Oga    13.874k i/100ms
-                   REXML     1.168k i/100ms
-    -------------------------------------------------
-                      Ox    201.044k (± 1.5%) i/s -      1.005M
-                Nokogiri     47.338k (± 8.6%) i/s -    237.960k
-                     Oga    166.485k (± 9.8%) i/s -    832.440k
-                   REXML     11.693k (± 5.3%) i/s -     58.400k
+```
+Calculating -------------------------------------
+                  Ox    15.227k i/100ms
+            Nokogiri     3.966k i/100ms
+                 Oga    13.874k i/100ms
+               REXML     1.168k i/100ms
+-------------------------------------------------
+                  Ox    201.044k (± 1.5%) i/s -      1.005M
+            Nokogiri     47.338k (± 8.6%) i/s -    237.960k
+                 Oga    166.485k (± 9.8%) i/s -    832.440k
+               REXML     11.693k (± 5.3%) i/s -     58.400k
 
-    Comparison:
-                      Ox:   201044.3 i/s
-                     Oga:   166485.5 i/s - 1.21x slower
-                Nokogiri:    47338.3 i/s - 4.25x slower
-                   REXML:    11692.7 i/s - 17.19x slower
+Comparison:
+                  Ox:   201044.3 i/s
+                 Oga:   166485.5 i/s - 1.21x slower
+            Nokogiri:    47338.3 i/s - 4.25x slower
+               REXML:    11692.7 i/s - 17.19x slower
+```
 
 Here Oga 1.3.0 is about 5.8 times faster compared to version 1.2.3. Using 1.3.0
 Oga outperforms not only REXML but also Nokogiri.
