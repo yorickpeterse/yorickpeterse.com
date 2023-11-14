@@ -48,6 +48,19 @@ building a programming language since first starting work on Inko. This is by no
 means an exhaustive list, rather it's what I can remember at the time of
 writing.
 
+<div class="note" markdown="0">
+<div class="icon" markdown="0">ℹ️</div>
+<div class="text" markdown="1">
+
+You can find discussions about this article on Reddit
+[here](https://www.reddit.com/r/ProgrammingLanguages/comments/17v05xd/a_decade_of_developing_a_programming_language/)
+and [here](https://www.reddit.com/r/programming/comments/17v0avj/a_decade_of_developing_a_programming_language/),
+on [Hacker News](https://news.ycombinator.com/item?id=38261982), and on
+[Lobsters](https://lobste.rs/s/wyeffq/decade_developing_programming_language).
+
+</div>
+</div>
+
 ## Table of contents
 {:.no_toc}
 
@@ -107,6 +120,17 @@ such casts are common.
 dynamically typed (preferably statically typed, but that's a different topic),
 as gradual typing just doesn't make sense for new languages.
 
+<div class="note" markdown="0">
+<div class="icon" markdown="0">ℹ️</div>
+<div class="text" markdown="1">
+
+The emphasis here is on _new_ languages, as applying gradual typing to an
+existing language _can_ be useful, especially as an intermediate step towards
+the language becoming fully statically typed.
+
+</div>
+</div>
+
 ## Avoid self-hosting your compiler
 
 Early in the development of Inko, I decided that I wanted to write the compiler
@@ -152,6 +176,18 @@ better linker, code generator, and so on, but few developers who actually
 succeed in doing so. As harsh as it may sound, you are probably not one of them.
 Of course once you have an established language, you're free to reinvent as many
 of these wheels as you see fit.
+
+<div class="note" markdown="0">
+<div class="icon" markdown="0">ℹ️</div>
+<div class="text" markdown="1">
+
+If you're writing an interpreted language, it's fine and probably even needed to
+write your own (byte)code generator (unless you target an existing virtual
+machine such as the JVM), as bytecode generators are typically not that
+complicated to implement.
+
+</div>
+</div>
 
 ## Avoid bike shedding about syntax
 
