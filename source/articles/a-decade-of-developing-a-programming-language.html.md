@@ -135,7 +135,7 @@ to your users than a self-hosted compiler.
 ## Avoid writing your own code generator, linker, etc
 
 When writing a language, it's tempting to take on more than you can or probably
-should handle. In particular, it may be tempting to write your own code
+should handle. In particular, it may be tempting to write your own native code
 generator, linker, C standard library, and so on (i.e what languages such as
 [Zig](https://ziglang.org/) and [Roc](https://www.roc-lang.org/) are doing).
 
