@@ -179,9 +179,9 @@ syntax.
 
 This shouldn't be entirely surprising, but supporting different platforms
 (Linux, macOS, Windows, etc) is _hard_. For example, Inko used to support
-Windows when it was an interpreted language. When switching to a compiled
-language, I had to drop support for Windows as I couldn't get certain things to
-work (e.g. the assembly used for switching thread stacks).
+Windows when it used an interpreter. When switching to a compiled language, I
+had to drop support for Windows as I couldn't get certain things to work (e.g.
+the assembly used for switching thread stacks).
 
 Running tests on different platforms is also not nearly as easy as it should be.
 Take [GitHub Actions](https://github.com/features/actions): you can use it to
