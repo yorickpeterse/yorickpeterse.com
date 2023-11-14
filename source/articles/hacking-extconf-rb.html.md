@@ -7,10 +7,15 @@ description: >
 ---
 <!-- vale off -->
 
-<div class="note">
+<div class="note" markdown="0">
+<div class="icon" markdown="0">ℹ️</div>
+<div class="text" markdown="1">
+
 As it turns out you can make the process discussed in this article easier by
 using a Rakefile instead of an extconf.rb file. See the bottom of this article
 for more information.
+
+</div>
 </div>
 
 In Ruby land [RubyGems][rubygems] is the de facto package manager. RubyGems

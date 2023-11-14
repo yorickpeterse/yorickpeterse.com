@@ -186,13 +186,18 @@ scattered across different websites, some new and some ancient. These websites
 also manage to somehow present you a _ton_ of text, but not actually explain
 anything useful at all.
 
-<div class="note">
+<div class="note" markdown="0">
+<div class="icon" markdown="0">ℹ️</div>
+<div class="text" markdown="1">
+
 The following is a brief rant on RPM packaging. If you're not interested
 in reading it, the summary is this:
 
 The process of building an RPM is confusing and frustrating, especially compared
 to how easy it's to build a package for Arch Linux. This only affects those
 actually interested in building packages.
+
+</div>
 </div>
 
 To illustrate how frustrating this process is: through reading some tutorials I
