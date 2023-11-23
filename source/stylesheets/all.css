@@ -28,11 +28,11 @@
   --text: #000;
   --comment: #666;
   --yellow: #fff3c4;
-  --quote-border: #ddd;
-  --quote-color: #666;
+  --quote-color: #555;
   --green: #1c5708;
   --white: #fff;
   --lgrey: #f7f7f7;
+  --dgrey: #ddd;
   --purple: #5c21a5;
   --orange: #a55000;
 }
@@ -238,11 +238,13 @@ a:hover {
 }
 
 blockquote {
-  border-left: 5px solid var(--quote-border);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   color: var(--quote-color);
   font-style: italic;
   margin-bottom: var(--margin);
-  padding: 0px 0px 0px 15px;
+  padding: 10px;
 }
 
 blockquote *:last-child {
@@ -273,7 +275,7 @@ p code,
 li code,
 table code {
   background: var(--lgrey);
-  border: 1px solid var(--quote-border);
+  border: 1px solid var(--dgrey);
   border-radius: 5px;
   font-family: var(--code-font);
   padding: 0 5px 2px 5px;
@@ -440,7 +442,7 @@ table tr:last-child td {
 }
 
 .top nav ul {
-  border-bottom: 1px solid var(--quote-border);
+  border-bottom: 1px solid var(--dgrey);
   margin: 0;
   padding-bottom: var(--margin);
   text-align: center;
