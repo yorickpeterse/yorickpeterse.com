@@ -1,5 +1,6 @@
 :root {
   --border: #000;
+  --border-radius: 3px;
   --shadow: #e3e3e3;
   --shadow-size: 5px;
   --nav-shadow-size: 3px;
@@ -232,6 +233,7 @@ em {
 
 pre {
   border: 1px solid #000;
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   font-family: var(--code-font);
   font-size: 12px;
@@ -319,6 +321,7 @@ ol li {
 
 table {
   border: 1px solid var(--border);
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   margin-bottom: var(--margin);
 }
@@ -340,6 +343,7 @@ table tr:last-child td {
 
 .profile-photo {
   border: 1px solid var(--border);
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: none;
   float: right;
@@ -359,6 +363,7 @@ table tr:last-child td {
 .note {
   background: var(--yellow);
   border: 1px solid var(--border);
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: flex;
   flex-direction: row;
@@ -387,6 +392,7 @@ table tr:last-child td {
 
 .articles-index {
   border: 0;
+  border-radius: 0;
   box-shadow: none;
 }
 
@@ -429,6 +435,7 @@ table tr:last-child td {
 
 .top nav li a {
   border: 1px solid var(--border);
+  border-radius: var(--border-radius);
   box-shadow: var(--nav-shadow-size) var(--nav-shadow-size) var(--shadow);
   color: var(--text);
   flex: 1;
