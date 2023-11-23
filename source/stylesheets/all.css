@@ -1,7 +1,23 @@
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/InterVariable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: InterVariable;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/InterVariable-Italic.woff2') format('woff2');
+}
+
 :root {
   --border: #000;
   --border-radius: 3px;
-  --shadow: #e3e3e3;
+  --shadow: #efefef;
   --shadow-size: 5px;
   --nav-shadow-size: 3px;
   --code-font: monospace;
@@ -20,6 +36,14 @@
   --purple: #5c21a5;
   --orange: #a55000;
 }
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --font: InterVariable, sans-serif;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
@@ -161,7 +185,6 @@ small {
 }
 
 i {
-  margin-right: 2px;
   line-height: 1.8;
   vertical-align: top;
 }
@@ -172,7 +195,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
   margin: 5px 0px;
 }
@@ -183,14 +206,17 @@ h1 {
 
 h2 {
   font-size: 30px;
+  font-weight: 500;
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 h4 {
   font-size: 20px;
+  font-weight: 500;
 }
 
 p,
@@ -410,23 +436,20 @@ table tr:last-child td {
 
 .top {
   font-size: 16px;
-  margin: calc(var(--margin) / 2) 0 var(--margin) 0;
+  margin: var(--margin) 0;
 }
 
 .top nav ul {
-  align-items: stretch;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  border-bottom: 1px solid var(--quote-border);
   margin: 0;
+  padding-bottom: var(--margin);
   text-align: center;
 }
 
 .top nav li {
-  display: flex;
-  flex: 1;
+  display: inline-block;
   list-style-type: none;
-  margin-right: calc(var(--margin) / 2);
+  margin-right: var(--margin);
 }
 
 .top nav li:last-child {
@@ -434,34 +457,20 @@ table tr:last-child td {
 }
 
 .top nav li a {
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  box-shadow: var(--nav-shadow-size) var(--nav-shadow-size) var(--shadow);
   color: var(--text);
-  flex: 1;
-  padding: 0px 5px;
-}
-
-.top nav li a:hover {
-  box-shadow: 3px 3px var(--border);
-  text-decoration: none;
 }
 
 @media only screen and (max-width: 480px) {
-  .top {
-    margin-bottom: var(--margin);
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .top nav ul {
-    flex-direction: column;
-  }
-
   .top nav li {
     margin-right: 0;
-    margin-bottom: calc(var(--margin) / 2);
+    margin-bottom: 5px;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  .top nav li a i {
+    display: none;
   }
 }
 

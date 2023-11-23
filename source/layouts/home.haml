@@ -18,6 +18,8 @@
 
         = yield
 
-        %h2#header-articles Articles
+      %section
+        %header
+          %h1 Articles
 
         = partial('articles', locals: { articles: blog('blog').articles })
