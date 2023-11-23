@@ -8,7 +8,7 @@ description: >
 <!-- vale off -->
 
 <div class="note" markdown="0">
-<div class="icon" markdown="0">ℹ️</div>
+<i class="icon icon-info-circle" markdown="0"></i>
 <div class="text" markdown="1">
 
 As it turns out you can make the process discussed in this article easier by

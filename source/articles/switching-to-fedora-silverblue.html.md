@@ -187,7 +187,7 @@ also manage to somehow present you a _ton_ of text, but not actually explain
 anything useful at all.
 
 <div class="note" markdown="0">
-<div class="icon" markdown="0">ℹ️</div>
+<i class="icon icon-info-circle" markdown="0"></i>
 <div class="text" markdown="1">
 
 The following is a brief rant on RPM packaging. If you're not interested

@@ -49,7 +49,7 @@ means an exhaustive list, rather it's what I can remember at the time of
 writing.
 
 <div class="note" markdown="0">
-<div class="icon" markdown="0">ℹ️</div>
+<i class="icon icon-comments" markdown="0"></i>
 <div class="text" markdown="1">
 
 You can find discussions about this article on Reddit
@@ -121,7 +121,7 @@ dynamically typed (preferably statically typed, but that's a different topic),
 as gradual typing just doesn't make sense for new languages.
 
 <div class="note" markdown="0">
-<div class="icon" markdown="0">ℹ️</div>
+<i class="icon icon-info-circle" markdown="0"></i>
 <div class="text" markdown="1">
 
 The emphasis here is on _new_ languages, as applying gradual typing to an
@@ -178,7 +178,7 @@ Of course once you have an established language, you're free to reinvent as many
 of these wheels as you see fit.
 
 <div class="note" markdown="0">
-<div class="icon" markdown="0">ℹ️</div>
+<i class="icon icon-info-circle" markdown="0"></i>
 <div class="text" markdown="1">
 
 If you're writing an interpreted language, it's fine and probably even needed to

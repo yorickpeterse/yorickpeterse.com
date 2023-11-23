@@ -1,14 +1,16 @@
 :root {
-  --border: #eee;
+  --border: #000;
+  --shadow: #e3e3e3;
+  --shadow-size: 5px;
+  --nav-shadow-size: 3px;
   --code-font: monospace;
   --font: sans-serif;
-  --link: #0c52bb;
+  --blue: #0c52bb;
   --link-hover: #3b84f2;
-  --margin-bottom: 20px;
+  --margin: 20px;
   --text: #000;
   --comment: #666;
-  --note-background: #fffcee;
-  --note-border: #ffea88;
+  --yellow: #fff3c4;
   --quote-border: #ddd;
   --quote-color: #666;
   --green: #1c5708;
@@ -89,10 +91,57 @@ acronym, abbr {
   cursor: help;
 }
 
-/* Some typography related styles */
-body {
-  font-size: 16px;
+/* -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'icons';
+  src:
+    url('/fonts/icons.ttf?l12iuo') format('truetype'),
+    url('/fonts/icons.woff?l12iuo') format('woff'),
+    url('/fonts/icons.svg?l12iuo#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\f015";
+}
+.icon-info-circle:before {
+  content: "\f05a";
+}
+.icon-comments:before {
+  content: "\f086";
+}
+.icon-feed:before {
+  content: "\f09e";
+}
+.icon-rss:before {
+  content: "\f09e";
+}
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+.icon-newspaper-o:before {
+  content: "\f1ea";
+}
+
+/* -------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
@@ -110,6 +159,12 @@ small {
   font-size: 11px;
 }
 
+i {
+  margin-right: 2px;
+  line-height: 1.8;
+  vertical-align: top;
+}
+
 h1,
 h2,
 h3,
@@ -122,11 +177,11 @@ h6 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 34px;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 30px;
 }
 
 h3 {
@@ -141,11 +196,11 @@ p,
 ul,
 ol,
 blockquote {
-  margin-bottom: var(--margin-bottom);
+  margin-bottom: var(--margin);
 }
 
 a {
-  color: var(--link);
+  color: var(--blue);
   font-weight: 500;
   text-decoration: none;
 }
@@ -159,7 +214,7 @@ blockquote {
   border-left: 5px solid var(--quote-border);
   color: var(--quote-color);
   font-style: italic;
-  margin-bottom: var(--margin-bottom);
+  margin-bottom: var(--margin);
   padding: 0px 0px 0px 15px;
 }
 
@@ -176,11 +231,13 @@ em {
 }
 
 pre {
+  border: 1px solid #000;
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   font-family: var(--code-font);
   font-size: 12px;
   line-height: 1.5;
-  margin-bottom: var(--margin-bottom);
-  padding: 0 0 0 30px;
+  margin-bottom: var(--margin);
+  padding: 10px;
   white-space: pre-wrap;
 }
 
@@ -213,7 +270,7 @@ table code {
 .highlight .mi,
 .highlight .mo,
 .highlight .il {
-  color: var(--link);
+  color: var(--blue);
 }
 
 .highlight .c,
@@ -261,15 +318,29 @@ ol li {
 }
 
 table {
-  margin-bottom: var(--margin-bottom);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
+  margin-bottom: var(--margin);
 }
 
-table th {
+table th,
+table td {
   border-bottom: 1px solid var(--border);
+  padding: 5px;
   text-align: left;
 }
 
+table th {
+  background: var(--lgrey);
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
 .profile-photo {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: none;
   float: right;
   margin-left: 20px;
@@ -286,18 +357,20 @@ table th {
 }
 
 .note {
-  background: var(--note-background);
-  border: 1px solid var(--note-border);
-  border-radius: 5px;
-  display: grid;
+  background: var(--yellow);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
+  display: flex;
+  flex-direction: row;
   font-size: 0.9rem;
-  grid-template-columns: 2.0rem auto;
-  margin-bottom: var(--margin-bottom);
+  margin-bottom: var(--margin);
   padding: 10px;
 }
 
 .note .icon {
-  font-size: 1.2rem;
+  font-size: 2rem;
+  line-height: 1;
+  margin-right: 10px;
 }
 
 .note .text {
@@ -312,6 +385,17 @@ table th {
   width: 110px;
 }
 
+.articles-index {
+  border: 0;
+  box-shadow: none;
+}
+
+.articles-index td,
+.articles-index th {
+  border: none;
+  padding: 0;
+}
+
 @media only screen and (max-width: 660px) {
   .articles-index .time {
     display: none;
@@ -319,31 +403,59 @@ table th {
 }
 
 .top {
-  border-bottom: 1px solid var(--border);
   font-size: 16px;
-  padding: 10px 0;
+  margin: calc(var(--margin) / 2) 0 var(--margin) 0;
 }
 
 .top nav ul {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 0;
   text-align: center;
 }
 
 .top nav li {
-  display: inline-block;
+  display: flex;
+  flex: 1;
   list-style-type: none;
-  margin-right: 15px;
-}
-
-@media only screen and (max-width: 340px) {
-  .top nav li {
-    margin-right: 0;
-    width: 100%;
-  }
+  margin-right: calc(var(--margin) / 2);
 }
 
 .top nav li:last-child {
   margin-right: 0;
+}
+
+.top nav li a {
+  border: 1px solid var(--border);
+  box-shadow: var(--nav-shadow-size) var(--nav-shadow-size) var(--shadow);
+  color: var(--text);
+  flex: 1;
+  padding: 0px 5px;
+}
+
+.top nav li a:hover {
+  box-shadow: 3px 3px var(--border);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .top {
+    margin-bottom: var(--margin);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .top nav ul {
+    flex-direction: column;
+  }
+
+  .top nav li {
+    margin-right: 0;
+    margin-bottom: calc(var(--margin) / 2);
+    width: 100%;
+  }
 }
 
 .content,
@@ -351,9 +463,6 @@ table th {
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
-}
-
-.content {
   padding: 0 15px;
 }
 
@@ -362,6 +471,6 @@ table th {
 }
 
 .atom .note {
-  margin-top: var(--margin-bottom);
+  margin-top: var(--margin);
   margin-bottom: 10px;
 }
