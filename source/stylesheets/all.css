@@ -99,9 +99,8 @@ acronym, abbr {
 @font-face {
   font-family: 'icons';
   src:
-    url('/fonts/icons.ttf?l12iuo') format('truetype'),
-    url('/fonts/icons.woff?l12iuo') format('woff'),
-    url('/fonts/icons.svg?l12iuo#icons') format('svg');
+    url('/fonts/icons.woff?v=1') format('woff'),
+    url('/fonts/icons.woff2?v=1') format('woff2'),
   font-weight: normal;
   font-style: normal;
   font-display: block;
