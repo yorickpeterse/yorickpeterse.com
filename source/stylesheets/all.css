@@ -100,7 +100,7 @@ acronym, abbr {
   font-family: 'icons';
   src:
     url('/fonts/icons.woff?v=1') format('woff'),
-    url('/fonts/icons.woff2?v=1') format('woff2'),
+    url('/fonts/icons.woff2?v=1') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: block;
