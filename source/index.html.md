@@ -24,8 +24,9 @@ at [GitLab](https://about.gitlab.com). For more details, refer to my
 [resume](/resume).
 
 You can find me on [GitHub](https://github.com/yorickpeterse),
-[GitLab](https://gitlab.com/yorickpeterse) and
-[Reddit](http://www.reddit.com/user/yorickpeterse). If you wish to contact me
+[GitLab](https://gitlab.com/yorickpeterse),
+[Reddit](http://www.reddit.com/user/yorickpeterse), and
+[Mastodon](https://hachyderm.io/@yorickpeterse). If you wish to contact me
 through Email, my Email address is `yorick` at this domain name. I'm not
 interested in unsolicited Emails from recruiters, and mark such Emails as spam.
 
