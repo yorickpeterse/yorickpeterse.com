@@ -336,7 +336,7 @@ examples of a few languages and when they released their first stable release (a
 `?` indicates no stable release is available at the time of writing):
 
 | Language | Started in | Release of 1.0.0
-|:---------|:-----------|:----------------
+|----------|------------|-----------------
 | Python   | 1989       | 1994
 | Ruby     | 1993       | 1996
 | Scala    | 2001       | 2004
