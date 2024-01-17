@@ -354,8 +354,8 @@ and it becoming popular. Ruby 1.0 released in 1996, but it wouldn't be until
 2005 or so that Ruby became popular with the release of Ruby on Rails. Rust in
 turn saw a rise in popularity following its first stable release, but it would
 still take a few years for the language to take off. Scala released version
-1.0.0 2004, but didn't see widespread adoption until some time between 2010 and
-2015.
+1.0.0 in 2004, but didn't see widespread adoption until some time between 2010
+and 2015.
 
 Based on these patterns, I suspect that most languages will need at least 5-10
 years of development before reaching their first stable release, followed by
