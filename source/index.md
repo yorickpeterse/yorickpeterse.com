@@ -1,6 +1,6 @@
 ---
 {
-  "title": "About",
+  "title": "Yorick Peterse",
   "date": "2011-05-04 00:01 UTC"
 }
 ---
