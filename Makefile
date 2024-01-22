@@ -5,7 +5,8 @@ BUCKET := yorickpeterse.com
 DIST := E38R9TE90MPQA7
 
 build:
-	@inko run
+	@inko build
+	@./build/main
 
 setup:
 	@inko pkg sync
