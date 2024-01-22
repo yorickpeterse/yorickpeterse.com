@@ -2,6 +2,7 @@ import builder.html
 import markdown
 import markdown.html.Filter
 import std.clone.Clone
+import std.crypto.sha2.Sha256
 import std.fs.file.(ReadOnlyFile, WriteOnlyFile)
 import std.fs.path.Path
 import std.io
@@ -100,6 +101,45 @@ class pub Page {
   }
 }
 
+class Hashes {
+  # The keys of this map start with a `/`, such that relative URLs such as
+  # `/css/foo.css` directly translate into valid keys for this map.
+  let @mapping: Map[String, String]
+
+  fn static new -> Hashes {
+    Hashes { @mapping = Map.new }
+  }
+
+  fn mut add(path: ref Path, key: String) -> Result[Nil, io.Error] {
+    let bytes = ByteArray.new
+    let file = try ReadOnlyFile.new(path)
+    let hasher = Sha256.new
+
+    while (try file.read(into: bytes, size: 8096)) > 0 {
+      hasher.write(bytes)
+      bytes.clear
+    }
+
+    @mapping.set(key, hasher.finish.to_string)
+    Result.Ok(nil)
+  }
+
+  fn get(key: String) -> Option[String] {
+    @mapping.opt(key)
+  }
+}
+
+impl Clone[Hashes] for Hashes {
+  fn pub clone -> Hashes {
+    Hashes {
+      @mapping = @mapping.iter.reduce(Map.new) fn (map, pair) {
+        map.set(pair.key.clone, pair.value.clone)
+        map
+      }
+    }
+  }
+}
+
 class pub Files {
   # The directory containing the source files.
   let pub @source: Path
@@ -111,23 +151,18 @@ class pub Files {
   let @files: Array[Path]
 
   # A mapping of paths relative to the source directory and their corresponding
-  # file modification times.
-  #
-  # The keys of this map start with a `/`, such that relative URLs such as
-  # `/css/foo.css` directly translate into valid keys for this map.
-  let @times: Map[String, DateTime]
+  # file hashes.
+  let @hashes: Hashes
 
   fn static new(source: Path, output: Path) -> Result[Files, io.Error] {
     let files = []
-    let times = Map.new
+    let hashes = Hashes.new
     let iter = try source.list_all
 
     try iter.try_each fn (res) {
       match res {
         case Ok({ @type = File, @path = path }) -> {
-          let rel = "/{path.strip_prefix(source).unwrap}"
-
-          times.set(rel, try path.modified_at)
+          try hashes.add(path, "/{path.strip_prefix(source).unwrap}")
           files.push(path)
           Result.Ok(nil)
         }
@@ -140,7 +175,7 @@ class pub Files {
       @source = source,
       @output = output,
       @files = files,
-      @times = times,
+      @hashes = hashes,
     })
   }
 
@@ -152,8 +187,8 @@ class pub Files {
     }
   }
 
-  fn modified_at(path: ref String) -> Option[ref DateTime] {
-    @times.opt(path)
+  fn hash(path: ref String) -> Option[String] {
+    @hashes.get(path)
   }
 }
 
@@ -163,10 +198,7 @@ impl Clone[Files] for Files {
       @source = @source.clone,
       @output = @output.clone,
       @files = @files.clone,
-      @times = @times.iter.reduce(Map.new) fn (map, pair) {
-        map.set(pair.key.clone, pair.value.clone)
-        map
-      }
+      @hashes = @hashes.clone,
     }
   }
 }
@@ -228,7 +260,7 @@ class UpdateAssetLinks {
 
   fn src_element(element: mut html.Element) {
     match element.attributes.opt('src') {
-      case Some(url) -> element.attr('src', url_with_time(url))
+      case Some(url) -> element.attr('src', hashed_url(url))
       case _ -> return
     }
   }
@@ -236,16 +268,16 @@ class UpdateAssetLinks {
   fn link(link: mut html.Element) {
     match link.attributes.opt('rel') {
       case Some('stylesheet' or 'icon') -> match link.attributes.opt('href') {
-        case Some(url) -> link.attr('href', url_with_time(url))
+        case Some(url) -> link.attr('href', hashed_url(url))
         case _ -> return
       }
       case _ -> return
     }
   }
 
-  fn url_with_time(url: String) -> String {
-    match @files.modified_at(url) {
-      case Some(v) -> "{url}?ts={v.to_int}"
+  fn hashed_url(url: String) -> String {
+    match @files.hash(url) {
+      case Some(v) -> "{url}?hash={v}"
       case _ -> url
     }
   }

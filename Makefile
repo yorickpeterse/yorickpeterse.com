@@ -21,7 +21,6 @@ deploy:
 	@rclone sync \
 		--config rclone.conf \
 		--checksum \
-		--progress \
 		--header-upload 'Cache-Control:max-age=604800' \
 		--s3-acl 'public-read' \
 		public "production:${BUCKET}"
