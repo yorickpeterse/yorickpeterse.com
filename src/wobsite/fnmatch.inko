@@ -1,0 +1,15 @@
+let FNM_PATHNAME = 1
+let FNM_NOMATCH = 1
+
+fn extern fnmatch(
+  pattern: Pointer[UInt8],
+  string: Pointer[UInt8],
+  flags: Int32,
+) -> Int32
+
+fn match(pattern: String, path: String, root: Bool) -> Bool {
+  let flags = if root { FNM_PATHNAME } else { 0 }
+  let res = fnmatch(pattern.to_pointer, path.to_pointer, flags as Int32) as Int
+
+  res != FNM_NOMATCH
+}

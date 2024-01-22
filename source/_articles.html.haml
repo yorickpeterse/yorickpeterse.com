@@ -1,9 +1,0 @@
-%table.articles-index
-  %tbody
-    - articles.each do |article|
-      %tr
-        %td.time
-          %time{ datetime: article.date.to_time.utc.iso8601 }
-            = article.date.to_time.utc.strftime('%b %e, %Y')
-        %td
-          %a{ href: article.url, title: article.title }= article.title

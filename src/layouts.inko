@@ -1,0 +1,248 @@
+import builder.html
+import builder.xml
+import markdown.html.(Filter, TableOfContents)
+import wobsite.(Files, Page)
+import wobsite.markdown.(Admonitions, SyntaxHighlight)
+import wobsite.time.(human_readable_date, iso_date)
+
+let URL = 'https://yorickpeterse.com'
+let TITLE = 'Yorick Peterse'
+
+fn filters -> Array[Filter] {
+  [
+    SyntaxHighlight.new as Filter,
+    TableOfContents.new as Filter,
+    Admonitions.new as Filter,
+  ]
+}
+
+fn articles(files: ref Files) -> Result[Array[Page], String] {
+  let pages =
+    try files.matching('/articles/*.md').try_reduce([]) fn (ary, path) {
+      match Page.parse_file(files.source, path) {
+        case Ok(page) -> {
+          ary.push(page)
+          Result.Ok(ary)
+        }
+        case Error(e) -> Result.Error(e.to_string)
+      }
+    }
+
+  pages.sort_by fn (a, b) { b.date.cmp(a.date) }
+  Result.Ok(pages)
+}
+
+fn head(head: mut html.Element, title: String, url: String) {
+  head
+    .meta
+    .attr(
+      'content',
+      "default-src 'self'; script-src 'none'; object-src 'none'; \
+        base-uri 'none'; form-action 'none'"
+    )
+    .attr('http-equiv', 'Content-Security-Policy')
+
+  head.meta.attr('charset', 'utf-8')
+  head
+    .meta
+    .attr('name', 'google-site-verification')
+    .attr('content', '-L_V_27r8NmVJh-1OGyEhGcNVulPnxjfbma6m3SqNME')
+
+  head
+    .meta
+    .attr('name', 'viewport')
+    .attr('content', 'width=device-width, initial-scale=1.0')
+
+  head
+    .link
+    .attr('rel', 'alternate')
+    .attr('href', '/feed.xml')
+    .attr('type', 'application/atom+xml')
+    .attr('title', TITLE)
+
+  head
+    .link
+    .attr('rel', 'icon')
+    .attr('href', '/favicon.ico')
+    .attr('type', 'image/x-icon')
+
+  head.link.attr('href', '/css/reset.css').attr('rel', 'stylesheet')
+  head.link.attr('href', '/css/icons.css').attr('rel', 'stylesheet')
+  head.link.attr('href', '/css/all.css').attr('rel', 'stylesheet')
+  head.link.attr('rel', 'canonical').attr('href', "{URL}{url}")
+  head.title.text(title)
+}
+
+fn header(root: mut html.Element) {
+  root.header.attr('class', 'top').with fn (h) {
+    h.nav.ul.with fn (ul) {
+      ul.li.a.attr('href', '/').with fn (a) {
+        a.i.attr('class', 'icon-home')
+        a.text(' ')
+        a.text('Home')
+      }
+
+      ul.li.a.attr('href', '/#articles').with fn (a) {
+        a.i.attr('class', 'icon-newspaper-o')
+        a.text(' ')
+        a.text('Articles')
+      }
+
+      ul.li.a.attr('href', '/feed.xml').with fn (a) {
+        a.i.attr('class', 'icon-feed')
+        a.text(' ')
+        a.text('Atom Feed')
+      }
+
+      ul.li.a.attr('href', '/resume/').with fn (a) {
+        a.i.attr('class', 'icon-briefcase')
+        a.text(' ')
+        a.text('Resume')
+      }
+    }
+  }
+}
+
+fn content(body: mut html.Element, func: fn (mut html.Element)) {
+  body.div.attr('class', 'row content').with(func)
+}
+
+fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
+  let articles = try articles(files)
+  let doc = html.Document.html('en') fn (html) {
+    head(html.head, page.title, page.url)
+    html.body.with fn (body) {
+      header(body)
+      content(body) fn (row) {
+        row.section.with fn (section) {
+          section.header.with fn (header) { header.h1.text(page.title) }
+          section
+            .img
+            .attr('class', 'profile-photo')
+            .attr('src', '/images/profile_photo.jpg')
+            .attr('width', '150')
+            .attr('height', '180')
+            .attr('alt', 'A photo of Yorick')
+
+          section.append(page.to_html(filters))
+        }
+
+        row.section.with fn (section) {
+          section.header.h1.attr('id', 'articles').text('Articles')
+          section.table.attr('class', 'articles-index').tbody.with fn (tbody) {
+            articles.iter.each fn (article) {
+              tbody.tr.with fn (tr) {
+                tr
+                  .td
+                  .attr('class', 'time')
+                  .time.attr('datetime', iso_date(article.date))
+                  .text(human_readable_date(article.date))
+
+                tr
+                  .td
+                  .a
+                  .attr('href', article.url)
+                  .attr('title', article.title)
+                  .text(article.title)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Result.Ok(doc)
+}
+
+fn pub missing(page: Page) -> html.Document {
+  html.Document.html('en') fn (html) {
+    head(html.head, page.title, page.url)
+    html.body.with fn (body) {
+      header(body)
+      content(body) fn (row) {
+        row.section.with fn (section) {
+          section.header.h1.text(page.title)
+          section.append(page.to_html(filters))
+        }
+      }
+    }
+  }
+}
+
+fn pub page(page: Page) -> html.Document {
+  html.Document.html('en') fn (html) {
+    head(html.head, page.title, page.url)
+    html.body.with fn (body) {
+      header(body)
+      content(body) fn (row) {
+        row.section.with fn (section) {
+          section.header.with fn (header) { header.h1.text(page.title) }
+          section.append(page.to_html(filters))
+        }
+      }
+    }
+  }
+}
+
+fn pub article(page: Page) -> html.Document {
+  html.Document.html('en') fn (html) {
+    head(html.head, page.title, page.url)
+    html.body.with fn (body) {
+      header(body)
+      content(body) fn (row) {
+        row.section.attr('class', 'article').with fn (section) {
+          section.header.with fn (header) {
+            header.h1.text(page.title)
+            header
+              .time
+              .attr('class', 'meta')
+              .attr('datetime', iso_date(page.date))
+              .text(human_readable_date(page.date))
+          }
+
+          section.append(page.to_html(filters))
+        }
+      }
+    }
+  }
+}
+
+fn pub feed(files: ref Files) -> Result[String, String] {
+  let articles = try articles(files)
+  let doc = xml.Document.new
+
+  doc.element('feed').attr('xmlns', 'http://www.w3.org/2005/Atom').with fn (f) {
+    f.element('id').text("{URL}/")
+    f.element('title').text(TITLE)
+
+    match articles.opt(0) {
+      case None -> {}
+      case Some(article) -> f.element('updated').text(iso_date(article.date))
+    }
+
+    f.element('link').attr('href', URL).attr('rel', 'alternate')
+    f.element('link').attr('href', "{URL}/feed.xml").attr('rel', 'self')
+    f.element('author').with fn (a) {
+      a.element('name').text(TITLE)
+      a.element('uri').text(URL)
+    }
+
+    articles.iter.each fn (article) {
+      f.element('entry').with fn (e) {
+        let date = iso_date(article.date)
+        let html = article.to_html(filters).to_string
+        let url = "{URL}{article.url}"
+
+        e.element('id').text(url)
+        e.element('title').text(article.title)
+        e.element('published').text(date)
+        e.element('updated').text(date)
+        e.element('link').attr('href', url).attr('rel', 'alternate')
+        e.element('content').attr('type', 'html').text(html)
+      }
+    }
+  }
+
+  Result.Ok(doc.to_string)
+}

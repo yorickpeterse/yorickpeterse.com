@@ -1,0 +1,32 @@
+import layouts
+import wobsite.Site
+
+class async Main {
+  fn async main {
+    Site.build fn (site) {
+      site.copy('*.ico')
+      site.copy('*.txt')
+      site.copy('*.woff2')
+      site.copy('*.jpg')
+      site.copy('*.css')
+
+      site.page('/index.md', index: false) fn {
+        recover fn (files, page) { layouts.home(files, page) }
+      }
+
+      site.page('/404.md', index: false) fn {
+        recover fn (_, p) { Result.Ok(layouts.missing(p)) }
+      }
+
+      site.page('/resume.md', index: true) fn {
+        recover fn (_, p) { Result.Ok(layouts.page(p)) }
+      }
+
+      site.page('/articles/*.md', index: true) fn {
+        recover fn (_, p) { Result.Ok(layouts.article(p)) }
+      }
+
+      site.generate('feed.xml') fn (files) { layouts.feed(files) }
+    }
+  }
+}

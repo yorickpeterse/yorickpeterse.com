@@ -1,0 +1,426 @@
+import builder.html
+import markdown
+import markdown.html.Filter
+import std.clone.Clone
+import std.fs.file.(ReadOnlyFile, WriteOnlyFile)
+import std.fs.path.Path
+import std.io
+import std.iter.Stream
+import std.json.Json
+import std.stdio.STDERR
+import std.string.(StringBuffer, ToString)
+import std.sys.(exit)
+import std.time.DateTime
+import wobsite.fnmatch
+import wobsite.time.(parse_date)
+
+class pub enum ParseError {
+  case Io(Path, io.Error)
+  case FrontMatter(Path, String)
+  case Markdown(Path, String)
+}
+
+impl ToString for ParseError {
+  fn pub to_string -> String {
+    match self {
+      case Io(p, e) -> "failed to read {p}: {e}"
+      case FrontMatter(p, k) -> {
+        "failed to parse the front matter of {p}: the '{k}' key is invalid"
+      }
+      case Markdown(p, v) -> "failed to parse the Markdown of {p}: {v}"
+    }
+  }
+}
+
+class pub Page {
+  # The title of the page.
+  let pub @title: String
+
+  # The URL of the page.
+  let pub @url: String
+
+  # The date at which the page is created.
+  let pub @date: DateTime
+
+  # The path to the source file of this page.
+  let pub @source_path: Path
+
+  # The body of the page.
+  let pub @body: markdown.Document
+
+  fn pub static parse_file(
+    source: ref Path, path: ref Path,
+  ) -> Result[Page, ParseError] {
+    let uri = path.strip_prefix(source).unwrap.with_extension('').to_string
+    let url = if uri == 'index' { '/' } else { "/{uri}/" }
+    let data = ByteArray.new
+
+    try ReadOnlyFile
+      .new(path)
+      .then fn (f) { f.read_all(data) }
+      .map_error fn (e) { ParseError.Io(path.clone, e) }
+
+    let front_md = markdown.split_front_matter(data.into_string)
+    let json = try Json
+      .parse(front_md.0)
+      .map_error fn (e) { ParseError.Markdown(path.clone, e.to_string) }
+
+    let title = match json.query.key('title').as_string {
+      case Some(v) -> v
+      case _ -> throw ParseError.FrontMatter(path.clone, 'title')
+    }
+
+    let date = match json.query.key('date').as_string {
+      case Some(v) -> match parse_date(v) {
+        case Some(v) -> v
+        case _ -> throw ParseError.FrontMatter(path.clone, 'date')
+      }
+      case _ -> DateTime.utc
+    }
+
+    let doc = try markdown
+      .Document
+      .parse(front_md.1)
+      .map_error fn (e) { ParseError.Markdown(path.clone, e.to_string) }
+
+    Result.Ok(Page {
+      @title = title,
+      @url = url,
+      @date = date,
+      @source_path = path.clone,
+      @body = doc,
+    })
+  }
+
+  fn pub to_html(filters: Array[Filter]) -> html.Document {
+    let doc = @body.to_html
+
+    filters.into_iter.each fn (filter) { filter.run(doc) }
+    doc
+  }
+}
+
+class pub Files {
+  # The directory containing the source files.
+  let pub @source: Path
+
+  # The directory to store the built files in.
+  let pub @output: Path
+
+  # A list of all the files in the source directory.
+  let @files: Array[Path]
+
+  # A mapping of paths relative to the source directory and their corresponding
+  # file modification times.
+  #
+  # The keys of this map start with a `/`, such that relative URLs such as
+  # `/css/foo.css` directly translate into valid keys for this map.
+  let @times: Map[String, DateTime]
+
+  fn static new(source: Path, output: Path) -> Result[Files, io.Error] {
+    let files = []
+    let times = Map.new
+    let iter = try source.list_all
+
+    try iter.try_each fn (res) {
+      match res {
+        case Ok({ @type = File, @path = path }) -> {
+          let rel = "/{path.strip_prefix(source).unwrap}"
+
+          times.set(rel, try path.modified_at)
+          files.push(path)
+          Result.Ok(nil)
+        }
+        case Ok(_) -> Result.Ok(nil)
+        case Error(e) -> Result.Error(e)
+      }
+    }
+
+    Result.Ok(Files {
+      @source = source,
+      @output = output,
+      @files = files,
+      @times = times,
+    })
+  }
+
+  fn pub matching(pattern: String) -> Stream[ref Path] {
+    let root = pattern.starts_with?('/')
+
+    @files.iter.select fn (path) {
+      fnmatch.match(pattern, "/{path.strip_prefix(@source).unwrap}", root)
+    }
+  }
+
+  fn modified_at(path: ref String) -> Option[ref DateTime] {
+    @times.opt(path)
+  }
+}
+
+impl Clone[Files] for Files {
+  fn pub clone -> Files {
+    Files {
+      @source = @source.clone,
+      @output = @output.clone,
+      @files = @files.clone,
+      @times = @times.iter.reduce(Map.new) fn (map, pair) {
+        map.set(pair.key.clone, pair.value.clone)
+        map
+      }
+    }
+  }
+}
+
+class pub Errors {
+  let @entries: Array[(Path, String)]
+
+  fn pub static new -> Errors {
+    Errors { @entries = [] }
+  }
+
+  fn pub mut add(path: Path, error: String) {
+    @entries.push((path, error))
+  }
+
+  fn pub empty? -> Bool {
+    @entries.empty?
+  }
+}
+
+impl ToString for Errors {
+  fn pub to_string -> String {
+    let buf = @entries.iter.reduce(StringBuffer.new) fn (buf, entry) {
+      if buf.size > 0 { buf.push("\n\n") }
+      buf.push("{entry.0} \e[31;1merror:\e[0m\n  {entry.1}")
+      buf
+    }
+
+    buf.into_string
+  }
+}
+
+class UpdateAssetLinks {
+  let @files: ref Files
+
+  fn run(document: mut html.Document) {
+    let nodes = document.nodes.iter_mut.to_array
+
+    loop {
+      match nodes.pop {
+        case Some(Element(el)) -> {
+          element(el)
+          nodes.append(el.nodes.iter_mut.to_array)
+        }
+        case Some(_) -> {}
+        case _ -> break
+      }
+    }
+  }
+
+  fn element(element: mut html.Element) {
+    match element.name {
+      case 'link' -> link(element)
+      case 'img' -> src_element(element)
+      case 'script' -> src_element(element)
+      case _ -> {}
+    }
+  }
+
+  fn src_element(element: mut html.Element) {
+    match element.attributes.opt('src') {
+      case Some(url) -> element.attr('src', url_with_time(url))
+      case _ -> return
+    }
+  }
+
+  fn link(link: mut html.Element) {
+    match link.attributes.opt('rel') {
+      case Some('stylesheet' or 'icon') -> match link.attributes.opt('href') {
+        case Some(url) -> link.attr('href', url_with_time(url))
+        case _ -> return
+      }
+      case _ -> return
+    }
+  }
+
+  fn url_with_time(url: String) -> String {
+    match @files.modified_at(url) {
+      case Some(v) -> "{url}?ts={v.to_int}"
+      case _ -> url
+    }
+  }
+}
+
+class pub Site {
+  let pub @files: Files
+  let @pending: Int
+  let @status: Channel[uni Status]
+
+  fn pub static build(func: fn (mut Site)) {
+    let stderr = STDERR.new
+    let site = match Site.new {
+      case Ok(site) -> site
+      case Error(e) -> {
+        stderr.print("Failed to get the source files to build: {e}")
+        exit(1)
+      }
+    }
+
+    func.call(site)
+
+    match site.wait {
+      case Ok(_) -> {}
+      case Error(e) -> {
+        stderr.print(e.to_string)
+        exit(1)
+      }
+    }
+  }
+
+  fn pub static new -> Result[Site, io.Error] {
+    let source = Path.new('source')
+    let output = Path.new('public')
+
+    Files.new(source, output).map fn (files) {
+      Site { @files = files, @pending = 0, @status = Channel.new(size: 32) }
+    }
+  }
+
+  fn pub mut generate(
+    path: String,
+    builder: uni fn (ref Files) -> Result[String, String],
+  ) {
+    @pending += 1
+    spawn.generate(recover @files.output.join(path), builder)
+  }
+
+  fn pub mut copy(pattern: String) {
+    @files.matching(pattern).each fn (path) {
+      @pending += 1
+      spawn.copy(recover path.clone)
+    }
+  }
+
+  fn pub mut page(
+    pattern: String,
+    index: Bool,
+    builder: fn -> uni fn (ref Files, Page) -> Result[html.Document, String],
+  ) {
+    @files.matching(pattern).each fn (path) {
+      @pending += 1
+      spawn.page(recover path.clone, builder.call, index)
+    }
+  }
+
+  fn pub move wait -> Result[Nil, Errors] {
+    let errors = Errors.new
+
+    while @pending > 0 {
+      match @status.receive {
+        case Ok -> {}
+        case Error(path, err) -> errors.add(path, err)
+      }
+
+      @pending -= 1
+    }
+
+    if errors.empty? { Result.Ok(nil) } else { Result.Error(errors) }
+  }
+
+  fn spawn -> Worker {
+    Worker { @files = recover @files.clone, @status = @status }
+  }
+}
+
+class pub enum Status {
+  case Ok
+  case Error(Path, String)
+}
+
+class async Worker {
+  let @files: Files
+  let @status: Channel[uni Status]
+
+  fn async generate(
+    path: uni Path,
+    builder: uni fn (ref Files) -> Result[String, String],
+  ) {
+    let path = recover path
+    let data = match builder.call(@files) {
+      case Ok(v) -> v
+      case Error(e) -> {
+        @status.send(recover Status.Error(path.clone, e))
+        return
+      }
+    }
+
+    let res = path
+      .directory
+      .create_directory_all
+      .then fn (_) { WriteOnlyFile.new(path) }
+      .then fn (f) { f.write_string(data) }
+
+    let status = match res {
+      case Ok(_) -> recover Status.Ok
+      case Error(e) -> recover Status.Error(path.clone, e.to_string)
+    }
+
+    @status.send(status)
+  }
+
+  fn async copy(from: uni Path) {
+    let from = recover from
+    let to = @files.output.join(from.strip_prefix(@files.source).unwrap)
+    let dir = to.directory
+    let status = match dir.create_directory_all.then(fn (_) { from.copy(to) }) {
+      case Ok(_) -> recover Status.Ok
+      case Error(e) -> recover Status.Error(to.clone, e.to_string)
+    }
+
+    @status.send(status)
+  }
+
+  fn async page(
+    source: uni Path,
+    layout: uni fn (ref Files, Page) -> Result[html.Document, String],
+    index: Bool,
+  ) {
+    let source = recover source
+    let rel_source = source.strip_prefix(@files.source).unwrap
+    let target = if index {
+      @files.output.join(rel_source.with_extension('').join('index.html'))
+    } else {
+      @files.output.join(rel_source.with_extension('html'))
+    }
+
+    let page = match Page.parse_file(@files.source, source) {
+      case Ok(v) -> v
+      case Error(e) -> {
+        @status.send(recover Status.Error(target.clone, e.to_string))
+        return
+      }
+    }
+
+    let html = match layout.call(@files, page) {
+      case Ok(v) -> v
+      case Error(e) -> {
+        @status.send(recover Status.Error(target.clone, e))
+        return
+      }
+    }
+
+    UpdateAssetLinks { @files = @files }.run(html)
+
+    let status = match target
+      .directory
+      .create_directory_all
+      .then(fn (_) { WriteOnlyFile.new(target) })
+      .then(fn (f) { f.write_string(html.to_string) })
+    {
+      case Ok(_) -> recover Status.Ok
+      case Error(e) -> recover Status.Error(target.clone, e.to_string)
+    }
+
+    @status.send(status)
+  }
+}

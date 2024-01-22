@@ -3,8 +3,6 @@ name: Build and test
 on: push
 
 env:
-  DISTRIBUTION_ID: E38R9TE90MPQA7
-  BUCKET: yorickpeterse.com
   AWS_DEFAULT_REGION: eu-west-1
 
 jobs:
@@ -23,24 +21,25 @@ jobs:
   deploy:
     name: Deploy to AWS
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/inko-lang/inko:main
     needs:
       - vale
-    if: |
-      github.repository == 'yorickpeterse/yorickpeterse.com' &&
-        github.ref_name == 'main'
     steps:
+      - title: Installing dependencies
+        run: microdnf install --quiet --assumeyes rclone make awscli2 git tar
       - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          bundler-cache: true
       - uses: actions/cache@v3
-        id: cache-build
+        id: deploy
         with:
           path: |
             build
+            ~/.local/share/inko/packages
           key: ${{ runner.os }}
-      - run: rake deploy
+      - title: Build the website
+        run: make setup build
+      - title: Deploy the website
+        run: make deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
