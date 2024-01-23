@@ -25,7 +25,7 @@ deploy:
 		--s3-acl 'public-read' \
 		public "production:${BUCKET}"
 	@aws cloudfront create-invalidation \
-		--distribution-id 'E38R9TE90MPQA7' \
+		--distribution-id "${DIST}" \
 		--paths '/*'
 
 .PHONY: setup build watch clean deploy
