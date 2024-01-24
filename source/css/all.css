@@ -1,24 +1,26 @@
 :root {
-  --border: #000;
   --border-radius: 3px;
-  --shadow: #efefef;
   --shadow-size: 5px;
   --nav-shadow-size: 3px;
   --code-font: monospace;
   --font: sans-serif;
-  --blue: #0c52bb;
-  --link-hover: #3b84f2;
   --margin: 20px;
-  --text: #000;
+
+  --blue: #0c52bb;
+  --border: #bbb;
   --comment: #666;
-  --yellow: #fff3c4;
-  --quote-color: #555;
-  --green: #1c5708;
-  --white: #fff;
-  --lgrey: #f7f7f7;
   --dgrey: #ddd;
-  --purple: #5c21a5;
+  --dyellow: #e1c05e;
+  --green: #1c5708;
+  --lgrey: #f7f7f7;
+  --link-hover: #3b84f2;
   --orange: #a55000;
+  --purple: #5c21a5;
+  --quote-color: #555;
+  --shadow: #efefef;
+  --text: #000;
+  --white: #fff;
+  --yellow: #fff3c4;
 }
 
 body {
@@ -121,7 +123,7 @@ em {
 }
 
 pre {
-  border: 1px solid #000;
+  border: 1px solid var(--border);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   font-family: var(--code-font);
@@ -244,7 +246,7 @@ table tr:last-child td {
 
 .admonition {
   background: var(--yellow);
-  border: 1px solid var(--border);
+  border: 1px solid var(--dyellow);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: flex;
