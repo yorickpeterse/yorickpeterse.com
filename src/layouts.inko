@@ -78,26 +78,17 @@ fn header(root: mut html.Element) {
     h.nav.ul.with fn (ul) {
       ul.li.a.attr('href', '/').with fn (a) {
         a.i.attr('class', 'icon-home')
-        a.text(' ')
-        a.text('Home')
-      }
-
-      ul.li.a.attr('href', '/#articles').with fn (a) {
-        a.i.attr('class', 'icon-newspaper-o')
-        a.text(' ')
-        a.text('Articles')
-      }
-
-      ul.li.a.attr('href', '/feed.xml').with fn (a) {
-        a.i.attr('class', 'icon-feed')
-        a.text(' ')
-        a.text('Atom Feed')
+        a.text(' Home')
       }
 
       ul.li.a.attr('href', '/resume/').with fn (a) {
         a.i.attr('class', 'icon-briefcase')
-        a.text(' ')
-        a.text('Resume')
+        a.text(' Resume')
+      }
+
+      ul.li.a.attr('href', '/feed.xml').attr('class', 'feed').with fn (a) {
+        a.i.attr('class', 'icon-feed')
+        a.text(' Atom Feed')
       }
     }
   }

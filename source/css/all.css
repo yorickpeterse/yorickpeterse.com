@@ -6,6 +6,7 @@
   --font: sans-serif;
   --margin: 20px;
 
+  --black: #000;
   --blue: #0c52bb;
   --border: #bbb;
   --comment: #666;
@@ -18,14 +19,13 @@
   --purple: #5c21a5;
   --quote-color: #555;
   --shadow: #efefef;
-  --text: #000;
   --white: #fff;
-  --yellow: #fff3c4;
+  --yellow: #fff3bb;
 }
 
 body {
   background: var(--white);
-  color: var(--text);
+  color: var(--black);
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.8;
@@ -226,7 +226,7 @@ table tr:last-child td {
 }
 
 .profile-photo {
-  border: 1px solid var(--border);
+  border: 1px solid var(--black);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: none;
@@ -245,8 +245,7 @@ table tr:last-child td {
 }
 
 .admonition {
-  background: var(--yellow);
-  border: 1px solid var(--dyellow);
+  border: 1px solid var(--border);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: flex;
@@ -258,6 +257,11 @@ table tr:last-child td {
 
 .admonition.discuss .icon:before {
   content: "\f086";
+}
+
+.admonition.info {
+  background: var(--yellow);
+  border: 1px solid var(--dyellow);
 }
 
 .admonition.info .icon:before {
@@ -323,19 +327,11 @@ table tr:last-child td {
 }
 
 .top nav li a {
-  color: var(--text);
+  color: var(--black);
 }
 
-@media only screen and (max-width: 480px) {
-  .top nav li {
-    margin-right: 0;
-    margin-bottom: 5px;
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 200px) {
-  .top nav li a i {
+@media only screen and (max-width: 350px) {
+  .top nav .feed {
     display: none;
   }
 }
@@ -355,9 +351,4 @@ table tr:last-child td {
 .article header time {
   display: block;
   margin-bottom: var(--margin);
-}
-
-.atom .admonition {
-  margin-top: var(--margin);
-  margin-bottom: 10px;
 }

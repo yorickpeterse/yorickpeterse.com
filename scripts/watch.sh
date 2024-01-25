@@ -9,7 +9,13 @@ python_pid=$!
 trap 'kill ${python_pid}; exit' INT
 
 while inotifywait --recursive \
-    --event modify --event create --event delete --event move source src -qq
+    --event modify \
+    --event create \
+    --event delete \
+    --event move \
+    -qq \
+    --exclude '^\.\/(build|public)' \
+    .
 do
     inko run
 done
