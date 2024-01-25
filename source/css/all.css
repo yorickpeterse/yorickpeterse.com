@@ -334,6 +334,10 @@ table tr:last-child td {
   .top nav .feed {
     display: none;
   }
+
+  .top nav li:nth-child(2) {
+    margin-right: 0;
+  }
 }
 
 .content,
