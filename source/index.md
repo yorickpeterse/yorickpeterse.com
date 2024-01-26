@@ -19,7 +19,3 @@ You can find me on [GitHub](https://github.com/yorickpeterse),
 [Reddit](http://www.reddit.com/user/yorickpeterse). If you wish to contact me
 through Email, my Email address is `yorick` at this domain name. I'm not
 interested in unsolicited Emails from recruiters, and mark such Emails as spam.
-
-I sign my Git commits using [these SSH public keys](/ssh_keys.txt). In the past
-I used [this GPG key](/gpg_key.txt) for signing Git commits, but the key is no
-longer in use.
