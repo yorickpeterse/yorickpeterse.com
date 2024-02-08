@@ -1,6 +1,7 @@
 import builder.html
 import builder.xml
 import markdown.html.(Filter, TableOfContents)
+import site.filters.DeletedText
 import wobsite.(Files, Page)
 import wobsite.markdown.(Admonitions, SyntaxHighlight)
 import wobsite.time.(human_readable_date, iso_date)
@@ -10,6 +11,7 @@ let TITLE = 'Yorick Peterse'
 
 fn filters -> Array[Filter] {
   [
+    DeletedText {} as Filter,
     SyntaxHighlight.new as Filter,
     TableOfContents.new as Filter,
     Admonitions.new as Filter,

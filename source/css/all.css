@@ -9,6 +9,7 @@
   --black: #000;
   --blue: #0c52bb;
   --border: #bbb;
+  --dborder: #555;
   --comment: #666;
   --dgrey: #ddd;
   --dyellow: #e1c05e;
@@ -226,7 +227,7 @@ table tr:last-child td {
 }
 
 .profile-photo {
-  border: 1px solid var(--black);
+  border: 1px solid var(--dborder);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: none;
@@ -355,4 +356,15 @@ table tr:last-child td {
 .article header time {
   display: block;
   margin-bottom: var(--margin);
+}
+
+.article img {
+  border: 1px solid var(--dborder);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
+  max-width: 100%;
+}
+
+del {
+  text-decoration: line-through;
 }

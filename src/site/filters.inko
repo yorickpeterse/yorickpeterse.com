@@ -1,0 +1,28 @@
+import builder.html.(Document, Element)
+import markdown.html.Filter
+
+class DeletedText {}
+
+impl Filter for DeletedText {
+  fn pub mut run(document: mut Document) {
+    let nodes = document.nodes.iter_mut.to_array
+
+    loop {
+      match nodes.pop {
+        case Some(Element(el)) -> {
+          match el.attributes.opt('class') {
+            case Some('del') if el.name == 'span' -> {
+              el.attributes = Map.new
+              el.name = 'del'
+            }
+            case _ -> {}
+          }
+
+          nodes.append(el.nodes.iter_mut.to_array)
+        }
+        case Some(_) -> {}
+        case _ -> break
+      }
+    }
+  }
+}

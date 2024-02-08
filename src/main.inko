@@ -1,4 +1,4 @@
-import layouts
+import site.layouts
 import wobsite.Site
 
 class async Main {
@@ -9,6 +9,7 @@ class async Main {
       site.copy('*.woff2')
       site.copy('*.jpg')
       site.copy('*.css')
+      site.copy('*.mp4')
 
       site.page('/index.md') fn {
         recover fn (files, page) { layouts.home(files, page) }

@@ -71,8 +71,8 @@ and release process, and more. Notable projects include:
   balancer setup for GitLab.com handles over 300 000 queries per second.
 - Building a solution for database migrations that makes it possible to deploy
   GitLab without downtime, both for GitLab.com and self-hosted installations.
-- ~~Solving GitLab's scaling and performance problems~~ [Removing GitLab.com's production database by
-  accident](https://about.gitlab.com/blog/2017/02/01/gitlab-dot-com-database-incident/),
+- [Solving GitLab's scaling and performance problems]{del} [Removing
+  GitLab.com's production database by accident](https://about.gitlab.com/blog/2017/02/01/gitlab-dot-com-database-incident/),
   only to find out our backups hadn't been working for months. We recovered with
   "only" six hours of data loss, then spent several months working to ensure
   this would not happen again. A post-mortem of this [is found
