@@ -1,7 +1,7 @@
 ---
 {
   "title": "What it was like working for GitLab",
-  "date": "2024-02-07T15:54:37Z"
+  "date": "2024-02-08T19:00:00Z"
 }
 ---
 
