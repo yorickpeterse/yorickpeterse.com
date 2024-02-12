@@ -466,9 +466,8 @@ glance at their team page.
 
 It's well known that adding more people to a project doesn't necessarily improve
 productivity and results (see also "The Mythical Man-Month"), and yet almost
-every western startup with venture capital seems to ignores this, hiring
-hundreds of developers even if the product doesn't need nearly that many
-developers.
+every western startup with venture capital seems to ignore this, hiring hundreds
+of developers even if the product doesn't need nearly that many developers.
 
 I don't have any data to back this up, but I suspect that most companies don't
 need more than 20 developers, with some needing 20 to 50 developers, and only a
