@@ -228,11 +228,11 @@ This then lead to the discovery that we didn't have any backups as a result of
 the system not working for a long time, as well as the system meant to notify us
 of any backup errors not working either. In the end we did recover, as I had
 copied the production data to our staging environment about six hours prior as
-part of of the work I was doing that day, though the recovery process took
-around 24 hours. While about six hours of data loss is by all accounts terrible,
-I'm not sure what would've happened if I hadn't made that backup. Suffice to
-say, my heart skipped a few beats that day, and I'm certain I instantly grew a
-few extra grey hairs.
+part of the work I was doing that day, though the recovery process took around
+24 hours. While about six hours of data loss is by all accounts terrible, I'm
+not sure what would've happened if I hadn't made that backup. Suffice to say, my
+heart skipped a few beats that day, and I'm certain I instantly grew a few extra
+grey hairs.
 
 A recurring source of frustration during this time was GitLab's desire to shard
 the database, even after the introduction of the database load balancer. Not
