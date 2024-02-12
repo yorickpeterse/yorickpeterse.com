@@ -504,9 +504,9 @@ here is that if you were to forget passing the data in, you'd run into some sort
 of error rather than the code querying the data for you on a per-row basis,
 introducing performance problems along the way.
 
-Ruby itself is also a choice I have mixed opinions on. On one end, it's an
+Ruby itself is also a choice I have mixed opinions on. On one end, it's a
 wonderful language I enjoyed using for a little under 10 years. On the other
-end, it's heavy use of meta programming makes it difficult to use in large
+end, its heavy use of meta programming makes it difficult to use in large
 projects, even with the introduction of optional typing. I'm not just saying
 that for the sake of saying it, I experienced it first hand when writing [a
 static analysis tool for Ruby](https://github.com/yorickpeterse/ruby-lint) years
