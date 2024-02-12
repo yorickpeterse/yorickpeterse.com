@@ -324,7 +324,7 @@ These cultural changes combined with various changes in my personal life
 resulted in a loss of motivation, productivity, and an increase in stress, and
 less consistent working hours. The team's manager (whom I'd consider the best
 manager I've ever had) also transitioned to a different role, with a newly hired
-manager now leading the team. I didn't get along well with this manager,The
+manager now leading the team. I didn't get along well with this manager, The
 resulting conflict lead to a "performance enablement plan", a procedure meant to
 get things back on track before the need for a "performance improvement plan"
 (PIP). A PIP is meant to be used as a last attempt at improving the relationship
