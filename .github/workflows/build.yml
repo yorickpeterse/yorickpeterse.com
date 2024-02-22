@@ -22,7 +22,7 @@ jobs:
     name: Deploy to AWS
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/inko-lang/inko:main
+      image: ghcr.io/inko-lang/inko:latest
     needs:
       - vale
     if: |
