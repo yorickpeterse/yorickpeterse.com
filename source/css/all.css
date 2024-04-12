@@ -18,7 +18,7 @@
   --link-hover: #3b84f2;
   --orange: #a55000;
   --purple: #5c21a5;
-  --quote-color: #555;
+  --quote: #555;
   --shadow: #efefef;
   --white: #fff;
   --yellow: #fff3bb;
@@ -105,7 +105,7 @@ blockquote {
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
-  color: var(--quote-color);
+  color: var(--quote);
   font-style: italic;
   margin-bottom: var(--margin);
   padding: 10px;
@@ -143,7 +143,7 @@ table code {
   border: 1px solid var(--dgrey);
   border-radius: 5px;
   font-family: var(--code-font);
-  padding: 0 5px 2px 5px;
+  padding: 0 5px 0px 5px;
 }
 
 .highlight .k {
@@ -367,4 +367,23 @@ table tr:last-child td {
 
 del {
   text-decoration: line-through;
+}
+
+.footnotes {
+  border-top: 1px solid var(--border);
+  color: var(--quote);
+  font-size: 0.8rem;
+  padding-top: var(--margin);
+}
+
+.footnotes li:target {
+  color: var(--black);
+}
+
+sup {
+  font-size: 0.75rem;
+  line-height: 0;
+  position: relative;
+  top: -0.4rem;
+  vertical-align: baseline;
 }
