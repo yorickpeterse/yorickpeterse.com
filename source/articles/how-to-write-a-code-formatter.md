@@ -1123,6 +1123,37 @@ foo(
 )
 ```
 
+## Handling (trailing) comments
+
+Upon publishing this article I got a question: [how do you handle (trailing)
+comments using this formatting algorithm?](https://www.reddit.com/r/ProgrammingLanguages/comments/1c32zp5/how_to_write_a_code_formatter/kze6ijr/)
+Doing so isn't as complicated as one might think, and involves the following
+steps:
+
+1. Given a list of nodes to render (which may include comments), turn this list
+   into an iterator that allows peeking of values without advancing the iterator
+   (i.e. [`Peekable`](https://doc.rust-lang.org/std/iter/struct.Peekable.html)
+   in Rust)
+1. Iterator over the nodes to render
+1. For each node, peek at the next node. If this node is a comment and _starts_
+   on the same line at which the current node _ends_, advance the iterator and
+   set the resulting node aside
+1. Render the current node
+1. Render a single space on the current line, take the comment node set aside
+   earlier and render it. Because we advanced the iterator in step 3, the
+   comment node won't be processed again
+1. Repeat this process for each expression
+
+You can find an example of this idea
+[here](https://github.com/inko-lang/inko/blob/a78397961c5f1f08c17309b93859ec9b65af82b4/compiler/src/format.rs#L1179-L1194).
+
+The caveat of this implementation is that the comment node may overflow the line
+limit. To solve this, you need to extend your formatter to support wrapping of
+comments. This gets complicated as you have to account for any special
+formatting included in the comment (e.g. Markdown code blocks) and make sure to
+not mess up their formatting. For Inko, I decided to keep things simple and not
+wrap comments where necessary, and instead leave this up to the developer.
+
 ## Applying this to a real formatter
 
 While what we've discussed so far is a simplified version of a real
