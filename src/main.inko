@@ -10,6 +10,7 @@ class async Main {
       site.copy('*.jpg')
       site.copy('*.css')
       site.copy('*.mp4')
+      site.copy('/_headers')
 
       site.page('/index.md') fn {
         recover fn (files, page) { layouts.home(files, page) }

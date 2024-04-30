@@ -2,9 +2,6 @@
 name: Build and test
 on: push
 
-env:
-  AWS_DEFAULT_REGION: eu-west-1
-
 jobs:
   vale:
     name: Vale
@@ -19,7 +16,7 @@ jobs:
           vale_flags: '--no-wrap --sort'
 
   deploy:
-    name: Deploy to AWS
+    name: Deploy
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/inko-lang/inko:latest
@@ -29,19 +26,20 @@ jobs:
       github.ref_name == 'main'
     steps:
       - name: Installing dependencies
-        run: microdnf install --quiet --assumeyes rclone make awscli2 git tar
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+        run: microdnf install --quiet --assumeyes make git tar npm
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         id: deploy
         with:
           path: |
             build
             ~/.local/share/inko/packages
+            ~/.npm
           key: ${{ runner.os }}
       - name: Build the website
         run: make setup build
       - name: Deploy the website
         run: make deploy
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
