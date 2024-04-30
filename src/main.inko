@@ -10,21 +10,20 @@ class async Main {
       site.copy('*.jpg')
       site.copy('*.css')
       site.copy('*.mp4')
-      site.copy('/_headers')
 
-      site.page('/index.md') fn {
+      site.page('/index.md', index: false) fn {
         recover fn (files, page) { layouts.home(files, page) }
       }
 
-      site.page('/404.md') fn {
+      site.page('/404.md', index: false) fn {
         recover fn (_, p) { Result.Ok(layouts.missing(p)) }
       }
 
-      site.page('/resume.md') fn {
+      site.page('/resume.md', index: true) fn {
         recover fn (_, p) { Result.Ok(layouts.page(p)) }
       }
 
-      site.page('/articles/*.md') fn {
+      site.page('/articles/*.md', index: true) fn {
         recover fn (_, p) { Result.Ok(layouts.article(p)) }
       }
 
