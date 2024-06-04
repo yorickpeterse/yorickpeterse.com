@@ -1,15 +1,3 @@
 User-agent: *
-
-# Block various old URLs that I haven't used in ages but still pop up in Google
-# Webmaster tools now and then.
-Disallow: /yorickpeterse/*
-Disallow: /projects/*
-Disallow: /blog/*
-Disallow: /photography/*
-Disallow: /general/*
-Disallow: /web-development/*
-Disallow: /downloads/*
-Disallow: /articles/funky-forms-with-ramaze
-Disallow: /articles/atom
-
 Allow: /
+
