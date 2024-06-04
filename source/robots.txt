@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
 
+# A bot from Amazon. I don't care about it, and I don't want it to hammer my
+# website. See the following for more details:
+#
+# - https://developer.amazon.com/amazonbot
+# - https://gabrielsimmer.com/blog/stop-scraping-git-forge
+User-agent: Amazonbot
+Disallow: /
+
+# ChatGPT can go pound sand.
+User-agent: GPTBot
+Disallow: /
