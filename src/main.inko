@@ -1,9 +1,9 @@
 import site.layouts
-import wobsite.Site
+import wobsite (Site)
 
 class async Main {
   fn async main {
-    Site.build fn (site) {
+    Site.build(fn (site) {
       site.copy('*.ico')
       site.copy('*.txt')
       site.copy('*.woff2')
@@ -11,23 +11,23 @@ class async Main {
       site.copy('*.css')
       site.copy('*.mp4')
 
-      site.page('/index.md', index: false) fn {
+      site.page_without_index('/index.md', fn {
         recover fn (files, page) { layouts.home(files, page) }
-      }
+      })
 
-      site.page('/404.md', index: false) fn {
+      site.page_without_index('/404.md', fn {
         recover fn (_, p) { Result.Ok(layouts.missing(p)) }
-      }
+      })
 
-      site.page('/resume.md', index: true) fn {
+      site.page('/resume.md', fn {
         recover fn (_, p) { Result.Ok(layouts.page(p)) }
-      }
+      })
 
-      site.page('/articles/*.md', index: true) fn {
+      site.page('/articles/*.md', fn {
         recover fn (_, p) { Result.Ok(layouts.article(p)) }
-      }
+      })
 
-      site.generate('feed.xml') fn (files) { layouts.feed(files) }
-    }
+      site.generate('feed.xml', fn (files) { layouts.feed(files) })
+    })
   }
 }
