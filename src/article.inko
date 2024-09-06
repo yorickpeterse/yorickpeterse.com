@@ -17,7 +17,7 @@ class async Main {
     meta.set('title', Json.String(title))
     meta.set('date', Json.String(iso_date(DateTime.utc)))
 
-    let data = '---\n{Json.Object(meta).to_pretty_string}\n---\n\n'
+    let data = '---\n${Json.Object(meta).to_pretty_string}\n---\n\n'
 
     WriteOnlyFile.new(path).then(fn (f) { f.write_string(data) }).get
   }
