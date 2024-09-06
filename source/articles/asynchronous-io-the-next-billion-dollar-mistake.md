@@ -59,6 +59,15 @@ perhaps the best example of this (at least on Linux). To handle such cases,
 languages must provide some sort of alternative strategy such as performing the
 work in a dedicated pool of OS threads.
 
+::: info
+Using [io\_uring](https://en.wikipedia.org/wiki/Io_uring) is another approach,
+but it's a recent addition to Linux, specific _to_ Linux (meaning you need a
+fallback for other platforms), and [disabled entirely by
+some](https://www.phoronix.com/news/Google-Restricting-IO_uring). Either way,
+the point still stands: you end up having to handle sockets and files (and
+potentially other types of "files") differently.
+:::
+
 For example, Inko handles this by the standard library signalling to the
 scheduler it's about to perform a potentially blocking operation. The scheduler
 periodically checks threads in a "we might be blocking" state. If the thread is
