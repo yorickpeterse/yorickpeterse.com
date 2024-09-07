@@ -54,10 +54,12 @@ use a different mechanism, such as callbacks or
 [async/await](https://en.wikipedia.org/wiki/Async/await). Each approach comes
 with its own set of benefits, drawbacks and challenges.
 
-Not every IO operation can be performed asynchronously though. File IO is
-perhaps the best example of this (at least on Linux). To handle such cases,
-languages must provide some sort of alternative strategy such as performing the
-work in a dedicated pool of OS threads.
+Not every IO operation can be performed in a non-blocking manner though. File IO
+is perhaps the best example of this: at least on Linux, files are always
+available for reads and writes, meaning the use of the system's polling
+mechanism (e.g. epoll) is useless. This means you need some sort of alternative
+strategy to deal with such operations taking a long time and blocking the
+calling thread in the process.
 
 ::: info
 Using [io\_uring](https://en.wikipedia.org/wiki/Io_uring) is another approach,
