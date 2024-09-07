@@ -208,7 +208,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
 
   doc.element('feed').attr('xmlns', 'http://www.w3.org/2005/Atom').with(
     fn (f) {
-      f.element('id').text('{URL}/')
+      f.element('id').text('${URL}/')
       f.element('title').text(TITLE)
 
       match articles.opt(0) {
@@ -217,7 +217,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
       }
 
       f.element('link').attr('href', URL).attr('rel', 'alternate')
-      f.element('link').attr('href', '{URL}/feed.xml').attr('rel', 'self')
+      f.element('link').attr('href', '${URL}/feed.xml').attr('rel', 'self')
       f.element('author').with(fn (a) {
         a.element('name').text(TITLE)
         a.element('uri').text(URL)
@@ -227,7 +227,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
         f.element('entry').with(fn (e) {
           let date = iso_date(article.date)
           let html = article.to_html(filters).to_string
-          let url = '{URL}{article.url}'
+          let url = '${URL}${article.url}'
 
           e.element('id').text(url)
           e.element('title').text(article.title)
