@@ -1,6 +1,6 @@
 ---
 {
-  "title": "Thoughts on data migrations that scale",
+  "title": "Building a better and scalable system for data migrations",
   "date": "2024-10-24T00:00:00Z"
 }
 ---
