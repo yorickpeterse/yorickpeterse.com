@@ -387,3 +387,11 @@ sup {
   top: -0.4rem;
   vertical-align: baseline;
 }
+
+sub {
+  font-size: 0.75rem;
+  line-height: 0;
+  position: relative;
+  top: 0.2rem;
+  vertical-align: baseline;
+}
