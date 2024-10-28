@@ -1,4 +1,4 @@
-import builder.html (Document, Element)
+import builder.html (Document)
 import markdown.html (Filter)
 
 class DeletedText {}

@@ -2,7 +2,6 @@ import std.env
 import std.fs.file (WriteOnlyFile)
 import std.fs.path (Path)
 import std.json (Json)
-import std.stdio (STDOUT)
 import std.time (DateTime)
 import wobsite.time (iso_date)
 import wobsite.url
