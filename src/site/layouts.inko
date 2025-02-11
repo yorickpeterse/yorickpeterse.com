@@ -2,12 +2,17 @@ import builder.html
 import builder.xml
 import markdown.html (Filter, TableOfContents)
 import site.filters (DeletedText)
+import std.locale.en (Locale)
+import std.time (DateTime)
 import wobsite (Files, Page)
 import wobsite.markdown (Admonitions, SyntaxHighlight)
-import wobsite.time (human_readable_date, iso_date)
 
 let URL = 'https://yorickpeterse.com'
 let TITLE = 'Yorick Peterse'
+
+fn human_readable_date(date: ref DateTime) -> String {
+  date.format(how: '%b %d, %Y', locale: Locale.new)
+}
 
 fn filters -> Array[Filter] {
   [
@@ -129,7 +134,7 @@ fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
                   .td
                   .attr('class', 'time')
                   .time
-                  .attr('datetime', iso_date(article.date))
+                  .attr('datetime', article.date.to_iso8601)
                   .text(human_readable_date(article.date))
 
                 tr
@@ -191,7 +196,7 @@ fn pub article(page: Page) -> html.Document {
             header
               .time
               .attr('class', 'meta')
-              .attr('datetime', iso_date(page.date))
+              .attr('datetime', page.date.to_iso8601)
               .text(human_readable_date(page.date))
           })
 
@@ -213,7 +218,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
 
       match articles.opt(0) {
         case None -> {}
-        case Some(article) -> f.element('updated').text(iso_date(article.date))
+        case Some(article) -> f.element('updated').text(article.date.to_iso8601)
       }
 
       f.element('link').attr('href', URL).attr('rel', 'alternate')
@@ -225,7 +230,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
 
       articles.iter.each(fn (article) {
         f.element('entry').with(fn (e) {
-          let date = iso_date(article.date)
+          let date = article.date.to_iso8601
           let html = article.to_html(filters).to_string
           let url = '${URL}${article.url}'
 

@@ -17,7 +17,7 @@ while inotifywait --recursive \
     --exclude '^\.\/(build|public)' \
     .
 do
-    inko run
+    make build
 done
 
 wait "${python_pid}"

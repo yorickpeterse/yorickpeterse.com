@@ -283,10 +283,6 @@ table tr:last-child td {
   margin-bottom: 0;
 }
 
-.articles-index .time {
-  width: 150px;
-}
-
 .articles-index {
   border: 0;
   border-radius: 0;
