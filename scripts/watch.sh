@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Perform the initial build.
-inko run
+make build
 
 python -m http.server -d public &
 python_pid=$!
