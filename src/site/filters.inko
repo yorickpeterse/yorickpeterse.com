@@ -1,7 +1,7 @@
 import builder.html (Document)
 import markdown.html (Filter)
 
-class DeletedText {}
+type DeletedText {}
 
 impl Filter for DeletedText {
   fn pub mut run(document: mut Document) {

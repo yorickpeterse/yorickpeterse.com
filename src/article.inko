@@ -6,7 +6,7 @@ import std.time (DateTime)
 import wobsite.time (iso_date)
 import wobsite.url
 
-class async Main {
+type async Main {
   fn async main {
     let title = env.arguments.get(0)
     let name = url.normalize(title)

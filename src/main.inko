@@ -1,7 +1,7 @@
 import site.layouts
 import wobsite (Site)
 
-class async Main {
+type async Main {
   fn async main {
     Site.build(fn (site) {
       site.copy('*.ico')
