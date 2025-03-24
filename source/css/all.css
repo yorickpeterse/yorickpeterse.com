@@ -1,7 +1,5 @@
 :root {
   --border-radius: 3px;
-  --shadow-size: 5px;
-  --nav-shadow-size: 3px;
   --code-font: monospace;
   --font: sans-serif;
   --margin: 20px;
@@ -19,9 +17,8 @@
   --orange: #a55000;
   --purple: #5c21a5;
   --quote: #555;
-  --shadow: #efefef;
   --white: #fff;
-  --yellow: #fff3bb;
+  --yellow: #fff8d5;
 }
 
 body {
@@ -102,13 +99,9 @@ a:hover {
 }
 
 blockquote {
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   color: var(--quote);
   font-style: italic;
-  margin-bottom: var(--margin);
-  padding: 10px;
+  margin: 0 0 var(--margin) var(--margin);
 }
 
 blockquote *:last-child {
@@ -124,22 +117,18 @@ em {
 }
 
 pre {
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   font-family: var(--code-font);
   font-size: 12px;
-  line-height: 1.5;
-  margin-bottom: var(--margin);
+  line-height: normal;
+  margin: 0 0 var(--margin) var(--margin);
   overflow-x: scroll;
-  padding: 10px;
   white-space: pre;
 }
 
 p code,
 li code,
 table code {
-  background: var(--lgrey);
+  background: var(--white);
   border: 1px solid var(--dgrey);
   border-radius: 5px;
   font-family: var(--code-font);
@@ -207,7 +196,6 @@ ol li {
 table {
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   margin-bottom: var(--margin);
 }
 
@@ -229,7 +217,6 @@ table tr:last-child td {
 .profile-photo {
   border: 1px solid var(--dborder);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: none;
   float: right;
   margin-left: 20px;
@@ -248,7 +235,6 @@ table tr:last-child td {
 .admonition {
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   display: flex;
   flex-direction: row;
   font-size: 0.9rem;
@@ -286,7 +272,6 @@ table tr:last-child td {
 .articles-index {
   border: 0;
   border-radius: 0;
-  box-shadow: none;
   font-size: 14px;
 }
 
@@ -358,7 +343,6 @@ table tr:last-child td {
 .article img {
   border: 1px solid var(--dborder);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) var(--shadow);
   max-width: 100%;
 }
 
