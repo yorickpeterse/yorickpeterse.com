@@ -246,6 +246,10 @@ table tr:last-child td {
   content: "\f086";
 }
 
+.admonition.discuss {
+  background: var(--lgrey);
+}
+
 .admonition.info {
   background: var(--yellow);
   border: 1px solid var(--dyellow);
