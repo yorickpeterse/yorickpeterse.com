@@ -1,6 +1,6 @@
 ---
 {
-  "title": "Building a simple key-value database in Inko",
+  "title": "The design and impact of building a simple key-value database in Inko",
   "date": "2025-03-24T00:00:00Z"
 }
 ---
@@ -10,7 +10,7 @@ Inko](https://inko-lang.org/news/inko-0-18-1-is-released/), I spent a few weeks
 building a simple key-value database in Inko. The result of this work is
 [KVI](https://github.com/yorickpeterse/kvi), a Key Value database written in
 Inko. One might wonder: why exactly write a simple key-value database when so
-many already exist? Let's find out!
+many already exist? And what did you learn from it? Let's find out!
 
 ## [Table of contents]{toc-ignore}
 
