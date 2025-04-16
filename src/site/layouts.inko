@@ -76,7 +76,7 @@ fn head(head: mut html.Element, title: String, url: String) {
   head.link.attr('href', '/css/reset.css').attr('rel', 'stylesheet')
   head.link.attr('href', '/css/icons.css').attr('rel', 'stylesheet')
   head.link.attr('href', '/css/all.css').attr('rel', 'stylesheet')
-  head.link.attr('rel', 'canonical').attr('href', '{URL}{url}')
+  head.link.attr('rel', 'canonical').attr('href', '${URL}${url}')
   head.title.text(title)
 }
 
