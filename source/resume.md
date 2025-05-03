@@ -58,11 +58,6 @@ and release process, and more. Notable projects include:
   GitLab version, or enabling a feature flag.
 - A new changelog workflow that uses Git trailers instead of YAML files, making
   it easier for developers to add entries to the changelog.
-- Changing how GitLab uses its relational database to support multiple
-  relational databases, allowing GitLab to better scale into the future. See
-  [this GitLab handbook
-  page](https://about.gitlab.com/handbook/engineering/development/enablement/sharding/)
-  for more details.
 - [A custom database load
   balancer](https://docs.gitlab.com/ee/administration/postgresql/database_load_balancing.html#database-load-balancing)
   with support for balancing read-only queries across different databases,
