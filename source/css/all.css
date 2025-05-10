@@ -380,3 +380,17 @@ sub {
   top: 0.2rem;
   vertical-align: baseline;
 }
+
+@media print {
+  header.top {
+    display: none;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .page-break {
+    break-after: page;
+  }
+}
