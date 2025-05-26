@@ -44,6 +44,15 @@ and performing various other low-level operations. The compiler is also written
 in Rust, while everything else (e.g. the standard library) is written in Inko
 itself.
 
+Work on Inko resulted in several standalone resources available to others
+looking to build their own programming language, such as [a collection of
+pattern matching
+algorithms](https://github.com/yorickpeterse/pattern-matching-in-rust)
+implemented in Rust, a [guide on writing a code
+formatter](https://yorickpeterse.com/articles/how-to-write-a-code-formatter/),
+and a guide on handling [structure arguments and returns in
+LLVM](https://yorickpeterse.com/articles/the-mess-that-is-handling-structure-arguments-and-returns-in-llvm/).
+
 ::: page-break
 :::
 
@@ -60,33 +69,26 @@ During my time at GitLab I worked on optimising application performance,
 building and growing GitLab's database team, improving GitLab's release tooling
 and release process, and more. Notable projects include:
 
-- Merging the two different codebases for GitLab CE and GitLab EE into a single
-  project, an effort that took over nine months to complete and improved the
-  workflow of hundreds of GitLab developers. Some more information can be found
-  [in this
-  article](https://about.gitlab.com/blog/2019/02/21/merging-ce-and-ee-codebases/)
-  and [in this GitLab epic](https://gitlab.com/groups/gitlab-org/-/epics/802).
-- Improving release tooling and workflows, reducing the time it takes to deploy
-  to GitLab.com from several weeks to a matter of hours.
+- [Merging the two different codebases for GitLab CE and GitLab EE into a single
+  project](https://about.gitlab.com/blog/2019/02/21/merging-ce-and-ee-codebases/),
+  improving the workflow of developers and greatly reducing deployment times
 - Building a chatops solution that allows GitLab employees to run a variety of
-  commands directly from Slack, such as starting the release process of a new
-  GitLab version, or enabling a feature flag.
+  commands directly from Slack
 - A new changelog workflow that uses Git trailers instead of YAML files, making
-  it easier for developers to add entries to the changelog.
+  it easier for developers to add entries to the changelog
 - [A custom database load
   balancer](https://docs.gitlab.com/ee/administration/postgresql/database_load_balancing.html#database-load-balancing)
   with support for balancing read-only queries across different databases,
   automatic service discovery of new database hosts, and improved handling of
-  database connection errors and timeouts. As of December 2021, the load
-  balancer setup for GitLab.com handles over 300 000 queries per second.
+  database connection errors and timeouts
 - Building a solution for database migrations that makes it possible to deploy
-  GitLab without downtime, both for GitLab.com and self-hosted installations.
+  GitLab without downtime, both for GitLab.com and self-hosted installations
 - [Solving GitLab's scaling and performance problems]{del} [Removing
-  GitLab.com's production database by accident](https://about.gitlab.com/blog/2017/02/01/gitlab-dot-com-database-incident/),
-  only to find out our backups hadn't been working for months. We recovered with
-  "only" six hours of data loss, then spent several months working to ensure
-  this would not happen again. A post-mortem of this [is found
-  here](https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/).
+  GitLab.com's production database by
+  accident](https://about.gitlab.com/blog/2017/02/01/gitlab-dot-com-database-incident/),
+  only to find out our backups hadn't been working for months. A post-mortem of
+  this [is found
+  here](https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/)
 
 ::: page-break
 :::
@@ -106,17 +108,15 @@ developer to be hired on a full-time basis (apart from the CTO). Notable
 projects include:
 
 - Rebuilding all web scrapers from the ground up using modern development
-  practises, rather than outsourcing the development. This resulted in a massive
-  increase of reliability and performance of the scrapers.
-- Setting up continuous integration and development pipelines using Jenkins,
-  making it possible to deploy our software to dozens of servers in a matter of
-  minutes.
+  practises rather than outsourcing the development, resulting in a significant
+  increase of reliability and performance
+- Setting up continuous integration and deployment pipelines using Jenkins
 - Replacing the use of [MongoDB with PostgreSQL](https://archive.md/ScSgG),
-  drastically improving performance and stability of the platform.
+  improving performance and stability of the platform
 - [A natural language processing pipeline](https://archive.md/aHvmY), used for
-  sentiment analysis in six different languages.
-- Improved performance of the platform, reducing AWS hosting costs by several
-  thousands of US dollars per month.
+  sentiment analysis in six different languages
+- Improved performance of the platform as a whole, greatly reducing hosting
+  costs
 
 ::: page-break
 :::
@@ -134,11 +134,11 @@ Isset is a small web development agency based in Hilversum, The Netherlands.
 Notable projects include:
 
 - Setting up and maintaining an internal [Redmine](https://www.redmine.org/)
-  instance for project management.
+  instance for project management
 - Building and maintaining an internal platform for managing over 3000 customer
-  domain names using PowerDNS.
+  domain names using PowerDNS
 - A metrics aggregation application for radio/TV broadcasters and advertisers,
-  allowing them to analyse the impact of their advertisements.
+  allowing them to analyse the impact of their advertisements
 
 ::: page-break
 :::
