@@ -8,6 +8,7 @@ type async Main {
       site.copy('*.txt')
       site.copy('*.woff2')
       site.copy('*.jpg')
+      site.copy('*.webp')
       site.copy('*.css')
       site.copy('*.mp4')
 
