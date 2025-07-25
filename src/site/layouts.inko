@@ -117,7 +117,7 @@ fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
           section
             .img
             .attr('class', 'profile-photo')
-            .attr('src', '/images/profile_photo.jpg')
+            .attr('src', '/images/profile_photo.webp')
             .attr('width', '150')
             .attr('height', '180')
             .attr('alt', 'A photo of Yorick')
