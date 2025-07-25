@@ -1,7 +1,7 @@
 ---
 {
   "title": "Three HTTP versions later, forms are still a mess",
-  "date": "2025-07-21T00:00:00Z"
+  "date": "2025-07-25T00:00:00Z"
 }
 ---
 
