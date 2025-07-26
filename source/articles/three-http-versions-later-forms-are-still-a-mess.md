@@ -108,6 +108,16 @@ characters that aren't allowed, they are percent/URL encoded as specified in
 name=Yorick&age=32&country=The%20Netherlands
 ```
 
+::: note
+After publishing this article, I found that this format _is_ briefly defined
+[here in RFC 1866](https://www.rfc-editor.org/rfc/rfc1866.html#section-8.2.1)
+(which is now obsolete). The WHATWG URL specification defines this format
+[here](https://url.spec.whatwg.org/#concept-urlencoded), but this is a living
+standard subject to change.
+
+So there _are_ some specifications, but they're not exactly great.
+:::
+
 This also highlights the first problem: the lack of a clear specification means
 different implementations may choose to encode data differently. For example,
 given a form with the field "key" and the value "😀", different implementations
@@ -238,9 +248,9 @@ expect something better.
 
 If you have a form that _only_ needs to upload a file, and you're fine with
 requiring JavaScript (at least within the context of browsers), then you can do
-pretty much whatever you want.[tus](https://tus.io/) is one alternative protocol
-for uploading files that I came across, though I haven't worked with it myself
-or looked into it enough to have an opinion on it.
+pretty much whatever you want. [tus](https://tus.io/) is one alternative
+protocol for uploading files that I came across, though I haven't worked with it
+myself or looked into it enough to have an opinion on it.
 
 For forms that mix files and non-files, you're out of luck as browsers only
 support the two standards mentioned above. In 2014 the [W3C made a proposal to
