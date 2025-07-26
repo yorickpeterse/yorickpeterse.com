@@ -15,11 +15,15 @@ fn human_readable_date(date: ref DateTime) -> String {
 }
 
 fn filters -> Array[Filter] {
+  let admon = Admonitions.new
+
+  admon.icon_element = 'span'
+
   [
     DeletedText() as Filter,
     SyntaxHighlight.new as Filter,
     TableOfContents.new as Filter,
-    Admonitions.new as Filter,
+    admon as Filter,
   ]
 }
 
@@ -46,7 +50,9 @@ fn head(head: mut html.Element, title: String, url: String) {
     .meta
     .attr(
       'content',
-      "default-src 'self'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'",
+      "default-src 'self'; script-src 'none'; object-src 'none'; "
+        + "base-uri 'none'; form-action 'none'; "
+        + "img-src 'self' data: w3.org/svg/2000 ",
     )
     .attr('http-equiv', 'Content-Security-Policy')
 
@@ -74,7 +80,6 @@ fn head(head: mut html.Element, title: String, url: String) {
   )
 
   head.link.attr('href', '/css/reset.css').attr('rel', 'stylesheet')
-  head.link.attr('href', '/css/icons.css').attr('rel', 'stylesheet')
   head.link.attr('href', '/css/all.css').attr('rel', 'stylesheet')
   head.link.attr('rel', 'canonical').attr('href', '${URL}${url}')
   head.title.text(title)
@@ -84,18 +89,18 @@ fn header(root: mut html.Element) {
   root.header.attr('class', 'top').with(fn (h) {
     h.nav.ul.with(fn (ul) {
       ul.li.a.attr('href', '/').with(fn (a) {
-        a.i.attr('class', 'icon-home')
-        a.text(' Home')
+        a.span.attr('class', 'icon home')
+        a.text('Home')
       })
 
       ul.li.a.attr('href', '/resume/').with(fn (a) {
-        a.i.attr('class', 'icon-briefcase')
-        a.text(' Resume')
+        a.span.attr('class', 'icon briefcase')
+        a.text('Resume')
       })
 
       ul.li.a.attr('href', '/feed.xml').attr('class', 'feed').with(fn (a) {
-        a.i.attr('class', 'icon-feed')
-        a.text(' Atom Feed')
+        a.span.attr('class', 'icon rss')
+        a.text('Atom Feed')
       })
     })
   })
