@@ -195,18 +195,26 @@ fn pub article(page: Page) -> html.Document {
     html.body.with(fn (body) {
       header(body)
       content(body, fn (row) {
-        row.section.attr('class', 'article').with(fn (section) {
-          section.header.with(fn (header) {
-            header.h1.text(page.title)
-            header
-              .time
-              .attr('class', 'meta')
-              .attr('datetime', page.date.to_iso8601)
-              .text(human_readable_date(page.date))
-          })
+        row
+          .section
+          .attr('class', 'article')
+          .attr('itemscope', '')
+          .attr('itemtype', 'https://schema.org/Article')
+          .with(fn (section) {
+            section.header.with(fn (header) {
+              header.h1.attr('itemprop', 'headline').text(page.title)
+              header
+                .time
+                .attr('class', 'meta')
+                .attr('datetime', page.date.to_iso8601)
+                .attr('itemprop', 'datePublished')
+                .text(human_readable_date(page.date))
+            })
 
-          section.append(page.to_html(filters))
-        })
+            section.div.attr('itemprop', 'articleBody').append(
+              page.to_html(filters),
+            )
+          })
       })
     })
   })
