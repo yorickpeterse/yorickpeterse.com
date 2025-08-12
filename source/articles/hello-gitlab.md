@@ -10,7 +10,7 @@ I'm excited to announce that I will be joining [GitLab][gitlab] starting October
 1st. I greatly enjoyed my time at [Olery][olery], but after almost 3 years I
 felt it was time for a new adventure. If you're based in Amsterdam and love
 working with Ruby you should definitely send your details over to
-<jobs@olery.com>.
+<mailto:jobs@olery.com>.
 
 At GitLab my time will be broken up in to two chunks. 80% of my time (4 days)
 will be spent on improving performance and stability of the platform. This will
