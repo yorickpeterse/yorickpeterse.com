@@ -278,7 +278,12 @@ table tr:last-child td {
 .articles-index td,
 .articles-index th {
   border: none;
-  padding: 0;
+  padding: 0 0 5px 0;
+}
+
+.articles-index .time {
+  text-align: right;
+  padding-right: 15px;
 }
 
 @media only screen and (max-width: 660px) {
