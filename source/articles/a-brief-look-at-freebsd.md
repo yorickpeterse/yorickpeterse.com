@@ -323,8 +323,8 @@ available, and from what I can tell most of them are also up to date, though
 there are some exceptions. For example, stylua isn't available in the Fedora
 repository (though you can use [my copr
 repository](https://copr.fedorainfracloud.org/coprs/yorickpeterse/stylua/)),
-while FreeBSD does have it the version is almost one year out of date. This will
-differ per package and its popularity, so your mileage may vary.
+while FreeBSD does have it (though the version is almost one year out of date).
+This will differ per package and its popularity, so your mileage may vary.
 
 A weird quirk I ran into is that for certain packages `pkg info NAME` only works
 for installed packages, which the output of `pkg help info` doesn't make clear.
