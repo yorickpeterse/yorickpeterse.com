@@ -1,8 +1,38 @@
 import site.layouts
+import std.env
+import std.fs.file (WriteOnlyFile)
+import std.fs.path (Path)
+import std.json (Json)
+import std.locale.en (Locale)
+import std.time (DateTime)
 import wobsite (Site)
+import wobsite.url
 
 type async Main {
   fn async main {
+    match env.arguments.get(0) {
+      case Ok('build') or Error(_) -> build
+      case Ok('article') -> article
+      case Ok(v) -> panic('unknown command: ${v}')
+    }
+  }
+
+  fn article {
+    let title = env.arguments.get(1).or_panic
+    let name = url.normalize(title)
+    let path = Path.new('source').join('articles').join('${name}.md')
+    let meta = Map.new
+    let en = Locale.new
+
+    meta.set('title', Json.String(title))
+    meta.set('date', Json.String(DateTime.utc.format('%Y-%m-%dT00:00:00Z', en)))
+
+    let data = '---\n${Json.Object(meta).to_pretty_string}\n---\n\n'
+
+    WriteOnlyFile.new(path).then(fn (f) { f.write(data) }).get
+  }
+
+  fn build {
     Site.build(fn (site) {
       site.copy('*.ico')
       site.copy('*.txt')

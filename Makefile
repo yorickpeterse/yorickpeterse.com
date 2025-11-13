@@ -3,18 +3,15 @@ PROJECT := yorickpeterse-com
 
 build:
 	@inko build
-	@./build/main
-
-setup:
-	@inko pkg sync
+	@./build/debug/main
 
 watch:
 	@bash scripts/watch.sh
 
 clean:
-	@rm -rf public
+	@rm -rf public build
 
-deploy:
+deploy: build
 	@npx wrangler pages deploy --project-name ${PROJECT} public
 
-.PHONY: setup build watch clean deploy
+.PHONY: build watch clean deploy

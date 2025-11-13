@@ -10,8 +10,8 @@ impl Filter for DeletedText {
     loop {
       match nodes.pop {
         case Some(Element(el)) -> {
-          match el.attributes.opt('class') {
-            case Some('del') if el.name == 'span' -> {
+          match el.attributes.get('class') {
+            case Ok('del') if el.name == 'span' -> {
               el.attributes = Map.new
               el.name = 'del'
             }

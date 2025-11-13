@@ -10,7 +10,7 @@ import wobsite.markdown (Admonitions, SyntaxHighlight)
 let URL = 'https://yorickpeterse.com'
 let TITLE = 'Yorick Peterse'
 
-fn human_readable_date(date: ref DateTime) -> String {
+fn human_readable_date(date: DateTime) -> String {
   date.format(how: '%b %d, %Y', locale: Locale.new)
 }
 
@@ -133,7 +133,7 @@ fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
         row.section.with(fn (section) {
           section.header.h1.attr('id', 'articles').text('Articles')
           section.table.attr('class', 'articles-index').tbody.with(fn (tbody) {
-            articles.iter.each(fn (article) {
+            for article in articles.iter {
               tbody.tr.with(fn (tr) {
                 tr
                   .td
@@ -149,7 +149,7 @@ fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
                   .attr('title', article.title)
                   .text(article.title)
               })
-            })
+            }
           })
         })
       })
@@ -229,9 +229,9 @@ fn pub feed(files: ref Files) -> Result[String, String] {
       f.element('id').text('${URL}/')
       f.element('title').text(TITLE)
 
-      match articles.opt(0) {
-        case None -> {}
-        case Some(article) -> f.element('updated').text(article.date.to_iso8601)
+      match articles.get(0) {
+        case Error(_) -> {}
+        case Ok(article) -> f.element('updated').text(article.date.to_iso8601)
       }
 
       f.element('link').attr('href', URL).attr('rel', 'alternate')
@@ -241,7 +241,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
         a.element('uri').text(URL)
       })
 
-      articles.iter.each(fn (article) {
+      for article in articles.iter {
         f.element('entry').with(fn (e) {
           let date = article.date.to_iso8601
           let html = article.to_html(filters).to_string
@@ -254,7 +254,7 @@ fn pub feed(files: ref Files) -> Result[String, String] {
           e.element('link').attr('href', url).attr('rel', 'alternate')
           e.element('content').attr('type', 'html').text(html)
         })
-      })
+      }
     },
   )
 

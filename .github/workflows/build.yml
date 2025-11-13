@@ -36,8 +36,6 @@ jobs:
             ~/.local/share/inko/packages
             ~/.npm
           key: ${{ runner.os }}
-      - name: Build the website
-        run: make setup build
       - name: Deploy the website
         run: make deploy
         env:
