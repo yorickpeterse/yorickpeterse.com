@@ -161,7 +161,7 @@ server:
     module-config: "iterator"
 ```
 
-Then you restart the service using `sudo service local_unboun restart` and off
+Then you restart the service using `sudo service local_unbound restart` and off
 you go. It would be nice if the FreeBSD handbook discussed disabling DNSSEC as
 it would've saved me quite some time.
 
