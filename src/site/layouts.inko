@@ -1,7 +1,7 @@
 import builder.html
 import builder.xml
 import markdown.html (Filter, TableOfContents)
-import site.filters (DeletedText)
+import site.filters (DeletedText, Videos)
 import std.locale.en (Locale)
 import std.time (DateTime)
 import wobsite (Files, Page)
@@ -24,6 +24,7 @@ fn filters -> Array[Filter] {
     SyntaxHighlight.new as Filter,
     TableOfContents.new as Filter,
     admon as Filter,
+    Videos.new as Filter,
   ]
 }
 

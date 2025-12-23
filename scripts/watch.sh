@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Perform the initial build.
-make build
+make release
 
 python -m http.server -d public &
 python_pid=$!
@@ -17,7 +17,7 @@ while inotifywait --recursive \
     --exclude '^\.\/(build|public)' \
     .
 do
-    make build
+    make release
 done
 
 wait "${python_pid}"
