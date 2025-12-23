@@ -74,3 +74,24 @@ impl Filter for Videos {
     }
   }
 }
+
+type LazyImages {
+  fn static new -> Self {
+    Self()
+  }
+}
+
+impl Filter for LazyImages {
+  fn pub mut run(document: mut Document) {
+    let nodes = document.nodes.iter_mut.to_array
+
+    loop {
+      match nodes.pop {
+        case Some(Element(v)) if v.name == 'img' -> v.attr('loading', 'lazy')
+        case Some(Element(v)) -> nodes.append(v.nodes.iter_mut.to_array)
+        case Some(_) -> {}
+        case _ -> break
+      }
+    }
+  }
+}
