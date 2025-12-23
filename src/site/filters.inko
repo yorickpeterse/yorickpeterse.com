@@ -57,10 +57,7 @@ impl Filter for Videos {
           }
 
           img.name = 'video'
-          img.attr('controls', 'true').attr('preload', 'metadata').attr(
-            'autoplay',
-            'false',
-          )
+          img.attr('controls', 'true').attr('preload', 'metadata')
 
           let _ = img.attributes.remove('src')
           let _ = img.attributes.remove('alt')
