@@ -1,8 +1,5 @@
 import builder.html (Document)
 import markdown.html (Filter)
-import std.bytes (Slice)
-import std.mime (Mime)
-import std.set (Set)
 
 type DeletedText {}
 
@@ -31,10 +28,8 @@ impl Filter for DeletedText {
 }
 
 type Videos {
-  let @formats: Set[Slice[String]]
-
   fn static new -> Self {
-    Self(Set.from_array(['mp4'.to_slice, 'webm'.to_slice]))
+    Self()
   }
 }
 
@@ -45,46 +40,25 @@ impl Filter for Videos {
     loop {
       match nodes.pop {
         case Some(Element(img)) if img.name == 'img' -> {
-          let path = img.attributes.get('src').or('')
-          let mime = match path.split('.').last {
-            case Some(ext) if @formats.contains?(ext) -> {
-              match Mime.from_extension(ext) {
-                case Some(v) -> v
-                case _ -> return
-              }
-            }
-            case _ -> next
-          }
+          let Ok(path) = img.attributes.get('src') else next
+          let path = path.to_path
+          let tail = path.tail
+
+          # I only care about webm formats for the time being.
+          let Some((name, 'webm')) = tail.split_once('.') else next
+          let poster = path.directory.join('${name}.poster.jpg').to_string
 
           img.name = 'video'
-          img.attr('controls', 'true').attr('preload', 'metadata')
+          img.attr('controls', 'true').attr('preload', 'none').attr(
+            'poster',
+            poster,
+          )
 
           let _ = img.attributes.remove('src')
           let _ = img.attributes.remove('alt')
 
-          img.source.attr('src', path).attr('type', mime.to_string)
+          img.source.attr('src', path.to_string).attr('type', 'video/webm')
         }
-        case Some(Element(v)) -> nodes.append(v.nodes.iter_mut.to_array)
-        case Some(_) -> {}
-        case _ -> break
-      }
-    }
-  }
-}
-
-type LazyImages {
-  fn static new -> Self {
-    Self()
-  }
-}
-
-impl Filter for LazyImages {
-  fn pub mut run(document: mut Document) {
-    let nodes = document.nodes.iter_mut.to_array
-
-    loop {
-      match nodes.pop {
-        case Some(Element(v)) if v.name == 'img' -> v.attr('loading', 'lazy')
         case Some(Element(v)) -> nodes.append(v.nodes.iter_mut.to_array)
         case Some(_) -> {}
         case _ -> break
