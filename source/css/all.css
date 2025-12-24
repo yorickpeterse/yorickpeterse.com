@@ -84,7 +84,7 @@ acronym, abbr {
   --dgrey: #ddd;
   --dyellow: #e1c05e;
   --green: #1c5708;
-  --lgrey: #f7f7f7;
+  --lgrey: #fbfbfb;
   --link-hover: #3b84f2;
   --orange: #a55000;
   --purple: #5c21a5;
@@ -186,18 +186,22 @@ em {
 }
 
 pre {
+  background: var(--lgrey);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--dgrey);
   font-family: var(--code-font);
   font-size: 12px;
   line-height: normal;
-  margin: 0 0 var(--margin) var(--margin);
+  margin-bottom: var(--margin);
   overflow-x: scroll;
+  padding: 10px;
   white-space: pre;
 }
 
 p code,
 li code,
 table code {
-  background: var(--white);
+  background: var(--lgrey);
   border: 1px solid var(--dgrey);
   border-radius: var(--border-radius);
   font-family: var(--code-font);
@@ -271,7 +275,7 @@ table {
 table th,
 table td {
   border-bottom: 1px solid var(--border);
-  padding: 5px;
+  padding: 5px 10px;
   text-align: left;
 }
 
