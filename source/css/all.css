@@ -71,7 +71,7 @@ acronym, abbr {
 
 /* Website */
 :root {
-  --border-radius: 3px;
+  --border-radius: 5px;
   --code-font: monospace;
   --font: sans-serif;
   --margin: 20px;
@@ -199,7 +199,7 @@ li code,
 table code {
   background: var(--white);
   border: 1px solid var(--dgrey);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   font-family: var(--code-font);
   padding: 0 5px 0px 5px;
 }
@@ -284,8 +284,6 @@ table tr:last-child td {
 }
 
 .profile-photo {
-  border: 1px solid var(--dborder);
-  border-radius: var(--border-radius);
   display: none;
   float: right;
   margin-left: 20px;
@@ -417,9 +415,8 @@ table tr:last-child td {
   margin-bottom: var(--margin);
 }
 
-.article img {
-  border: 1px solid var(--dborder);
-  border-radius: var(--border-radius);
+.article img,
+.article video {
   max-width: 100%;
 }
 
