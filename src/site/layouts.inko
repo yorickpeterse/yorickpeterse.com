@@ -79,9 +79,15 @@ fn head(head: mut html.Element, title: String, url: String) {
     'type',
     'image/x-icon',
   )
+
+  # Links for Mastodon verification and attribution.
   head.link.attr('rel', 'me').attr(
     'href',
     'https://mastodon.social/@yorickpeterse',
+  )
+  head.meta.attr('name', 'fediverse:creator').attr(
+    'content',
+    '@yorickpeterse@mastodon.social',
   )
 
   head.link.attr('href', '/css/all.css').attr('rel', 'stylesheet')
