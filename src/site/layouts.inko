@@ -79,6 +79,10 @@ fn head(head: mut html.Element, title: String, url: String) {
     'type',
     'image/x-icon',
   )
+  head.link.attr('rel', 'me').attr(
+    'href',
+    'https://mastodon.social/@yorickpeterse',
+  )
 
   head.link.attr('href', '/css/all.css').attr('rel', 'stylesheet')
   head.link.attr('rel', 'canonical').attr('href', '${URL}${url}')
