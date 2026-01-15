@@ -459,7 +459,7 @@ sub {
 .icon {
   height: 1.2rem;
   margin-right: 5px;
-  vertical-align: text-top;
+  vertical-align: sub;
   width: 1.2rem;
 }
 
