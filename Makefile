@@ -1,6 +1,6 @@
 TARGET := /var/lib/shost/yorickpeterse.com
 USER := root
-SERVER := 157.90.20.117
+SERVER := web
 PORT := 2222
 
 build:
@@ -22,7 +22,7 @@ deploy: build
 		--multi-thread-streams=32 \
 		--transfers 32 \
 		--metadata \
-		--sftp-host ${SERVER} \
+		--sftp-host $$(hcloud server ip ${SERVER}) \
 		--sftp-user ${USER} \
 		--sftp-port ${PORT} public/ :sftp:${TARGET}
 
@@ -32,7 +32,7 @@ deploy-github: build
 		--multi-thread-streams=32 \
 		--transfers 32 \
 		--metadata \
-		--sftp-host ${SERVER} \
+		--sftp-host $$(hcloud server ip ${SERVER}) \
 		--sftp-user ${USER} \
 		--sftp-key-file deploy_key \
 		--sftp-port ${PORT} public/ :sftp:${TARGET}
