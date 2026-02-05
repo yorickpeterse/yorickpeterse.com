@@ -19,10 +19,8 @@ clean:
 
 deploy: build
 	@rclone sync --quiet \
-		--stats-one-line \
 		--multi-thread-streams=32 \
 		--transfers 32 \
-		--progress \
 		--metadata \
 		--sftp-host ${SERVER} \
 		--sftp-user ${USER} \
@@ -31,10 +29,8 @@ deploy: build
 deploy-github: build
 	@echo -e "$${SSH_PRIVATE_KEY}" > deploy_key
 	@rclone sync --quiet \
-		--stats-one-line \
 		--multi-thread-streams=32 \
 		--transfers 32 \
-		--progress \
 		--metadata \
 		--sftp-host ${SERVER} \
 		--sftp-user ${USER} \
