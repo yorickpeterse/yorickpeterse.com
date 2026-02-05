@@ -35,13 +35,7 @@ jobs:
             build
             ~/.local/share/inko/packages
           key: ${{ runner.os }}
-      - name: Configure SSH
-        env:
-          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: make ssh
       - name: Deploy
         env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: make deploy
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: make deploy-github

@@ -28,12 +28,18 @@ deploy: build
 		--sftp-user ${USER} \
 		--sftp-port ${PORT} public/ :sftp:${TARGET}
 
-ssh:
-	mkdir -p ~/.ssh
-	echo "${SSH_PUBLIC_KEY}" > ~/.ssh/key.pub
-	echo "${SSH_PRIVATE_KEY}" > ~/.ssh/key
-	chmod 600 ~/.ssh/key
-	ssh-agent -a "${SSH_AUTH_SOCK}" >/dev/null
-	ssh-add ~/.key
+deploy-github:
+	@echo -e "$${SSH_PRIVATE_KEY}" > deploy_key
+	@rclone sync --quiet \
+		--stats-one-line \
+		--multi-thread-streams=32 \
+		--transfers 32 \
+		--progress \
+		--metadata \
+		--sftp-host ${SERVER} \
+		--sftp-user ${USER} \
+		--sftp-key-file deploy_key \
+		--sftp-port ${PORT} public/ :sftp:${TARGET}
+	@rm deploy_key
 
 .PHONY: build watch clean deploy release ssh
