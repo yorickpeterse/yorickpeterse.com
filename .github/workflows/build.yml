@@ -39,4 +39,4 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
-        run: make deploy-github
+        run: make deploy
