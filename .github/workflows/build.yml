@@ -26,7 +26,7 @@ jobs:
       github.ref_name == 'main'
     steps:
       - name: Install dependencies
-        run: microdnf install --quiet --assumeyes make rclone hcloud
+        run: microdnf install --quiet --assumeyes make rclone
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
         id: deploy
@@ -38,5 +38,4 @@ jobs:
       - name: Deploy
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
         run: make deploy
