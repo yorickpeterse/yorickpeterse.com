@@ -25,8 +25,8 @@ jobs:
     if: |
       github.ref_name == 'main'
     steps:
-      - name: Installing dependencies
-        run: microdnf install --quiet --assumeyes make git tar npm
+      - name: Install dependencies
+        run: microdnf install --quiet --assumeyes make rclone
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
         id: deploy
@@ -34,10 +34,14 @@ jobs:
           path: |
             build
             ~/.local/share/inko/packages
-            ~/.npm
           key: ${{ runner.os }}
-      - name: Deploy the website
-        run: make deploy
+      - name: Configure SSH
         env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: make ssh
+      - name: Deploy
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: make deploy

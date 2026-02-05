@@ -1,5 +1,7 @@
-# The Cloudflare Pages project to deploy to.
-PROJECT := yorickpeterse-com
+TARGET := /var/lib/shost/yorickpeterse.com
+USER := root
+SERVER := 157.90.20.117
+PORT := 2222
 
 build:
 	@inko build
@@ -16,6 +18,22 @@ clean:
 	@rm -rf public build
 
 deploy: build
-	@npx wrangler pages deploy --project-name ${PROJECT} public
+	@rclone sync --quiet \
+		--stats-one-line \
+		--multi-thread-streams=32 \
+		--transfers 32 \
+		--progress \
+		--metadata \
+		--sftp-host ${SERVER} \
+		--sftp-user ${USER} \
+		--sftp-port ${PORT} public/ :sftp:${TARGET}
 
-.PHONY: build watch clean deploy release
+ssh:
+	mkdir -p ~/.ssh
+	echo ${SSH_PUBLIC_KEY} > ~/.ssh/key.pub
+	echo ${SSH_PRIVATE_KEY} > ~/.ssh/key
+	chmod 600 ~/.ssh/key
+	ssh-agent -a ${SSH_AUTH_SOCK} >/dev/null
+	ssh-add ~/.key
+
+.PHONY: build watch clean deploy release ssh
