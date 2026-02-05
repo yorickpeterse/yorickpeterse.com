@@ -30,10 +30,10 @@ deploy: build
 
 ssh:
 	mkdir -p ~/.ssh
-	echo ${SSH_PUBLIC_KEY} > ~/.ssh/key.pub
-	echo ${SSH_PRIVATE_KEY} > ~/.ssh/key
+	echo "${SSH_PUBLIC_KEY}" > ~/.ssh/key.pub
+	echo "${SSH_PRIVATE_KEY}" > ~/.ssh/key
 	chmod 600 ~/.ssh/key
-	ssh-agent -a ${SSH_AUTH_SOCK} >/dev/null
+	ssh-agent -a "${SSH_AUTH_SOCK}" >/dev/null
 	ssh-add ~/.key
 
 .PHONY: build watch clean deploy release ssh
