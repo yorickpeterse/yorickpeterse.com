@@ -28,7 +28,7 @@ deploy: build
 		--sftp-user ${USER} \
 		--sftp-port ${PORT} public/ :sftp:${TARGET}
 
-deploy-github:
+deploy-github: build
 	@echo -e "$${SSH_PRIVATE_KEY}" > deploy_key
 	@rclone sync --quiet \
 		--stats-one-line \
