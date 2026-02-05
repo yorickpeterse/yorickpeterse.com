@@ -1,7 +1,4 @@
-TARGET := /var/lib/shost/yorickpeterse.com
-USER := root
-SERVER := web
-PORT := 2222
+SITE := yorickpeterse.com
 
 build:
 	@inko build
@@ -17,27 +14,7 @@ watch:
 clean:
 	@rm -rf public build
 
-deploy:
-	@rclone sync --verbose \
-		--multi-thread-streams=32 \
-		--transfers 32 \
-		--metadata \
-		--checksum \
-		--sftp-host $$(hcloud server ip ${SERVER}) \
-		--sftp-user ${USER} \
-		--sftp-port ${PORT} public/ :sftp:${TARGET}
-
-deploy-github: build
-	@echo -e "$${SSH_PRIVATE_KEY}" > deploy_key
-	@rclone sync --verbose \
-		--multi-thread-streams=32 \
-		--transfers 32 \
-		--metadata \
-		--checksum \
-		--sftp-host $$(hcloud server ip ${SERVER}) \
-		--sftp-user ${USER} \
-		--sftp-key-file deploy_key \
-		--sftp-port ${PORT} public/ :sftp:${TARGET}
-	@rm deploy_key
+deploy: build
+	scripts/rclone.sh public "/var/lib/shost/${SITE}"
 
 .PHONY: build watch clean deploy release ssh
