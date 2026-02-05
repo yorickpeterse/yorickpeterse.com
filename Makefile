@@ -17,21 +17,23 @@ watch:
 clean:
 	@rm -rf public build
 
-deploy: build
-	@rclone sync --quiet \
+deploy:
+	@rclone sync --verbose \
 		--multi-thread-streams=32 \
 		--transfers 32 \
 		--metadata \
+		--checksum \
 		--sftp-host $$(hcloud server ip ${SERVER}) \
 		--sftp-user ${USER} \
 		--sftp-port ${PORT} public/ :sftp:${TARGET}
 
 deploy-github: build
 	@echo -e "$${SSH_PRIVATE_KEY}" > deploy_key
-	@rclone sync --quiet \
+	@rclone sync --verbose \
 		--multi-thread-streams=32 \
 		--transfers 32 \
 		--metadata \
+		--checksum \
 		--sftp-host $$(hcloud server ip ${SERVER}) \
 		--sftp-user ${USER} \
 		--sftp-key-file deploy_key \
