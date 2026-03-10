@@ -1484,7 +1484,7 @@ ContainerName=shost
 Exec=shost --tls /etc/shost/tls --no-timestamps
 Image=ghcr.io/yorickpeterse/shost:main
 PodmanArgs=--memory 512m
-PublishPort=443:443
+IP=10.88.0.2
 Pull=newer
 ReadOnly=true
 ReloadSignal=HUP
@@ -1508,6 +1508,19 @@ TimeoutStopSec=15     # Wait up to 15 seconds for the service to stop
 [Install]
 WantedBy=default.target
 ```
+
+::: note
+When this article was first published I used `PublishPort` to expose container
+ports to the world. When using firewalld as a firewall this results in
+additional firewall rules (e.g. blocking IPs) being ignored. See [this
+discussion](https://github.com/firewalld/firewalld/discussions/1322) for more
+details.
+
+The solution is to give each container a static IP address, add
+`StrictForwardPorts=yes` to `/etc/firewalld/firewalld.conf`, and to _not_ use
+`PublishPort` and instead add firewalld port-forwarding rules for each port that
+should be publicly accessible.
+:::
 
 The use of `ReadOnly=true` means the root file system inside the container is
 read-only. This way if somebody somehow manages to exploit shost and can shell
@@ -1623,7 +1636,7 @@ Entrypoint=/bin/sh
 Exec=/usr/share/letsencrypt/run.sh
 Image=docker.io/certbot/certbot@sha256:5255405f241cd64b121f36ef0172711420816bbbd9c029674de53e5ed953182d
 PodmanArgs=--memory 128m
-PublishPort=80:80
+IP=10.88.0.3
 UserNS=keep-id
 DropCapability=all
 AddCapability=CAP_NET_BIND_SERVICE
@@ -1787,6 +1800,11 @@ The custom public zone is as follows:
     <accept />
   </rule>
 
+  <!-- Port-forwarding for the containers. -->
+  <forward-port port="443" protocol="tcp" to-port="443" to-addr="10.88.0.2" />
+  <forward-port port="80" protocol="tcp" to-port="80" to-addr="10.88.0.3" />
+  <forward-port port="2222" protocol="tcp" to-port="22" to-addr="10.88.0.4" />
+
   <forward/>
 </zone>
 ```
@@ -1823,7 +1841,7 @@ root access. The quadlet definition of this container is as follows:
 ContainerName=ssh-container
 Image=ghcr.io/yorickpeterse/servers/ssh:main
 PodmanArgs=--memory 64m
-PublishPort=2222:22
+IP=10.88.0.4
 Pull=newer
 UserNS=keep-id
 Volume=/etc/ssh-container/host-keys:/etc/ssh/host-keys:z
