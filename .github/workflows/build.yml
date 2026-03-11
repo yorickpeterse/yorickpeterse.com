@@ -7,7 +7,7 @@ jobs:
     name: Vale
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,8 +27,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: microdnf install --quiet --assumeyes make rclone
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/checkout@v6
+      - uses: actions/cache@v5
         id: deploy
         with:
           path: |
