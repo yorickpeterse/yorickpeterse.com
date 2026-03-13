@@ -8,8 +8,8 @@ PORT=2222
 
 upload() {
     rclone sync --verbose \
-        --multi-thread-streams 8 \
-        --transfers 8 \
+        --multi-thread-streams 4 \
+        --transfers 4 \
         --metadata \
         --checksum \
         --no-update-dir-modtime \
