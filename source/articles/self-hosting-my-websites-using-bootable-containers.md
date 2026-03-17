@@ -1080,7 +1080,7 @@ To automatically unlock the root disk using a TPM2 device, create
 add_dracutmodules+=" tpm2-tss "
 ```
 
-Then create `overlay/usr/lib/bootc/kargs.d/10-tpm2.conf` with the following
+Then create `overlay/usr/lib/bootc/kargs.d/10-tpm2.toml` with the following
 contents:
 
 ```
@@ -1104,7 +1104,7 @@ overlay
     └── lib
         └── bootc
             └── kargs.d
-                └── 10-tpm2.conf
+                └── 10-tpm2.toml
 
 10 directories, 4 files
 ```
@@ -1145,7 +1145,7 @@ I experimented with different PCR registers but found that only the combination
 of registers 7 and 15 worked reliably. It's possible this is because of the use
 of a virtual machine for testing the changes instead of using physical hardware.
 If you change the registers make sure to do so in both the `config.toml` file
-and in `kargs.d/10-tpm2.conf`.
+and in `kargs.d/10-tpm2.toml`.
 :::
 
 After completing the installation process and booting into the host you'll want
