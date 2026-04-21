@@ -4,15 +4,34 @@ import std.fs.file (WriteOnlyFile)
 import std.fs.path (Path)
 import std.json (Json)
 import std.locale.en (Locale)
+import std.log (Logger)
+import std.net.http.server (
+  Directory, Handle, Logger as HttpLogger, Request, Response, Server,
+)
 import std.time (DateTime)
 import wobsite (Site)
 import wobsite.url
+
+type inline Handler {
+  let @logger: HttpLogger
+  let @directory: Directory
+}
+
+impl Handle for Handler {
+  fn pub mut handle(request: mut Request) -> Response {
+    let resp = @directory.handle(request, request.path.to_slice)
+
+    @logger.log(request, resp)
+    resp
+  }
+}
 
 type async Main {
   fn async main {
     match env.arguments.get(0) {
       case Ok('build') or Error(_) -> build
       case Ok('article') -> article
+      case Ok('watch') -> watch
       case Ok(v) -> panic('unknown command: ${v}')
     }
   }
@@ -60,5 +79,24 @@ type async Main {
 
       site.generate('feed.xml', fn (files) { layouts.feed(files) })
     })
+  }
+
+  fn watch {
+    let dir = env.working_directory.or_panic.join('public')
+    let log = Logger.text
+    let hlog = log.clone
+    let srv = Server.new(fn move {
+      recover {
+        Handler(
+          logger: HttpLogger.new(hlog.clone),
+          directory: Directory.new(dir.clone),
+        )
+      }
+    })
+
+    srv.before_start(fn (addr, _not) {
+      log.event('started').with('address', addr.to_string).submit
+    })
+    srv.start(8_000).or_panic
   }
 }

@@ -1,12 +1,11 @@
+EXE := ./build/release/main
 SITE := yorickpeterse.com
 
-build:
-	@inko build
-	@./build/debug/main
-
-release:
+exe:
 	@inko build --release
-	@./build/release/main
+
+build: exe
+	@${EXE} build
 
 watch:
 	@bash scripts/watch.sh
@@ -17,4 +16,4 @@ clean:
 deploy: build
 	scripts/rclone.sh public "/var/lib/shost/${SITE}"
 
-.PHONY: build watch clean deploy release ssh
+.PHONY: exe build watch clean deploy release ssh

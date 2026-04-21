@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 # Perform the initial build.
-make release
+make -s build
 
-python -m http.server -d public &
-python_pid=$!
+./build/release/main watch &
+http_pid=$!
 
-trap 'kill ${python_pid}; exit' INT
+trap 'kill ${http_pid}; exit' INT
 
 while inotifywait --recursive \
     --event modify \
@@ -17,7 +17,7 @@ while inotifywait --recursive \
     --exclude '^\.\/(build|public)' \
     .
 do
-    make release
+    make -s build
 done
 
-wait "${python_pid}"
+wait "${http_pid}"
