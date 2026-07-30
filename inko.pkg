@@ -1,5 +1,5 @@
-require https://github.com/yorickpeterse/inko-wobsite 0.24.0 6c2b9046ce836be5fcef16b0f3e389b7da7884e6
+require https://github.com/yorickpeterse/inko-wobsite 0.26.0 133e46d92bec60e4e26099f11034abdbaefbbe0a
 require https://github.com/yorickpeterse/inko-builder 0.16.0 582acc9d46ba414b0cfb271c4ee1d08feb3f48cc
 require https://github.com/yorickpeterse/inko-markdown 0.24.0 e88162db6a816b4f6b9c5c888d0569dbedbe75ea
-require https://github.com/yorickpeterse/inko-syntax 0.24.0 34b169a1446327c1af5927ebf7d3a62427f6f47c
-require inko 0.20.0
+require https://github.com/yorickpeterse/inko-syntax 0.25.0 017c870adec7602c548354be2155ac5bc86c75a6
+require inko 0.21.1
