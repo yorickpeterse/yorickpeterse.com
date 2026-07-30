@@ -137,17 +137,17 @@ fn pub home(files: ref Files, page: Page) -> Result[html.Document, String] {
               tbody.tr.with(fn (tr) {
                 tr
                   .td
-                  .attr('class', 'time')
-                  .time
-                  .attr('datetime', article.date.to_iso8601)
-                  .text(human_readable_date(article.date))
-
-                tr
-                  .td
                   .a
                   .attr('href', article.url)
                   .attr('title', article.title)
                   .text(article.title)
+
+                tr
+                  .td
+                  .attr('class', 'time')
+                  .time
+                  .attr('datetime', article.date.to_iso8601)
+                  .text(human_readable_date(article.date))
               })
             }
           })

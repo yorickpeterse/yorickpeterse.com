@@ -178,6 +178,7 @@ blockquote *:last-child {
 }
 
 time {
+  color: var(--comment);
   font-size: 14px;
 }
 
@@ -356,11 +357,16 @@ table tr:last-child td {
 }
 
 .articles-index .time {
+  padding-left: 15px;
   text-align: right;
-  padding-right: 15px;
+  white-space: nowrap;
 }
 
-@media only screen and (max-width: 660px) {
+.articles-index time {
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 600px) {
   .articles-index .time {
     display: none;
   }
