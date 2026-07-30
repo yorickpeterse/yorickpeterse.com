@@ -17,7 +17,7 @@ while inotifywait --recursive \
     --exclude '^\.\/(build|public)' \
     .
 do
-    make --quiet build
+    just --quiet build
 done
 
 wait "${http_pid}"
