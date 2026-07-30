@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Perform the initial build.
-make -s build
+just --quiet build
 
 ./build/release/main watch &
 http_pid=$!
@@ -17,7 +17,7 @@ while inotifywait --recursive \
     --exclude '^\.\/(build|public)' \
     .
 do
-    make -s build
+    make --quiet build
 done
 
 wait "${http_pid}"
