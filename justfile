@@ -24,7 +24,12 @@ clean:
 [arg("flags", long)]
 deploy flags="": build
     rsync \
-        --archive --omit-dir-times --checksum --recursive --delete --progress \
+        --archive \
+        --checksum \
+        --delete \
+        --omit-dir-times \
+        --progress \
+        --chown {{ user }}:{{ user }} \
         --rsh "ssh -p {{ port }} -o UserKnownHostsFile=known_hosts {{ flags }}" \
         public/ {{ user }}@{{ host }}:/var/lib/shost/{{ site }}/
 
