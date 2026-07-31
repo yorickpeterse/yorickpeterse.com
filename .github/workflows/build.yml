@@ -26,7 +26,7 @@ jobs:
       github.ref_name == 'main'
     steps:
       - name: Install dependencies
-        run: microdnf install --quiet --assumeyes just rclone
+        run: microdnf install --quiet --assumeyes just rsync
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25
         id: deploy
@@ -38,4 +38,4 @@ jobs:
       - name: Deploy
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: just deploy
+        run: bash scripts/deploy.sh
