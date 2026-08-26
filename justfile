@@ -1,8 +1,7 @@
 exe := "./build/release/main"
 site := "yorickpeterse.com"
-user := "root"
+user := "web"
 host := "web.srv.yorickpeterse.com"
-port := "2222"
 
 # Build the website executable
 exe:
@@ -29,10 +28,9 @@ deploy flags="": build
         --delete \
         --omit-dir-times \
         --progress \
-        --chown {{ user }}:{{ user }} \
-        --rsh "ssh -p {{ port }} -o UserKnownHostsFile=known_hosts {{ flags }}" \
-        public/ {{ user }}@{{ host }}:/var/lib/shost/{{ site }}/
+        --rsh "ssh -o UserKnownHostsFile=known_hosts {{ flags }}" \
+        public/ {{ user }}@{{ host }}:/var/lib/shost/sites/{{ site }}/
 
 # Updates the known hosts file.
 hosts:
-    ssh-keyscan -q -p {{ port }} {{ host }} > known_hosts
+    ssh-keyscan -q {{ host }} > known_hosts
