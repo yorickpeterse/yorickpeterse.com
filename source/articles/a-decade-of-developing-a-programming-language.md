@@ -237,7 +237,7 @@ Inko doesn't support Alpine Linux for the time being.
 The extend to which this is a problem depends on the language you're trying to
 build. For example, if you're building an interpreter written in Rust it
 probably won't be that bad (though Windows is always going to be a challenge),
-but it _is_ something you need to be prepared for.
+but it's something you need to be prepared for.
 
 **Recommendation:** if you're uncertain about supporting a certain platform, err
 on the side of not supporting it and document this, instead of

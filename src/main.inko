@@ -60,6 +60,7 @@ type async Main {
       site.copy('*.css')
       site.copy('*.mp4')
       site.copy('*.webm')
+      site.copy('*.woff2')
 
       site.page_without_index('/index.md', fn {
         recover fn (files, page) { layouts.home(files, page) }

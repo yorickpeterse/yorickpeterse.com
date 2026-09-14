@@ -1,6 +1,6 @@
 ---
 {
-  "title": "Resume",
+  "title": "Résumé",
   "created": "2021-12-03 15:50:00 UTC"
 }
 ---
