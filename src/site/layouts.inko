@@ -95,7 +95,7 @@ fn header(root: mut html.Element) {
 
       ul.li.a.attr('href', '/resume/').with(fn (a) {
         a.span.attr('class', 'icon briefcase')
-        a.text('Résumé')
+        a.text('Work')
       })
 
       ul.li.a.attr('href', '/feed.xml').attr('class', 'feed').with(fn (a) {

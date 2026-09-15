@@ -12,7 +12,7 @@ by donating using [GitHub Sponsors](https://github.com/sponsors/YorickPeterse).
 Before working on Inko, I worked as a [Staff Backend
 Engineer](https://about.gitlab.com/job-families/engineering/backend-engineer/#staff-backend-engineer)
 at [GitLab](https://about.gitlab.com). For more details, refer to my
-[résumé](/resume).
+[work history](/resume).
 
 You can find me on [GitHub](https://github.com/yorickpeterse),
 [GitLab](https://gitlab.com/yorickpeterse) and
