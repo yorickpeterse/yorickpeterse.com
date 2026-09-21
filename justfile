@@ -19,6 +19,9 @@ watch:
 clean:
     rm -rf public build
 
+new title: exe
+    {{ exe }} article "{{ title }}"
+
 # Build and deploy the website
 [arg("flags", long)]
 deploy flags="": build
