@@ -1171,12 +1171,13 @@ formatter, followed by another two to three weeks of dealing with unexpected
 edge cases and careful tweaking of the output.
 
 The final version of the code shown in this article, along with plenty of
-comments to help understand the code better, is found in
-[this Git repository](https://github.com/yorickpeterse/code-formatting-in-inko),
-which you can easily run by either
-[installing Inko](https://docs.inko-lang.org/manual/main/setup/installation/)
-or by using Docker/Podman. If you want a more advanced example, consider taking
-a look at [the code used by Inko's own formatter][inko-fmt].
+comments to help understand the code better, is found in [this Git
+repository](https://codeberg.org/yorickpeterse/code-formatting-in-inko) ([GitHub
+mirror](https://github.com/yorickpeterse/code-formatting-in-inko)), which you
+can easily run by either [installing
+Inko](https://docs.inko-lang.org/manual/main/setup/installation/) or by using
+Docker/Podman. If you want a more advanced example, consider taking a look at
+[the code used by Inko's own formatter][inko-fmt].
 
 ::: info
 The code examples and the linked repository require the use of Inko's `main`
