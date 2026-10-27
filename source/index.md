@@ -14,8 +14,9 @@ Engineer](https://about.gitlab.com/job-families/engineering/backend-engineer/#st
 at [GitLab](https://about.gitlab.com). For more details, refer to my
 [work history](/resume).
 
-You can find me on [GitHub](https://github.com/yorickpeterse),
-[GitLab](https://gitlab.com/yorickpeterse) and
+You can find me on [Codeberg](https://codeberg.org/yorickpeterse),
+[GitHub](https://github.com/yorickpeterse),
+[Lobsters](https://lobste.rs/~yorickpeterse) and
 [Reddit](http://www.reddit.com/user/yorickpeterse). If you wish to contact me
 through Email, my Email address is `yorick` at this domain name. I'm not
 interested in unsolicited Emails from recruiters, and mark such Emails as spam.
